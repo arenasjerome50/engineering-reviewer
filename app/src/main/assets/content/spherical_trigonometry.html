@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Spherical Trigonometry</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } }
+  });
+</script>
+<script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</head>
+<body>
+<h1>Spherical Trigonometry</h1>
+<hr>
+<p><strong>Spherical Trigonometry </strong>concerns with triangles extracted from the surface of a sphere.</p>
+<ol>
+  <li>
+    <p><strong>Solution to right triangles</strong>:</p>
+    <p><img src="img/spherical_trigo_right_triangle.png" style="height:auto; width:auto; max-width:100%" alt="right triangle from sphere"></p>
+    <p>To solve a right triangle, draw a circle with 5 parts. The 5 parts corresponds to the 3 sides and 2 angles of the triangle (excluding the 90$^\circ$ angle). Then apply Napier's rules:</p>
+    <p><strong>Rule 1: (Tan-Ad rule)</strong><br>
+      &quot;The sine of any middle part is equal to the product of the tangent of the adjacent parts.&quot;</p>
+    <p><strong>Rule 2: (Co-Op rule)</strong><br>
+      &quot;The sine of any middle part is equal to the product of the cosine of the opposite parts.&quot;</p>
+    <p>Any of the 5 parts can be the middle part. For example, if &quot;a&quot; is the middle part, then &quot;co-B&quot; and &quot;b&quot; are the adjacent parts and &quot;co-c&quot; and &quot;co-A&quot; are the opposite parts, thus</p>
+    <blockquote>
+      <p>$$\eqalign{<br>
+        &amp; \sin a = \tan (\text{co B})\tan b \cr <br>
+      &amp; \text{but}\ \ \ \tan (\text{co-B}) = \cot B,\ \sin a = \cot B\tan b \cr} $$    <br>
+      $$\eqalign{<br>
+&amp; \sin a = \cos (\text{co c})\cos (\text{co A})  \cr <br>
+&amp; \text{but}\ \ \cos (co - c) = \sin c  \cr <br>
+&amp; \cos (co - A) = \sin A\ \ \ \ \ \sin a = \sin c\sin A \cr}$$</p>
+    </blockquote>
+  </li>
+  <li>
+    <p><strong>Solution to oblique triangles:</strong>
+    <ol type="A">
+      <li>
+        <p>Law of sines</p>
+        <p><img src="img/spherical_trigo_oblique.png" style="height:auto; width:auto; max-width:100%" alt="oblique triangle from sphere"></p>
+        <p>$${{\sin a} \over {\sin A}} = {{\sin b} \over {\sin B}} = {{\sin c} \over {\sin C}}$$</p>
+      <li>
+        <p>Law of cosines for the sides
+        </p>
+        <p>$$\eqalign{<br>
+  &amp; \cos a = \cos b\cos c + \sin b\sin c\cos A  \cr <br>
+  &amp; \cos b = \cos a\cos c + \sin a\sin c\cos B  \cr <br>
+  &amp; \cos c = \cos a\cos b + \sin a\sin b\cos C \cr} $$</p>
+      <li>
+        <p>Law of cosines for the angles</p>
+        <p>$$\eqalign{<br>
+  &amp; \cos A =  - \cos B\cos C + \sin B\sin C\cos a  \cr <br>
+  &amp; \cos B =  - \cos A\cos C + \sin A\sin C\cos b  \cr <br>
+  &amp; \cos C =  - \cos A\cos B + \sin A\sin B\cos c \cr} $$       </p>     
+    </ol>
+    <p>&nbsp;</p> 
+  </li>
+  <li>
+    <p><strong>Area of the spherical triangle:</strong></p>
+    <p>$$A = {{\pi {R^2}E} \over {180}}$$</p>
+    <p>where: $E=\text{spherical excess in degrees}=(A+B+C)-180^\circ$</p>
+    <p><img src="img/terrestrial_sphere.png" style="height:auto; width:auto; max-width:100%" alt="terrestrial sphere"></p>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<h3>Tips:</h3>
+<p><strong>Terrestrial Sphere:</strong><ol type="A">
+      <li>
+        <p>Important constants:</p>
+        <ol>
+          <li>
+            <p>Radius of the earth = 3959 miles
+            </p>
+          <li>
+            <p>1 minute of the great circle area on the surface of the earth = 1 NM
+            </p>
+          <li>
+            <p>1 NM (nautical mile) = 6080 feet          
+            </p>
+          <li>
+            <p>
+          1 statute mile = 5280 feet
+        </p>          
+        </ol>
+        <p>&nbsp;</p>
+  <li>
+        <p>Important terms:  </p>
+    <ol>
+  <li>
+    <p><strong>North &amp; South poles</strong> - are the poles of the earth which are on its axis.  </p>  
+  <li>
+    <p><strong>Equator</strong> - an imaginary line passing through the center of the earth and perpendicular to the axis of the earth.</p>  
+  <li>
+    <p><strong>Parallels or Latitudes</strong> - are curves parallel to the equator. Latitude of a point is the smallest angle formed between the radius from the point to the Earth's center an the plane of the equator. It is measured from 0$^\circ$ to 90$^\circ$ North or South.  </p>  
+  <li>
+    <p><strong>Meridians or Longitudes</strong> - are curves perpendicular to the equator. Longitude of a point is the angle between the plane of its meridian and the plane of the Greenwich meridian. It is measured from 0$^\circ$ to 180$^\circ$ East or West. Meridians are all great circles while parallels are not unless it is at the equator.  </p>  
+  <li>
+    <p><strong>Prime meridian</strong> (also known as <strong>Greenwich meridian</strong>) - the meridian agreed internationally in 1864 to be of longitude 0$^\circ$. It passes through the former London observatory at Greenwich.  </p>  
+  <li>
+    <p><strong>Bearings or Courses</strong> - are angles formed withn the meridian.  </p>  
+  </ol>
+    </p>
+</ol>
+<p>&nbsp;</p>
+</body>
+</html>

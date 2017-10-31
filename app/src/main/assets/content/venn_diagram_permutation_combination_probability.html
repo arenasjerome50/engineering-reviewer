@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Venn Diagram, Permutation, Combination & Probability</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } }
+  });
+</script>
+<script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</head>
+
+<body>
+<h1>Venn Diagram, Permutation, Combination &amp; Probability</h1>
+<hr>
+<h3>Venn Diagram</h3>
+<p><strong>Venn diagram</strong> is a rectangle (the universal set) that includes circles depicting the subsets. This diagram is named after the English logician <strong>John Venn</strong> (1834-1923) in 1880.</p>
+<p>Below is a typical problem that is given in the engineering licensure examinations.</p>
+<p>A survey was conducted in a graduating ECE students in a certain university on which board subject they like best. The result is tabulated as follows:</p>
+<table width="78%" border="0">
+  <tr>
+    <td width="30%">Mathematics</td>
+    <td width="12%">55</td>
+    <td width="46%">Math &amp; Electronics</td>
+    <td width="12%">32</td>
+  </tr>
+  <tr>
+    <td>Electronics</td>
+    <td>50</td>
+    <td>Math &amp; Communications</td>
+    <td>28</td>
+  </tr>
+  <tr>
+    <td>Communications</td>
+    <td>51</td>
+    <td>Electronics &amp; Comm</td>
+    <td>25</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>All three subjects</td>
+    <td>10</td>
+  </tr>
+</table>
+<p>How many were there in the graduating class?</p>
+<p>Solution: Use Venn diagram:</p>
+<p>$$\eqalign{<br>
+&amp; N = 5 + 22 + 10 + 18 + 3 + 15 + 8  \cr <br>
+&amp; N = 81\text{ students} \cr} $$</p>
+<p><img src="img/venn_diagram.png" alt="venn diagram" style="height:auto; width:auto; max-width:100%"></p>
+<h3>Permutation / Combination / Probability</h3>
+<p><strong>Fundamental principle of counting:<br>
+</strong><em>&quot;if a thing can be done in <strong>m</strong> different ways and another thing can be done in <strong>n</strong> different ways, then the two things can be done in <strong>m</strong> times <strong>n </strong> different ways.&quot;</em></p>
+<p>$$N=m \cdot n$$</p>
+<p><strong>Permutation:</strong> (Arrangement with specific order)<br>
+  <em>&quot;The number of permutations of <strong>n</strong> different things taken <strong>r</strong> at a time is</em></p>
+<p>$$\eqalign{<br>
+&amp; _n{P_r} = {{n!} \over {(n - r)!}}  \cr <br>
+&amp; \text{if taken all}\ \ \ \ \ \ {_n}{P_r} = n! \cr} $$</p>
+<p><strong>Combination: </strong>(Arrangement regardless of the order)<br>
+  <em>&quot;The number of combinations of <strong>n</strong> different things taken<strong> r</strong> at a time is</em></p>
+<p>$$\eqalign{<br>
+&amp; _n{C_r} = {{n!} \over {(n - r)!r!}}  \cr <br>
+&amp; \text{if taken all}\ \ \ \ \ \ {_n}{C_r} = 1 \cr} $$</p>
+<p>Relation between permutation and combination:</p>
+<p>$$_n{C_r} = {{_n{P_r}} \over {r!}}$$</p>
+<h3>Probability:</h3>
+<p>The probability (chance) of occurrence of a certain event in the following topics are based on the idea that all possible outcomes are equally likely to occur. This means that if a die is thrown once, the probability of getting a six is 1/6. The same probability with all the other numbers, i.e. for 1 is 1/6, for 2 is 1/6 and so on.</p>
+<ol type="I">
+<li>
+  <p>Probability that an event E will happen:</p>
+  <p>$${P_E} = {S \over T}$$</p>
+  <p>where:<br>
+    S = number of successful outcomes<br>
+    T = number of outcomes</p>
+  <li>
+    <p>Probability that it is not E:
+    </p>
+    <p>$${P_{notE}} = 1 - {P_E}$$</p>
+  <li>
+    <p>Mutually exclusive event:
+    </p>
+    <p>$${P_{\text{E or F}}} = {P_E} + {P_F}$$</p>
+  <li>
+    <p>Conditional and Independent probability:
+    </p>
+    <p>$${P_{\text{E &amp; F}}} = {P_E} \times {P_F}$$</p>
+  <li>
+    <p>Binomial or repeated trial probability:
+    </p>
+    <p>$$P{ = _n}{C_r}{p^r}{q^{n - r}}$$</p>
+    <p>where:<br>
+      p = probability of success<br>
+      q = probability of failure = 1 - p<br>
+      n = number of trials<br>
+    r = number of successful trials</p>
+  </ol>
+<h3>Tips:</h3><ol>
+  <li>
+    <p><strong>CARDS. </strong>When dealing with playing cards,<strong> pack of cards</strong> or <strong>deck of cards</strong> is understood to be 52 cards.
+    </p>
+    <p>The playing cards were used to describe a calendar year. The 52 cards represent the 52 weeks in a year. The 4 figures (Heart, Spade, Club and Diamond) represent the 4 seasons of the year and the 12 persons (Kings, Queens, Jacks) are the 12 months of the year.</p>
+  <li>
+  <p><strong>DICES.</strong> Dices were first used by the Chinese. The sum of the opposite faces of a die is always equal to 7. And the sum of all the vertical faces of a die, no matter how it rolls is always equal to <strong>14</strong>.  </p>  
+  </ol>
+<p>&nbsp;</p>
+&nbsp;</p>
+
+</body>
+</html>

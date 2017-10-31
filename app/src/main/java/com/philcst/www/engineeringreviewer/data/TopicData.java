@@ -28,16 +28,12 @@ public class TopicData {
             {"abc", "def"},
             {   // 4 topics
                     "Systems of Numbers & Conversion",
-                    "Fundamentals in Algebra",
-                    "Quadratic Equation, Binomial Theorem & Logarithms",
-                    "Age, Work, Mixture, Digit, Motion Problems"
+                    "Fundamentals in Algebra"
             }};
 
     public static int[][] subTopicImages = {
             {R.drawable.ic_molecule, R.drawable.ic_molecule},
             {   // 4 topics
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral
             }
@@ -50,9 +46,7 @@ public class TopicData {
             },
             {
                     "Description No. 1",
-                    "Description No. 2",
-                    "Description No. 3",
-                    "Description No. 4"
+                    "Description No. 2"
             }
     };
 
@@ -62,10 +56,8 @@ public class TopicData {
                     "none.pdf"
             },
             {
-                    "system_of_numbers_and_conversion.pdf",
-                    "fundamentals_in_algebra.pdf",
-                    "quadratic_equation_binomial_logarithm.pdf",
-                    "age_work_mixture_digit_motion_problems.pdf"
+                    "systems_of_numbers_and_conversion.html",
+                    "fundamentals_in_algebra.html"
             }
     };
 }

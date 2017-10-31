@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
-import com.github.barteksc.pdfviewer.PDFView;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class ReadingActivity extends AppCompatActivity {
 
@@ -15,13 +15,18 @@ public class ReadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reading);
         ActionBar actionBar = getSupportActionBar();
 
+        setTitle(getIntent().getExtras().getString("title"));
+
+        String htmlUrl = "file:///android_asset/content/" + getIntent().getExtras().getString("content");
+
+        WebView webView = (WebView) findViewById(R.id.web_view);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl(htmlUrl);
+        webView.setWebViewClient(new WebViewClient());
+
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        PDFView pdfView = (PDFView) findViewById(R.id.pdfView);
-        setTitle(getIntent().getExtras().getString("title"));
-        pdfView.fromAsset(getIntent().getExtras().getString("content")).load();
     }
 
     @Override

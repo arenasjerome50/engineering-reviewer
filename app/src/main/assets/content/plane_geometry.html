@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Plane Geometry</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } }
+  });
+</script>
+<script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</head>
+
+<body>
+<h1>Plane Geometry</h1>
+<hr>
+<p>The term <strong>&quot;geometry&quot;</strong> was derived from the Greek words, &quot;<em>ge</em>&quot; meaning earth and &quot;<em>metria</em>&quot; meaning measurement. <strong>Euclid</strong> (c. 330 - c 275 B.C.) in his best known book in geometry &quot;Elements&quot; give more emphasis on <strong>Plane geometry</strong> which concerns with geometric figures constructed on a plane surface or geometrical shape of two dimensions (i.e angle, triangle, conic section, etc.). <strong>Archimedes</strong> (287-212 B.C.) contributed so much to <strong>Solid geometry </strong>which concerns with three dimensional geometric figures such as cylinder, sphere, pyramid, angle between planes, etc. <strong>Descriptive geometry</strong>, developed by <strong>Ptolemy</strong> deals with the application of geometry to astronomy.</p>
+<h3>Angles</h3>
+<p><strong>Angle </strong>is formed by two rays which extend from a common point called <strong>vertex</strong>.</p>
+<p><img src="img/types_of_angles.png" alt="angles" style="height:auto; width:auto; max-width:100%"></p>
+<p><strong>Adjacent angles</strong> are two angles with a leg in common.<br>
+<strong>Complementary angles</strong> are two angles whose sum is a right angle (90$^\circ$).<br>
+<strong>Supplementary angles</strong> are two angles whose sum is a straight angle (180$^\circ$).<br>
+<strong>Vertical angles</strong> are angles formed by two intersecting lines. Vertifcal angles are equal.</p>
+<h3>Circles</h3>
+<p><strong>Circle </strong>is a plane figure that is a locus of all points in the plane equidistant from a given point, the center of the circle.</p>
+<p><strong>Circumference </strong>is the length of the perimeter of a circle.</p>
+<p><strong>Sector</strong> is bounded by two radii and an included arc.</p>
+<p><strong>Segment</strong> is bounded by a chord and the arc subtending the chord.</p>
+<p><img src="img/circle.png" alt="circle" style="height:auto; width:auto; max-width:100%"></p>
+<p>Area of a circle</p>
+<p>$$A = \pi {r^2}\ \ \ \ \ \ \ \text{or}\ \ \ \ \ \ \ A = {\pi  \over 4}{d^2}$$</p>
+<p>where:<br>
+r = radius<br>
+d = diameter</p>
+<p>Circumference of a circle:</p>
+<p>$$C = 2\pi r \ \ \ \ \ \ \ \text{or}\ \ \ \ \ \ \ C = \pi d$$</p>
+<p>Area of sector:</p>
+<p>$$A = {1 \over 2}rc = {1 \over 2}{r^2}\theta $$</p>
+<p>where: $\theta$ is in radian</p>
+<p>$$A = {{\pi {r^2}\theta } \over {360}}$$</p>
+<p>where: $\theta$ is in degrees</p>
+<p>Area of segment:</p>
+<p>$$A=\text{Area of sector}-\text{Area of triangle}$$</p>
+<p><strong>Ellipse</strong> is a locus of a point which moves so that the sum of its distances to the fixed points (foci) is constant and is equal to the length of the major axis.</p>
+<p>Area of an ellipse:</p>
+<p>$$A = \pi ab$$</p>
+<p>where:<br>
+a = semi-major axis<br>
+b = semi-minor axis</p>
+<p><img src="img/ellipse.png" style="height:auto; width:auto; max-width:100%" alt="ellipse"></p>
+<h3>Polygons</h3>
+<p><strong>Polygons</strong> is a closed plane figure with three or more angles. There are as many sides as angles in a polygon. The term &quot;polygon&quot; comes from Greek words &quot;<em>poly</em>&quot; meaning many and &quot;<em>gonia</em>&quot; meaning angle. Polygons are named according to the number of sides or vertices:</p>
+<table width="100%" border="0">
+  <tr>
+    <td align="center"><strong>Number of sides</strong></td>
+    <td><strong>Name</strong></td>
+  </tr>
+  <tr>
+    <td align="center">3</td>
+    <td>Triangle</td>
+  </tr>
+  <tr>
+    <td align="center">4</td>
+    <td>Quadrilateral or Tetragon</td>
+  </tr>
+  <tr>
+    <td align="center">5</td>
+    <td>Pentagon</td>
+  </tr>
+  <tr>
+    <td align="center">6</td>
+    <td>Hexagon</td>
+  </tr>
+  <tr>
+    <td align="center">7</td>
+    <td>Heptagon</td>
+  </tr>
+  <tr>
+    <td align="center">8</td>
+    <td>Octagon</td>
+  </tr>
+  <tr>
+    <td align="center">9</td>
+    <td>Nonagon</td>
+  </tr>
+  <tr>
+    <td align="center">10</td>
+    <td>Decagon</td>
+  </tr>
+  <tr>
+    <td align="center">11</td>
+    <td>Undecagon</td>
+  </tr>
+  <tr>
+    <td align="center">12</td>
+    <td>Dodecagon</td>
+  </tr>
+  <tr>
+    <td align="center">1000</td>
+    <td>Chiliagon</td>
+  </tr>
+  <tr>
+    <td align="center">n</td>
+    <td>n-gon</td>
+  </tr>
+</table>
+<p><strong>Regular polygon</strong> is a polygon having all sides equal and all interior angles equal.<br>
+  <strong>Convex polygon</strong> is a polygon having each interior angle less than 180$^\circ$.<br>
+  <strong>Concave polygon </strong>is a polygon having one interior angle greater than 180$^\circ$.<br>
+  <strong>Diagonal </strong>is a line that connects two non-adjacent vertices.</p>
+<p><strong>Number of diagonals of a given polygon:</strong></p>
+<p>$$\text{Diagonals} = {n \over 2}(n - 3)$$</p>
+<p><strong>Sum of interior angles:</strong></p>
+<p>$$S = (n - 2){180^ \circ }$$</p>
+<p>where: n = number of sides of the polygon</p>
+<h3>Triangles</h3>
+<p><strong>Triangle </strong>is a polygon with three sides. If three sides of a triangle are equal, it is an <strong>equilateral triangle</strong>. An equilateral triangle is also equiangular. If two sides are equal, it is an<strong> isosceles triangles</strong>. <strong>Scalene triangle</strong> is a triangle with no two sides equal.</p>
+<p><strong>Acute triangle</strong> is triangle with all interior angles less than right triangle (90$^\circ$). If one of the interior angles is greater than 90$^\circ$, it is regarded as<strong> obtuse triangle</strong>. If one interior angle is exactly 90$^\circ$. it is a <strong>right triangle</strong>.</p>
+<p><strong>Egyptian triangle</strong> is a right triangle with sides equivalent to 3, 4 and 5 units.</p>
+<p><em>Note: For the formulas for area of a triangle, refer to Trigonometry.</em></p>
+<h3>Quadrilaterals</h3>
+<p>A <strong>quadrilateral </strong>(also known as <strong>quadrangle </strong>or <strong>tetragon</strong>) is a polygon with four sides.</p>
+<p>In the U.S. standard, a quadrilateral with two sides parallel is called as <strong>trapezoid</strong> and <strong>trapezium </strong>if no two sides are parallel. It is opposite in the United Kingdom, where it is referred to as <strong>trapezium</strong> if two sides are parallel and <strong>trapezoid</strong> if no two sides are parallel.</p>
+<p><img src="img/trapezium_trapezoid.png" style="height:auto; width:auto; max-width:100%" alt="trapezoid and trapezium"></p>
+<p>Area of trapezoid:</p>
+<p>$$A = {1 \over 2}(B + b)h$$</p>
+<h3>Parallelograms</h3>
+<p>A <strong>parallelogram</strong> is a quadrilateral with both pairs of opposite sides are parallel. A right-angled parallelogram is called a <strong>rectangle</strong>. A <strong>square </strong>is a rectangle with all four sides equal.</p>
+<p><img src="img/square_rectangle.png" style="height:auto; width:auto; max-width:100%" alt="square and rectangle"></p>
+<p>Area of square: $A={a^2}$</p>
+<p>Area of rectangle: $A=ab$</p>
+<p><strong>Rhomboid</strong> is a parallelogram whose adjacent sides are not equal while <strong>rhombus</strong> is a rhomboid with all sides equal.</p>
+<p><img src="img/rhomboid.png" style="height:auto; width:auto; max-width:100%" alt="rhomboid"></p>
+<p>Area of rhombus: $A = bh = {1 \over 2}{d_1}{d_2}$</p>
+<p>Area of rhomboid: $A = bh = {1 \over 2}{d_1}{d_2}\sin \theta $</p>
+<p>where: d<sub>1</sub> and d<sub>2</sub> = diagonals<br>
+In the case of a rhombus, the value of $\theta={90^\circ}$.</p>
+<h3>Tips:</h3>
+<ol>
+<li><strong>Complementary angles</strong> are two angles whose sum is $90^\circ$ or right angle.
+<li><strong>Supplementary angles </strong>are two angles whose sum is $180^\circ$ or straight angle.
+<li><strong>Explementary angles </strong>are two angles whose sum is $360^\circ$ or perigon.
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
