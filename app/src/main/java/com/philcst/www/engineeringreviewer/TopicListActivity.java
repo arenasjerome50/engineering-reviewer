@@ -9,8 +9,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.philcst.www.engineeringreviewer.data.Topic;
 import com.philcst.www.engineeringreviewer.data.TopicData;
-import com.philcst.www.engineeringreviewer.data.TopicItem;
 
 import java.util.ArrayList;
 
@@ -21,9 +21,9 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
     // Containers for querying topics
     // soon, I will reimplement this that the Topics object will have a subtopics members for easier
     // access of data.
-    private ArrayList<TopicItem> mTopicItems = new ArrayList<>();
-    private ArrayList<TopicItem> mGeasSubTopicItems = new ArrayList<>();
-    private ArrayList<TopicItem> mEnggMathSubTopicItems = new ArrayList<>();
+    private ArrayList<Topic> mTopicItems = new ArrayList<>();
+    private ArrayList<Topic> mGeasSubTopicItems = new ArrayList<>();
+    private ArrayList<Topic> mEnggMathSubTopicItems = new ArrayList<>();
 
     // Main Topic Indexes
     final static int GEAS_SUB_TOPICS = 0;
@@ -122,7 +122,7 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
     // can query data to the database.
     private void loadData() {
         for (int x = 0; x < TopicData.titles.length; x++) {
-            mTopicItems.add(x, new TopicItem(TopicData.images[x],
+            mTopicItems.add(x, new Topic(TopicData.images[x],
                     TopicData.titles[x],
                     TopicData.desc[x]
             ));
@@ -130,7 +130,7 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
 
         // for GeAS subtopics
         for (int x = 0; x < TopicData.subTopics[GEAS_SUB_TOPICS].length; x++) {
-            mGeasSubTopicItems.add(x, new TopicItem(TopicData.subTopicImages[GEAS_SUB_TOPICS][x],
+            mGeasSubTopicItems.add(x, new Topic(TopicData.subTopicImages[GEAS_SUB_TOPICS][x],
                     TopicData.subTopics[GEAS_SUB_TOPICS][x],
                     TopicData.subTopicdesc[GEAS_SUB_TOPICS][x]
             ));
@@ -138,7 +138,7 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
 
         // for Engg Math subtopics
         for (int x = 0; x < TopicData.subTopics[ENGG_MATH_TOPICS].length; x++) {
-            mEnggMathSubTopicItems.add(x, new TopicItem(TopicData.subTopicImages[ENGG_MATH_TOPICS][x],
+            mEnggMathSubTopicItems.add(x, new Topic(TopicData.subTopicImages[ENGG_MATH_TOPICS][x],
                     TopicData.subTopics[ENGG_MATH_TOPICS][x],
                     TopicData.subTopicdesc[ENGG_MATH_TOPICS][x]
             ));

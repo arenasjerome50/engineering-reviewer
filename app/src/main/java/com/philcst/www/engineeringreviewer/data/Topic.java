@@ -1,12 +1,12 @@
 package com.philcst.www.engineeringreviewer.data;
 
 
-public class TopicItem {
+public class Topic {
     private int imageId;
     private String title;
     private String desc;
 
-    public TopicItem(int imageId, String title, String desc){
+    public Topic(int imageId, String title, String desc){
         this.imageId = imageId;
         this.title = title;
         this.desc = desc;

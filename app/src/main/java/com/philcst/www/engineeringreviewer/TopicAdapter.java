@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.philcst.www.engineeringreviewer.data.TopicItem;
+import com.philcst.www.engineeringreviewer.data.Topic;
 
 import java.util.ArrayList;
 
@@ -22,11 +22,11 @@ class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
         void onItemClick(int position);
     }
 
-    private ArrayList<TopicItem> mDataset;
+    private ArrayList<Topic> mDataset;
     //private TopicItem selectedTopicItem;
     private OnItemClickListener mListener;
 
-    TopicAdapter(ArrayList<TopicItem> dataset, OnItemClickListener listener) {
+    TopicAdapter(ArrayList<Topic> dataset, OnItemClickListener listener) {
         this.mDataset = dataset;
         this.mListener = listener;
     }
