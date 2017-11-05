@@ -1,8 +1,6 @@
 package com.philcst.www.engineeringreviewer;
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,9 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.philcst.www.engineeringreviewer.data.DatabaseAccess;
 import com.philcst.www.engineeringreviewer.data.Question;
-import com.philcst.www.engineeringreviewer.data.ReviewerContract.QuestionEntry;
-import com.philcst.www.engineeringreviewer.data.ReviewerDbHelper;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,9 +30,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        ReviewerDbHelper mDbHelper = new ReviewerDbHelper(this);
-        questionArrayList = mDbHelper.getAllQuestions();
-        mDbHelper.close();
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        questionArrayList = databaseAccess.getAllQuestions();
+        Collections.shuffle(questionArrayList);
 
         currentQuestion = questionArrayList.get(questionId);
         questionTextView = (TextView) findViewById(R.id.question_textview);
@@ -65,7 +62,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
         }
-        if (questionId < 5) {
+        if (questionId < questionArrayList.size()) {
             currentQuestion = questionArrayList.get(questionId);
             setQuestionView();
         } else {
@@ -82,7 +79,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
      * Temporary helper method to display information in the onscreen TextView about the state of
      * the pets database.
      */
-    private void displayDatabaseInfo() {
+    /*private void displayDatabaseInfo() {
         // To access our database, we instantiate our subclass of SQLiteOpenHelper
         // and pass the context, which is the current activity.
         ReviewerDbHelper mDbHelper = new ReviewerDbHelper(this);
@@ -94,7 +91,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         // Perform this raw SQL query "SELECT * FROM pets"
         // to get a Cursor that contains all rows from the pets table.
-        try (Cursor cursor = db.rawQuery("SELECT * FROM " + QuestionEntry.TABLE_NAME, null)) {
+        try (Cursor cursor = db.rawQuery("DELETE FROM " + QuestionEntry.TABLE_NAME, null)) {
             // Display the number of rows in the Cursor (which reflects the number of rows in the
             // pets table in the database).
             TextView displayView = (TextView) findViewById(R.id.question_textview);
@@ -103,7 +100,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         // Always close the cursor when you're done reading from it. This releases all its
         // resources and makes it invalid.
-    }
+    }*/
 
 
     private void setQuestionView() {

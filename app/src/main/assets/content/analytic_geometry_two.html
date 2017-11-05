@@ -5,12 +5,13 @@
 <title>Analytic Geometry (Parabola, Ellipse &amp; Hyperbola)</title>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+	jax: ["input/TeX","output/HTML-CSS"],
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
   	CommonHTML: { linebreaks: { automatic: true } },
-  	"HTML-CSS": { linebreaks: { automatic: true } }
+  	"HTML-CSS": { linebreaks: { automatic: true } },
   });
 </script>
-<script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_HTML-full"></script>
+  <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
 
 <body>
@@ -90,8 +91,7 @@
 <p><strong>Ellipse </strong>is a locus of a point which moves so that the sum of its distance to the fixed point (<em>foci</em>) is constant and is equal to the length of the major axis (2a).</p>
 <ol type="I">
   <li>
-    <p><strong>Equations:</strong>
-    </p>
+    <p><strong>Equations:</strong></p>
     <p><strong>General Equation:</strong></p>
     <p>$$A{x^2} + C{y^2} + Dx + Ey + F = 0$$</p>
     <p><img src="img/ellipse_designations.png" style="height:auto; width:auto; max-width:100%" alt="ellipse designations"></p>
@@ -109,8 +109,7 @@
   &amp; {{{{\left( {x - h} \right)}^2}} \over {{a^2}}} + {{{{\left( {y - k} \right)}^2}} \over {{b^2}}} = 1 \to \ \text{Major axis is horizontal}  \cr <br>
   &amp; {{{{\left( {x - h} \right)}^2}} \over {{b^2}}} + {{{{\left( {y - k} \right)}^2}} \over {{a^2}}} = 1 \to \ \text{Major axis is vertical} \cr} $$</p>
   <li>
-    <p><strong>Eccentricity: (e&lt; 1.0)</strong>
-    </p>
+  	<p><strong>Eccentricity: (e&lt; 1.0)</strong></p>
     <p>$$\eqalign{<br>
   &amp; e = {c \over a}  \cr <br>
   &amp; \text{or}  \cr <br>
@@ -134,10 +133,10 @@
 <h3>Hyperbola</h3>
 <p><strong>Hyperbola</strong> is a locus of a point which moves so that the<strong> difference </strong>of the distances to the fixed points (<em>foci</em>) is constant and is equal to the length of the transverse axis (2a).</p>
 <ol type="I">
-  <li>
-    <p><strong>Equations:</strong>
-      <br>
-      <strong>General equations:</strong>
+<li>
+  <p><strong>Equations:</strong>
+    <br>
+    <strong>General equations:</strong></p>
     <ol type="A">
       <li>
         <p><strong>Transverse axis - horizontal</strong>
@@ -146,11 +145,57 @@
         <p>$$A{x^2} - C{y^2} + Dx + Ey + F = 0$$</p>
         <p>Note: <strong>Transverse axis </strong>is the axis that passes through the foci, vertices and the center of the hyperbola while the <strong>conjugate axis</strong> is the one that is perpendicular to the transverse axis.</p>
         <p>Length of the transverse axis = $2a \ \ \ \ \text{or} \ \ \ \ \ 2\sqrt C $</p>
-        <p>Length of the conjugate axis = $2a \ \ \ \ \text{or} \ \ \ \ \ 2\sqrt A $</p>
+        <p>Length of the conjugate axis = $2b \ \ \ \ \text{or} \ \ \ \ \ 2\sqrt A $</p>
         <p>where: <em>A</em> and<em> C </em> are the numerical coefficients (absolute value) of <em>x<sup>2</sup></em> and <em>y<sup>2</sup></em> respectively.</p>
         <p>Also, the relationship between a, b and c is: $\ \ \ \ \ {a^2} + {b^2} = {c^2}$</p>
-      <li><strong>Transverse axis - vertical:</strong>
-    </ol>
+      </li>
+      <li>
+        <p><strong>Transverse axis - vertical:</strong>
+        </p>
+        <p>$$C{y^2} - A{x^2} + Dx + Ey + F = 0$$</p>
+        <p>Length of the transverse axis = $2a \ \ \ \ \text{or} \ \ \ \ \ 2\sqrt A $</p>
+        <p>Length of the conjugate axis = $2b \ \ \ \ \text{or} \ \ \ \ \ 2\sqrt C $</p>
+        <p>where: <em>A</em> and<em> C </em> are the numerical coefficients (absolute value) of <em>x<sup>2</sup></em> and <em>y<sup>2</sup></em> respectively.</p>
+      <p>Also, the relationship between a, b and c is: $\ \ \ \ \ {a^2} + {b^2} = {c^2}$</p>
+      </li>
+  </ol>
+  <p><strong>Standard equations:</strong><br>
+  <strong>C(0, 0)</strong></p>
+  <p>Transverse axis horizontal:</p>
+  <p>$${{{x^2}} \over {{a^2}}} - {{{y^2}} \over {{b^2}}} = 1$$</p>
+  <p>Transverse axis vertical:</p>
+  <p>$${{{y^2}} \over {{a^2}}} - {{{x^2}} \over {{b^2}}} = 1$$</p>
+  <p><strong>C(h, k)</strong></p>
+  <p>Transverse axis horizontal:</p>
+  <p>$${{{{\left( {x - h} \right)}^2}} \over {{a^2}}} - {{{{\left( {y - k} \right)}^2}} \over {{b^2}}} = 1$$</p>
+  <p>Transverse axis vertical:</p>
+  <p>$${{{{\left( {y - k} \right)}^2}} \over {{a^2}}} - {{{{\left( {x - h} \right)}^2}} \over {{b^2}}} = 1$$</p>
+<li>
+  <p><strong>Eccentricity: (e &gt; 1.0)</strong>
+  </p>
+  <p>$$e = {c \over a}\ \ \ \ \ \ \text{or}\ \ \ \ \ \ e = {a \over D}$$</p>
+  <li>
+    <p><strong>Length of Latus Rectum:</strong>
+    </p>
+    <p>$$LR = {{2{b^2}} \over a}$$</p>
+    <p>where:<br>
+      a = semi-major axis<br>
+    b = semi-minor axis</p>
+  </ol>
+<p>When the equation given is general equation rather than standard equation, the center <strong>(h, k)</strong>of a hyperbola can be calculated by converting the general equation to standard using the process known as<strong> completing the square. </strong>Or using the following formulas:</p>
+<p>$$h = {{ - D} \over {2A}}\ \ \ \ \ \ \ \ \ \ k = {{ - E} \over {2C}}$$</p>
 <p>&nbsp;</p>
+<h3>Polar Coordinates</h3>
+<p><strong>Polar coordinates</strong> refers to the coordinates of a point in a system of coordinates where the position of a point is determined by the length of ray segment (the <strong>radius vector</strong>) from the fixed origin (the <strong>pole</strong>) and the angle (the <strong>polar angle</strong>) the ray (the <strong>vector</strong>) makes with a fixed line (the<strong> polar axis</strong>).</p>
+<p><strong>Polar angle </strong>is sometimes called the <strong>vectorial angle</strong>, the <strong>argument, </strong>the <strong>amplitude</strong> or the <strong>azimuth</strong> of a point.</p>
+<p><img src="img/polar_coordinate.png" style="height:auto; width:auto; max-width:100%" alt="polar coordinate"></p>
+<p>Relationship between polar coordinates and rectangular coordinates:</p>
+<p>$$\eqalign{<br>
+&amp; x = r\cos \theta   \cr <br>
+&amp; y = r\sin \theta   \cr <br>
+&amp; r = \sqrt {{x^2} + {y^2}}   \cr <br>
+&amp; \theta  = \arctan {y \over x} \cr} $$</p>
+<h3><strong>Tip: Common forms of conic sections:</strong></h3>
+<p><img src="img/conic_sections_summary.png" style="height:auto; width:auto; max-width:100%" alt="conic sections summary"></p>
 </body>
 </html>

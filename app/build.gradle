@@ -6,6 +6,7 @@ android {
     defaultConfig {
         applicationId "com.philcst.www.engineeringreviewer"
         minSdkVersion 19
+        //noinspection OldTargetApi
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -29,5 +30,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.4.0'
     compile 'com.android.support:design:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //noinspection GradleDynamicVersion
+    compile 'com.javahelps:externalsqliteimporter:+'
     testCompile 'junit:junit:4.12'
 }
