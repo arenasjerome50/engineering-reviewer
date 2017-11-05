@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nishant.math.MathView;
 import com.philcst.www.engineeringreviewer.data.DatabaseAccess;
 import com.philcst.www.engineeringreviewer.data.Question;
 
@@ -20,7 +21,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     int score = 0;
     int questionId = 0;
     Question currentQuestion;
-    TextView questionTextView;
+    MathView questionMathView;
     TextView scoreTextView;
     TextView questionNumberTextView;
     Button choiceAButton, choiceBButton, choiceCButton, choiceDButton /*,nextButton*/;
@@ -35,7 +36,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(questionArrayList);
 
         currentQuestion = questionArrayList.get(questionId);
-        questionTextView = (TextView) findViewById(R.id.question_textview);
+        questionMathView = (MathView) findViewById(R.id.question_view);
         questionNumberTextView = (TextView) findViewById(R.id.question_number);
         scoreTextView = (TextView) findViewById(R.id.score_number);
         choiceAButton = (Button) findViewById(R.id.choice_a_button);
@@ -105,7 +106,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setQuestionView() {
         questionNumberTextView.setText("Question " + (questionId + 1));
-        questionTextView.setText(currentQuestion.getQUESTION());
+        questionMathView.setText(currentQuestion.getQUESTION());
 
         ArrayList<String> choices = new ArrayList<>();
         // add choices including the answer to the list
@@ -114,7 +115,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         choices.add(currentQuestion.getOPTC());
         choices.add(currentQuestion.getANSWER());
 
-        // OK! its Shake time, I hope nobody get the right answer ahahaha
+        // OK! its Shake time, I hope nobody get the right answer ha ha ha
         Collections.shuffle(choices);
 
         // set the shuffled choices
