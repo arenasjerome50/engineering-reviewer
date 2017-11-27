@@ -53,7 +53,7 @@ public class MathView extends WebView {
         setClickable(false);
         setLongClickable(false);
         getSettings().setUseWideViewPort(true);
-        loadUrl("file:///android_asset/www/MathTemplate.html");
+        loadUrl("file:///android_asset/content/MathTemplate.html");
         setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {

@@ -39,39 +39,35 @@
         android:text="@string/placeholder_text"
         android:textSize="20sp" />
 
-    <com.nishant.math.MathView
+    <com.philcst.www.engineeringreviewer.view.MathView
         android:id="@+id/question_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 
-    <Button
+    <com.philcst.www.engineeringreviewer.view.MathView
         android:id="@+id/choice_a_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/placeholder_text" />
+        android:padding="8dp" />
 
-    <Button
+    <com.philcst.www.engineeringreviewer.view.MathView
         android:id="@+id/choice_b_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/placeholder_text" />
+        android:padding="8dp" />
 
-    <Button
+    <com.philcst.www.engineeringreviewer.view.MathView
         android:id="@+id/choice_c_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/placeholder_text" />
+        android:padding="8dp" />
 
-    <Button
+    <com.philcst.www.engineeringreviewer.view.MathView
         android:id="@+id/choice_d_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="@string/placeholder_text" />
+        android:padding="8dp" />
 
     <!--<Button
         android:id="@+id/next_button"

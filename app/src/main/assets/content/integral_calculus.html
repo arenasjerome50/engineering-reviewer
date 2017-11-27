@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Integral Calculus</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } },
+	showMathMenu: false
+  });
+</script>
+  <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+
+<body>
+<h1>Integral Calculus</h1>
+<hr>
+<ol type="A">
+	<li>
+    	<p><strong>Basic Integrals:</strong></p>
+    	<ol>
+        	<li>
+        	  <p>$\int {du} = u + C $</p>
+       	    </li>
+        	<li>
+        	  <p>$\int {adu} = au + C $ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{u^n}du} = {{{u^{n + 1}}} \over {n + 1}} + C \ \ \ \ \ \ \ \ (n \ne   - 1)$</p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{du} \over u}} = \ln u + C $ </p>
+       	    </li>
+       	</ol>
+        <p>&nbsp;</p>
+	</li>
+  <li>
+   	<p><strong>Exponential &amp; Logarithmic Functions:</strong></p>
+    <ol start="5">
+       	  <li>
+       	    <p>$\int {{e^u}du} = {e^u} + C $
+       	    </p>
+       	  </li>
+       	  <li>
+       	    <p>
+        	  
+      	  	$\int {{a^u}du }= {{{a^u}} \over {\ln a}} + C $</p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {u{e^u}du} = {e^u}(u - 1) + C $ </p>
+   	      </li>
+   	  <li>
+        	  <p>$\int {\ln udu} = u\ln u - u + C $ </p>
+   	      </li>
+       	  <li>
+        	  <p>$\int {{{du} \over {u\ln u}}} = \ln |\ln u| + C $ </p>
+       	  </li>
+      </ol>
+      <p>&nbsp;</p>
+  </li>
+    <li>
+    	<p><strong>Trigonometric Functions:</strong></p>
+    	<ol start="10">
+        	<li>
+        	  <p>$\int {\sin udu} =  - \cos u + C $</p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\cos udu} = \sin u + C $ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\tan udu} = \ln |\sec u| + C $ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\cot udu} = \ln |\sin u| + C $ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\sec udu}  = \ln |\sec u + \tan u| + C$</p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\csc udu}  = \ln |\csc u - \cot u| + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{\sec }^2}udu}  = \tan u + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{\csc }^2}udu}  =  - \cot u + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\sec u\tan udu}  = \sec u + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\csc u\cot udu}  =  - \csc u + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{\sin }^2}udu}  = {1 \over 2}u - {1 \over 4}\sin 2u + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{\cos }^2}udu}  = {1 \over 2}u + {1 \over 4}\sin 2u + C$ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{\tan }^2}udu = \tan u - u + C} $ </p>
+       	    </li>
+        	<li>
+        	  <p>$\int {{{\cot }^2}udu}  =  - \cot u - u + C$ </p>
+        	</li>
+        </ol>
+        <p>&nbsp;</p>
+    </li>
+  <li>
+   	<p><strong>Inverse Trigonometric Functions:</strong></p>
+    <ol start="24">
+       	  <li>
+       	    <p>$\int {{{\sin }^{ - 1}}udu}  = u{\sin ^{ - 1}}u + \sqrt {1 - {u^2}}  + C$</p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{\cos }^{ - 1}}udu}  = u{\cos ^{ - 1}}u - \sqrt {1 - {u^2}}  + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{\tan }^{ - 1}}udu}  = u{\tan ^{ - 1}}u - \ln \sqrt {1 - {u^2}}  + C$</p>
+   	      </li>
+   	  <li>
+       	    <p>$\int {{{\cot }^{ - 1}}udu}  = u{\cot ^{ - 1}}u + \ln \sqrt {1 + {u^2}}  + C$ </p>
+      </li>
+      <li>
+       	    <p>$\int {{{\sec }^{ - 1}}udu}  = u{\sec ^{ - 1}}u - \ln |u + \sqrt {{u^2} - 1} | + C$ </p>
+   	    </li>
+       	  <li>
+       	    <p>$\int {{{\csc }^{ - 1}}udu}  = u{\csc ^{ - 1}}u + \ln |u + \sqrt {{u^2} - 1} | + C$ </p>
+       	  </li>
+      </ol>
+      <p>&nbsp;</p>
+    </li>
+  <li>
+   	<p><strong>Hyperbolic Functions:</strong></p>
+    <ol start="30">
+       	  <li>
+       	    <p>$\int {\sinh udu}  = \cosh u + C$</p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {\cosh udu}  = \sinh u + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {\tanh udu}  = \ln |\cosh u| + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {\coth udu}  = \ln |\sinh u| + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{\mathop{\rm sech}\nolimits} udu}  = {\tan ^{ - 1}}(\sinh u) + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{\mathop{\rm csch}\nolimits} udu}  = \ln \left| {\tanh {u \over 2}} \right| + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{{\mathop{\rm sech}\nolimits} }^2}udu}  = \tanh u + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{{\mathop{\rm csch}\nolimits} }^2}udu}  =  - \coth u + C$ </p>
+   	      </li>
+   	  <li>
+       	    <p>$\int {{\mathop{\rm sech}\nolimits} u\tanh udu}  =  - {\mathop{\rm sech}\nolimits} u + C$ </p>
+      </li>
+      <li>
+       	    <p>$\int {{\mathop{\rm csch}\nolimits} u\coth udu}  =  - {\mathop{\rm csch}\nolimits} u + C$ </p>
+   	    </li>
+       	  <li>
+       	    <p>$\int {{{\sinh }^2}udu}  = {1 \over 4}\sinh 2u - {1 \over 2}u + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{\cosh }^2}udu}  = {1 \over 4}\sinh 2u + {1 \over 2}u + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{\tanh }^2}udu}  = u - \tanh u + C$ </p>
+   	      </li>
+       	  <li>
+       	    <p>$\int {{{\coth }^2}udu}  = u - \coth u + C$ </p>
+       	  </li>
+      </ol>
+      <p>&nbsp;</p>
+    </li>
+    <li>
+    	<p><strong>Trigonometric Substitution:</strong></p>
+        <ol start="44">
+        	<li>
+        	  <p>$\int {\sqrt {{a^2} - {u^2}} du} \ \ \ \ \ $  
+    		let: $u = a\sin \theta $</p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\sqrt {{a^2} + {u^2}} du} \ \ \ \ \ $ let: $u = a\tan \theta $</p>
+       	    </li>
+        	<li>
+        	  <p>$\int {\sqrt {{u^2} - {a^2}} du} \ \ \ \ \ $ let: $u = a\sec \theta $</p>
+        	</li>
+        </ol>
+        <p>&nbsp;</p>
+    </li>
+    <li>
+    	<p><strong>Integration By Parts:</strong></p>
+       	<p>$$\int {udv}  = uv - \int {vdu} $$</p>
+    </li>
+    <li>
+    	<p><strong>Wallis Formula:</strong> Formulated by John Wallis.</p>
+        	  <p>$$\int\limits_0^{{\pi \over 2}} {{{\sin }^m}\theta {{\cos }^n}\theta d\theta } = {{\left[ {(m - 1)(m - 3) \cdot \cdot \cdot 1 \text{ or } 2} \right]\left[ {(n - 1)(n - 3) \cdot \cdot \cdot 1 \text{ or } 2} \right]} \over {(m + n)(m + n - 2)(m + n - 4) \cdot \cdot \cdot 1 \text{ or } 2}}\alpha $$</p>
+        	  <p>where:<br>
+       	      $\alpha  = {\pi  \over 2}$ if both m and n are even<br>
+       	      $\alpha  = 1$ if otherwise</p>
+    </li>
+</ol>
+<h3>Plane Areas</h3>
+<p>By rectangular coordinates:<br>
+Using a vertical differential strip:</p>
+<p><img src="img/integral_calculus/vertical_differential_strip.png" style="height:auto; width:auto; max-width:100%" alt="By rectangular coordinates using a vertical differential strip"></p>
+<p>$$A = \int {ydx} $$</p>
+<p>&nbsp;</p>
+<p>Using a horizontal differential strip:</p>
+<p><img src="img/integral_calculus/horizontal_differential_strip.png" style="height:auto; width:auto; max-width:100%" alt="Using a horizontal differential strip"></p>
+<p>$$A = \int {xdy} $$</p>
+<p>&nbsp;</p>
+<p>By polar coordinates:</p>
+<p><img src="img/integral_calculus/polar_coordinate_strip.png" style="height:auto; width:auto; max-width:100%" alt="by polar coordinates"></p>
+<p>$$A = \int {{{{r^2}} \over 2}d\theta } $$</p>
+<p>&nbsp;</p>
+<h3>Centroid</h3>
+<p><img src="img/integral_calculus/centroid.png" style="height:auto; width:auto; max-width:100%" alt="centroid"></p>
+<p>$$\eqalign{<br>
+&amp; \bar x = {{\int {dA \cdot x} } \over A}  \cr <br>
+&amp; \bar y = {{\int {dA \cdot {y \over 2}} } \over A} \cr} $$</p>
+<p>&nbsp;</p>
+<h3>Length of Arc</h3>
+<p><img src="img/integral_calculus/length_of_arc.png" style="height:auto; width:auto; max-width:100%" alt="length of arc"></p>
+<p>$$\eqalign{<br>
+&amp; S = \int\limits_{{x_1}}^{{x_2}} {\sqrt {1 + {{\left( {{{dy} \over {dx}}} \right)}^2}} dx}   \cr <br>
+&amp; S = \int\limits_{{y_1}}^{{y_2}} {\sqrt {1 + {{\left( {{{dx} \over {dy}}} \right)}^2}} dy}  \cr} $$</p>
+<p>&nbsp;</p>
+<h3>Propositions of Pappus</h3>
+<p>The following are the propositions or theorems of<strong> Pappus</strong> (A.D. c. 400) of Alexandria.</p>
+<p><strong>First Proposition of Pappus: (Surface Area)</strong></p>
+<blockquote>
+  <p>&quot;If an arc is rotated about an axis, it will generate a surface area equal to the product of the length of the arc and the circumference described the its centroid.&quot;</p>
+</blockquote>
+<p><img src="img/integral_calculus/first_pappus.png" style="height:auto; width:auto; max-width:100%" alt="First Proposition of Pappus"></p>
+<p>$$A = S \cdot 2\pi \bar d$$</p>
+<p>where:<br>
+  S = length of arc<br>
+  $\bar d$ = distance from centroid to the axis of rotation</p>
+<p>$$A = \int {\sqrt {1 + {{\left( {{{dy} \over {dx}}} \right)}^2}} dx}  \cdot 2\pi \bar d$$</p>
+<p><strong>Second Proposition of Pappus: (Volume)</strong></p>
+<p><img src="img/integral_calculus/second_pappus.png" style="height:auto; width:auto; max-width:100%" alt="Second Proposition of Pappus"></p>
+<p>$$V = A \cdot 2\pi \bar d$$</p>
+<p>or</p>
+<p>$$V = \int {dA}  \cdot 2\pi \bar d$$</p>
+<p><strong>Solid of revolution:</strong></p>
+<ol type="A">
+	<li>
+    	<p>Using a vertical diferential strip:</p>
+    	<p><img src="img/integral_calculus/solid_revolution_vertical.png" style="height:auto; width:auto; max-width:100%" alt="using a vertical differential strip"><img src="img/integral_calculus/hollow_cylindrical_shell.png" style="height:auto; width:auto; max-width:100%" alt="Hollow cylindrical shell"></p>
+    	<p>$$V = \int {2\pi yxdx} $$</p>
+   	</li>
+	<li>
+    	<p>Using a horizontal differential strip:</p>
+    	<p><img src="img/integral_calculus/solid_revolution_horizontal.png" style="height:auto; width:auto; max-width:100%" alt="using a horizontal differential strip"><img src="img/integral_calculus/circular_ring.png" style="height:auto; width:auto; max-width:100%" alt="circular ring or washer"></p>
+        <p></p>
+    $$V = \int {\pi \left( {{x_2}^2 - {x_1}^2} \right)dy} $$</li>
+</ol>
+<p>&nbsp;</p>
+<h3>Work</h3>
+<p>$$Work = \int {F \cdot dx} $$</p>
+<p>where: F = force expressed in terms of x<br>
+For spring: F = kx where: k = spring constant</p>
+<h3>Moment of Inertia (Second Moment of Area)</h3>
+<p><img src="img/integral_calculus/moment_of_inertia.png" style="height:auto; width:auto; max-width:100%" alt="moment of inertia"></p>
+<p>$$\eqalign{<br>
+&amp; {I_x} = \int {dA}  \cdot {y^2}  \cr <br>
+&amp; {I_y} = \int {dA}  \cdot {\left( {{x \over 2}} \right)^2} \cr} $$</p>
+<h3>Tip: Pressure</h3>
+<p>The total hydrostatic pressure may be calculated directly by a formula rather than by integration.</p>
+<p>$$P = \gamma \bar hA$$</p>
+<p>where:<br>
+$\gamma$ = density of the liquid<br>
+$\bar h$ = distance from the centroid of the area to the liquid surface.<br>
+A = area subjected to pressure</p>
+<p>Density of water = 1000 kg/m<sup>3</sup><br>
+= 9.81 kN/m<sup>3</sup><br>
+= 9810 N/m<sup>3</sup><br>
+= 62.4 lbs/ft<sup>3</sup><br>
+= 1 gram/cc</p>
+<p>Density of other liquids = (density of H<sub>2</sub>O)(sp. gr. of liquid)</p>
+</body>
+</html>

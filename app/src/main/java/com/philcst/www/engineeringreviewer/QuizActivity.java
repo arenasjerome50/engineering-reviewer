@@ -4,13 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nishant.math.MathView;
 import com.philcst.www.engineeringreviewer.data.DatabaseAccess;
 import com.philcst.www.engineeringreviewer.data.Question;
+import com.philcst.www.engineeringreviewer.view.MathView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,7 +23,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     MathView questionMathView;
     TextView scoreTextView;
     TextView questionNumberTextView;
-    Button choiceAButton, choiceBButton, choiceCButton, choiceDButton /*,nextButton*/;
+    MathView choiceAButton, choiceBButton, choiceCButton, choiceDButton /*,nextButton*/;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +38,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         questionMathView = (MathView) findViewById(R.id.question_view);
         questionNumberTextView = (TextView) findViewById(R.id.question_number);
         scoreTextView = (TextView) findViewById(R.id.score_number);
-        choiceAButton = (Button) findViewById(R.id.choice_a_button);
-        choiceBButton = (Button) findViewById(R.id.choice_b_button);
-        choiceCButton = (Button) findViewById(R.id.choice_c_button);
-        choiceDButton = (Button) findViewById(R.id.choice_d_button);
+        choiceAButton = (MathView) findViewById(R.id.choice_a_button);
+        choiceBButton = (MathView) findViewById(R.id.choice_b_button);
+        choiceCButton = (MathView) findViewById(R.id.choice_c_button);
+        choiceDButton = (MathView) findViewById(R.id.choice_d_button);
         //nextButton = (Button) findViewById(R.id.next_button);
         setQuestionView();
         //displayDatabaseInfo();
+
+        choiceAButton.setClickable(true);
+        choiceBButton.setClickable(true);
+        choiceCButton.setClickable(true);
+        choiceDButton.setClickable(true);
+
         choiceAButton.setOnClickListener(this);
         choiceBButton.setOnClickListener(this);
         choiceCButton.setOnClickListener(this);
