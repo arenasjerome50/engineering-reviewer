@@ -36,6 +36,11 @@ public class MathView extends WebView {
         getSettings().setLoadWithOverviewMode(true);
         getSettings().setJavaScriptEnabled(true);
 
+        // disable zoom control
+        getSettings().setDisplayZoomControls(false);
+        getSettings().setBuiltInZoomControls(false);
+        getSettings().setSupportZoom(false);
+
         // caching
         File dir = context.getCacheDir();
         if (!dir.exists()) {
@@ -50,8 +55,8 @@ public class MathView extends WebView {
         getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
         // disable click
-        setClickable(false);
-        setLongClickable(false);
+        //setClickable(false);
+        //setLongClickable(false);
         getSettings().setUseWideViewPort(true);
         loadUrl("file:///android_asset/content/MathTemplate.html");
         setWebViewClient(new WebViewClient() {

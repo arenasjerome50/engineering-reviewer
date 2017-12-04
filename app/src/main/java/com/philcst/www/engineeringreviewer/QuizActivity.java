@@ -14,6 +14,7 @@ import com.philcst.www.engineeringreviewer.view.MathView;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
     ArrayList<Question> questionArrayList;
@@ -60,7 +61,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         String answer = currentQuestion.getANSWER();
-        TextView t = (TextView) v;
+        MathView t = (MathView) v;
         if (answer.equals(t.getText())) {
             score++;
             scoreTextView.setText("" + score);
@@ -97,10 +98,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         // Perform this raw SQL query "SELECT * FROM pets"
         // to get a Cursor that contains all rows from the pets table.
-        try (Cursor cursor = db.rawQuery("DELETE FROM " + QuestionEntry.TABLE_NAME, null)) {
+        try (Cursor cursor = db.rawQuery("DELETE FROM " + ReviewerContract.QuestionEntry.TABLE_NAME, null)) {
             // Display the number of rows in the Cursor (which reflects the number of rows in the
             // pets table in the database).
-            TextView displayView = (TextView) findViewById(R.id.question_textview);
+            TextView displayView = (TextView) findViewById(R.id.question_view);
             displayView.setText("Number of rows in question database table: " + cursor.getCount());
         }
 
@@ -124,10 +125,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         Collections.shuffle(choices);
 
         // set the shuffled choices
-        choiceAButton.setText(choices.get(0));
-        choiceBButton.setText(choices.get(1));
-        choiceCButton.setText(choices.get(2));
-        choiceDButton.setText(choices.get(3));
+        choiceAButton.setText("A. " + choices.get(0));
+        choiceBButton.setText("B. " + choices.get(1));
+        choiceCButton.setText("C. " + choices.get(2));
+        choiceDButton.setText("D. " + choices.get(3));
         questionId++;
     }
 }
