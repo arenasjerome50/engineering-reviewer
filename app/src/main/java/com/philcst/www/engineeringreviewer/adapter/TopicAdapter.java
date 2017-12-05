@@ -1,4 +1,4 @@
-package com.philcst.www.engineeringreviewer;
+package com.philcst.www.engineeringreviewer.adapter;
 
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.philcst.www.engineeringreviewer.R;
 import com.philcst.www.engineeringreviewer.data.Topic;
 
 import java.util.ArrayList;
@@ -14,11 +15,11 @@ import java.util.ArrayList;
 /**
  * An RecyclerView Adapter the is use in TopicListFragment class
  */
-class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
+public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
 
     // for listening Recylcer Item taps
     // This interface is implemented in the Parent Activity (In this case the TopicListActivity)
-    interface OnItemClickListener {
+    public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
@@ -26,7 +27,7 @@ class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
     //private TopicItem selectedTopicItem;
     private OnItemClickListener mListener;
 
-    TopicAdapter(ArrayList<Topic> dataset, OnItemClickListener listener) {
+    public TopicAdapter(ArrayList<Topic> dataset, OnItemClickListener listener) {
         this.mDataset = dataset;
         this.mListener = listener;
     }
