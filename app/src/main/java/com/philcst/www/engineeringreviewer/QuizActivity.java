@@ -3,6 +3,8 @@ package com.philcst.www.engineeringreviewer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,71 +17,81 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
+public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
 
-    ArrayList<Question> questionArrayList;
-    int score = 0;
-    int questionId = 0;
-    Question currentQuestion;
-    MathView questionMathView;
-    TextView scoreTextView;
-    TextView questionNumberTextView;
-    MathView choiceAButton, choiceBButton, choiceCButton, choiceDButton /*,nextButton*/;
+    private String TAG = QuizActivity.class.getSimpleName();
+    private ArrayList<Question> questionArrayList;
+    private int score = 0;
+    private int questionId = 0;
+    private Question currentQuestion;
+    private MathView questionMathView;
+    private TextView scoreTextView;
+    private TextView questionNumberTextView;
+    private MathView choiceA, choiceB, choiceC, choiceD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        prepareQuestions();
+        setInitialViews();
+    }
 
-        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        questionArrayList = databaseAccess.getAllQuestions();
-        Collections.shuffle(questionArrayList);
-
+    private void setInitialViews() {
+        // set views
         currentQuestion = questionArrayList.get(questionId);
         questionMathView = (MathView) findViewById(R.id.question_view);
         questionNumberTextView = (TextView) findViewById(R.id.question_number);
         scoreTextView = (TextView) findViewById(R.id.score_number);
-        choiceAButton = (MathView) findViewById(R.id.choice_a_button);
-        choiceBButton = (MathView) findViewById(R.id.choice_b_button);
-        choiceCButton = (MathView) findViewById(R.id.choice_c_button);
-        choiceDButton = (MathView) findViewById(R.id.choice_d_button);
+
+        // set choices views
+        choiceA = (MathView) findViewById(R.id.choice_math_view_a);
+        choiceB = (MathView) findViewById(R.id.choice_math_view_b);
+        choiceC = (MathView) findViewById(R.id.choice_math_view_c);
+        choiceD = (MathView) findViewById(R.id.choice_math_view_d);
+        CardView cardA = (CardView) findViewById(R.id.choice_card_view_a);
+        CardView cardB = (CardView) findViewById(R.id.choice_card_view_b);
+        CardView cardC = (CardView) findViewById(R.id.choice_card_view_c);
+        CardView cardD = (CardView) findViewById(R.id.choice_card_view_d);
         //nextButton = (Button) findViewById(R.id.next_button);
+
+        cardA.setOnClickListener(this);
+        cardB.setOnClickListener(this);
+        cardC.setOnClickListener(this);
+        cardD.setOnClickListener(this);
+
         setQuestionView();
         //displayDatabaseInfo();
-
-        choiceAButton.setClickable(true);
-        choiceBButton.setClickable(true);
-        choiceCButton.setClickable(true);
-        choiceDButton.setClickable(true);
-
-        choiceAButton.setOnClickListener(this);
-        choiceBButton.setOnClickListener(this);
-        choiceCButton.setOnClickListener(this);
-        choiceDButton.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        String answer = currentQuestion.getANSWER();
-        MathView t = (MathView) v;
-        if (answer.equals(t.getText())) {
-            score++;
-            scoreTextView.setText("" + score);
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Wrong", Toast.LENGTH_SHORT).show();
-        }
-        if (questionId < questionArrayList.size()) {
-            currentQuestion = questionArrayList.get(questionId);
-            setQuestionView();
-        } else {
-            Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-            Bundle b = new Bundle();
-            b.putInt("score", score); //Your score
-            intent.putExtras(b); //Put your score to your next Intent
-            startActivity(intent);
-            finish();
-        }
+    private void prepareQuestions() {
+        DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
+        questionArrayList = databaseAccess.getAllQuestions();
+        Collections.shuffle(questionArrayList);
+    }
+
+    private void setQuestionView() {
+        questionNumberTextView.setText("Question " + (questionId + 1));
+        questionMathView.setText(currentQuestion.getQUESTION());
+        setChoices();
+        questionId++;
+    }
+
+    private void setChoices() {
+        ArrayList<String> choices = new ArrayList<>();
+        // add choices including the answer to the list
+        choices.add(currentQuestion.getOPTA());
+        choices.add(currentQuestion.getOPTB());
+        choices.add(currentQuestion.getOPTC());
+        choices.add(currentQuestion.getANSWER());
+
+        // OK! its Shake time, I hope nobody get the right answer ha ha ha
+        Collections.shuffle(choices);
+
+        choiceA.setText(choices.get(0));
+        choiceB.setText(choices.get(1));
+        choiceC.setText(choices.get(2));
+        choiceD.setText(choices.get(3));
     }
 
     /**
@@ -109,26 +121,32 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         // resources and makes it invalid.
     }*/
 
+    @Override
+    public void onClick(View v) {
+        //Toast.makeText(QuizActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+        String answer = currentQuestion.getANSWER();
+        CardView parentCard = (CardView) v;
+        MathView choice = (MathView) parentCard.getChildAt(0);
+        Log.i(TAG, "onClick: text=" + choice.getText());
 
-    private void setQuestionView() {
-        questionNumberTextView.setText("Question " + (questionId + 1));
-        questionMathView.setText(currentQuestion.getQUESTION());
+        if (answer.equals(choice.getText())) {
+            score++;
+            scoreTextView.setText("" + score);
+            Toast.makeText(QuizActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(QuizActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
+        }
 
-        ArrayList<String> choices = new ArrayList<>();
-        // add choices including the answer to the list
-        choices.add(currentQuestion.getOPTA());
-        choices.add(currentQuestion.getOPTB());
-        choices.add(currentQuestion.getOPTC());
-        choices.add(currentQuestion.getANSWER());
-
-        // OK! its Shake time, I hope nobody get the right answer ha ha ha
-        Collections.shuffle(choices);
-
-        // set the shuffled choices
-        choiceAButton.setText("A. " + choices.get(0));
-        choiceBButton.setText("B. " + choices.get(1));
-        choiceCButton.setText("C. " + choices.get(2));
-        choiceDButton.setText("D. " + choices.get(3));
-        questionId++;
+        if (questionId < questionArrayList.size()) {
+            currentQuestion = questionArrayList.get(questionId);
+            setQuestionView();
+        } else {
+            Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+            Bundle b = new Bundle();
+            b.putInt("score", score); //Your score
+            intent.putExtras(b); //Put your score to your next Intent
+            startActivity(intent);
+            finish();
+        }
     }
 }
