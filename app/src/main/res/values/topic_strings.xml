@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_topic_names">
+        <item>General Applied Science</item>
+        <item>Engineering Mathematics</item>
+    </string-array>
+    <string-array name="geas_topic_names">
+        <item>abc</item>
+        <item>def</item>
+    </string-array>
+    <string-array name="engg_math_topic_names">
+        <item>Systems of Numbers &amp; Conversion</item>
+        <item>Fundamentals in Algebra</item>
+        <item>Quadratic Equation, Binomial Theorem &amp; Logarithms</item>
+        <item>Work, Mixture, Digit, Motion Problems</item>
+        <item>Clock, Variation, Misc. Problems &amp; Progression</item>
+        <item>Venn Diagram, Permutation, Combination &amp; Probability</item>
+        <item>Plane Geometry</item>
+        <item>Solid Geometry</item>
+        <item>Plane Trigonometry</item>
+        <item>Spherical Trigonometry</item>
+        <item>Analytic Geometry I</item>
+        <item>Analytic Geometry II</item>
+    </string-array>
+    <string-array name="main_topic_desc">
+        <item>A discipline of science that applies existing scientific knowledge to develop more practical applications, like technology or inventions.</item>
+        <item>The art of applying mathematics to complex real-world problems. It combines mathematical theory, practical engineering and scientific computing to address today’s technological challenges.</item>
+    </string-array>
+    <string-array name="geas_topic_desc">
+        <item>Description No. 1</item>
+        <item>Description No. 2</item>
+    </string-array>
+    <string-array name="engg_math_topic_desc">
+        <item>System of Numbers and how to convert unit of measurement.</item>
+        <item>Basic rules of Algebra, Properties of Equality, Zero, Exponents, Radicals, and Proportion, Special Products, and the Remainder &amp; Factor Theorem.</item>
+        <item>Quadratic Equation, Binomial Theorem, Logarithms and It's properties.</item>
+        <item>Solve problems about age, work, mixture, digit and motion.</item>
+        <item>Solve about clock, variation, and other problems. learn about progressions</item>
+        <item>Learn how to use venn diagram, Counting possible outcomes using permutation, combination, and learn what is probability theory.</item>
+        <item>What is geometry, angles, circles, polygons, triangles, quadrilaterals, parallelograms and how to solve them.</item>
+        <item>Learn about Polyhedrons, its properties, and how to get its surface area and volume for every kind of it.</item>
+        <item>Study about triangles and it's properties.</item>
+        <item>Solving triangular surfaces in a sphere and its applications.</item>
+        <item>What is rectangular coordinates system, formulas for points, lines, and circle.</item>
+        <item>Parabola, Ellipse, Hyperbola, and its properties.</item>
+    </string-array>
+</resources>

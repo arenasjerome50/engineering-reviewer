@@ -19,12 +19,12 @@ public class TopicData {
             R.drawable.ic_axis
     };
 
-    public static String[] titles = {
-            "General Applied Science",
-            "Engineering Mathematics"
-    };
+    //public static String[] titles = {
+    //        "General Applied Science",
+    //        "Engineering Mathematics"
+    //};
 
-    public static String[] desc = {
+    /*public static String[] desc = {
             "A discipline of science that applies existing scientific knowledge " +
                     "to develop more practical applications, like technology or " +
                     "inventions.",
@@ -32,9 +32,9 @@ public class TopicData {
                     " It combines mathematical theory, practical engineering " +
                     "and scientific computing to address today’s technological " +
                     "challenges."
-    };
+    };*/
 
-    public static String[][] subTopicTitles = {
+    /*public static String[][] subTopicTitles = {
             {"abc", "def"},
             {   // 2 topics
                     "Systems of Numbers & Conversion",
@@ -49,7 +49,7 @@ public class TopicData {
                     "Spherical Trigonometry",
                     "Analytic Geometry I",
                     "Analytic Geometry II"
-            }};
+            }};*/
 
     public static int[][] subTopicImages = {
             {R.drawable.ic_molecule, R.drawable.ic_molecule},
@@ -69,7 +69,7 @@ public class TopicData {
             }
     };
 
-    public static String[][] subTopicDesc = {
+    /*public static String[][] subTopicDesc = {
             {
                     "Description No. 1",
                     "Description No. 2"
@@ -86,9 +86,9 @@ public class TopicData {
                     "Study about triangles and it's properties.",
                     "Solving triangular surfaces in a sphere and its applications.",
                     "What is rectangular coordinates system, formulas for points, lines, and circle.",
-                    "Parabola, Ellipse, Hyperbola, and its properties,"
+                    "Parabola, Ellipse, Hyperbola, and its properties."
             }
-    };
+    };*/
 
     public static String[][] subTopicContents = {
             {
@@ -115,7 +115,7 @@ public class TopicData {
     // and mEnggMathSubTopicItems
     // TODO: we need to rethink how the data is access that is not hard coded to a class instead you
     // can query data to the database.
-    public static void loadData() {
+    /*public static void loadData() {
 
         for (int x = 0; x < titles.length; x++) {
 
@@ -139,4 +139,5 @@ public class TopicData {
     public static ArrayList<Topic> getTopicItems() {
         return topicItems;
     }
+    */
 }
