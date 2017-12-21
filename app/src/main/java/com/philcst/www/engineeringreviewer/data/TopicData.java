@@ -65,6 +65,10 @@ public class TopicData {
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
+                    R.drawable.ic_integral,
+                    R.drawable.ic_integral,
+                    R.drawable.ic_integral,
+                    R.drawable.ic_integral,
                     R.drawable.ic_integral
             }
     };
@@ -107,7 +111,11 @@ public class TopicData {
                     "plane_trigonometry.html",
                     "spherical_trigonometry.html",
                     "analytic_geometry_one.html",
-                    "analytic_geometry_two.html"
+                    "analytic_geometry_two.html",
+                    "differential_calculus_limits_derivatives.html",
+                    "differential_calculus_maxima_minima_time_rates,html",
+                    "integral_calculus.html",
+                    "differential_equations.html"
             }
     };
 
