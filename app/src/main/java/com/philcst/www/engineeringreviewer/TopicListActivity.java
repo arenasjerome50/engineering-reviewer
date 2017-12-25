@@ -126,6 +126,7 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
                 ));
             }
 
+
             topicItems.add(x, new Topic(TopicData.images[x], titles[x], desc[x], subTopics));
         }
     }

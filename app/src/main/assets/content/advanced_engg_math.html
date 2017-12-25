@@ -3,12 +3,310 @@
 <head>
 <meta charset="utf-8">
 <title>Advanced Engineering Math</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } },
+	showMathMenu: false
+  });
+</script>
+  <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
 <body>
 <h1>Advanced Engineering Math</h1>
 <hr>
 <h3>Complex Number</h3>
 <p>By definition, a complex number is any number expressible in the standard form $a+bi$ or $a+bj$.</p>
-<p>&nbsp;</p>
+<p>where:<br>
+  $i \ or \ j=\sqrt{-1}$<br>
+  $i^{2} \ or \ j^{2} = -1$</p>
+<p>Example: Solve the solution of $x^{2}+1=0$.<br>
+  Simplifying we get $x = \pm \sqrt{-1}$<br>
+  Thus the solutions are i and -i.</p>
+<p><strong>Successive integral powers of i or j</strong></p>
+<ol type="a">
+	<li>$j^{2}=-1$</li>
+    <li>$j^{3}=j(j^{2})=-j$</li>
+    <li>$j^{4}=j^{2}(j^{2})=1$</li>
+    <li>$j^{5}=j^{3}(j^{2})=j$</li>
+    <li>$j^{6}=j^{4}(j^{2})=-1$</li>
+    <li>$j^{7}=j^{5}(j^{2})=-j$</li>
+    <li>$j^{8}=j^{4}(j^{4})=1$</li>
+</ol>
+<p>...etc</p>
+<h3>Different forms of complex numbers</h3>
+<ol type="a">
+  <li>
+    <p>Rectangular form</p>
+    <p>$z=a+bj$</p>
+    <p>where: a = real part, b = imaginary part</p>
+  </li>
+  <li>
+    <p>Trigonometric form</p>
+    <p>$z=r\cos\theta+jr\sin\theta$</p>
+    <p>$z=r\cos\theta$</p>
+  </li>
+  <li>
+    <p>Polar form </p>
+    <p>$z=r\angle\theta$</p>
+    <p>$r=\sqrt{a^{2}+b^{2}}$</p>
+    <p>$\theta=\tan^{-1}\frac{b}{a}$</p>
+    <p><img src="img/advanced_engg_math/complex_num_axis.png" style="height:auto; width:auto; max-width:100%" alt="complex number axis"></p>
+    <p>where: r = modulus or absolute value<br>
+      $\theta$ = argument or amplitude on degrees</p>
+  </li>
+  <li>
+    <p>Exponential form </p>
+    <p>$x=re^{j\theta}$</p>
+    <p>where: $\theta$ = argument in radians</p>
+  </li>
+</ol>
+<h3>Mathematical operations:</h3>
+<ol type="a">
+  <li>
+    <p><strong>Addition and Subtraction of complex numbers</strong></p>
+    <p>Rule: Use the rectangular form</p>
+    <p>$$(a_{1} + jb_{1})+(a_{2}+jb_{2})=(a_{1}+a_{2})+j(b_{1}+b_{2})$$</p>
+    <p>$$(a_{1} + jb_{1})-(a_{2}+jb_{2})=(a_{1}-a_{2})+j(b_{1}-b_{2})$$</p>
+  </li>
+  <li>
+    <p><strong>Multiplication of complex numbers</strong></p>
+    <p>Rule: Use the polar form</p>
+    <p>$$(r_{1}\angle\theta_{1})(r_{2}\angle\theta_{2})=r_{1}r_{2}\angle(\theta_{1}+\theta_{2})$$</p></li>
+  <li><strong>Division of complex numbers</strong>
+    <p>Rule: Use the polar form</p>
+    <p>$$\frac{r_{1}\angle\theta_{1}}{r_{2}\angle\theta_{2}}=\frac{r_{1}}{r_{2}}\angle(\theta_{1}-\theta_{2})$$</p>
+  </li>
+  <li>
+    <p><strong>Complex number raised to exponent &quot;n&quot;</strong></p>
+    <p>Rule: Use the polar form</p>
+    <p>$$(r\angle\theta)^{n}=r^{n}\angle(n\theta)$$</p>
+  </li>
+  <li>
+    <p><strong>n<sup>th</sup> root of a complex number</strong></p>
+    <p>Rule: Use the polar form</p>
+    <p>$$(r\angle\theta)^{\frac{1}{n}}=r^{\frac{1}{n}}\angle\frac{\theta+k(360^{\circ})}{n}$$</p>
+    <p>where:<br>
+      k = 0, first root or principal root<br>
+      k = 1, second root<br>
+      k = 2, third root<br>
+    k = n - 1, n<sup>th</sup> root</p>
+  </li>
+  <li>
+    <p><strong>Logarithm of a complex number</strong> </p>
+    <p>Rule: Use the trigonometric form</p>
+    <p>$$\ln z=re^{j\theta}=\ln r+ \ln e^{j\theta}$$</p>
+    <p>$$\ln z=\ln r+j\theta$$</p>
+  </li>
+  <li>
+    <p><strong>Exponential &amp; trigonometric functions of a complex number</strong></p>
+    <p>$$e^{\theta j}=\cos\theta+\sin\theta j$$</p>
+    <p>$$e^{-\theta j}=\cos\theta-\sin\theta j$$</p>
+    <p>$$\sin\theta=\frac{e^{j\theta}-e^{-j\theta}}{2j}$$</p>
+    <p>$$\cos\theta=\frac{e^{j\theta}+e^{-j\theta}}{2}$$</p>
+    <p>note: $\tan\theta = \frac{\sin\theta}{\cos\theta}$<br>
+      $\cot\theta=\frac{\cos\theta}{\sin\theta}$<br>
+      $\sec\theta=\frac{1}{\cos\theta}$<br>
+      $\csc\theta=\frac{1}{\sin\theta}$</p>
+  </li>
+  <li>
+    <p><strong>Hyperbolic functions</strong></p>
+    <p>$$\sinh\theta=\frac{e^{\theta}-e^{-\theta}}{2}$$</p>
+    <p>$$\cosh\theta=\frac{e^{\theta}+e^{-\theta}}{2}$$</p>
+    <p>note: $\tanh\theta=\frac{\sinh\theta}{\cosh\theta}$<br>
+      $\coth\theta=\frac{\cosh\theta}{\sinh\theta}$<br>
+      $\text{sech}\theta=\frac{1}{\cosh\theta}$<br>
+      $\text{csch}\theta=\frac{1}{\sinh\theta}$</p>
+  </li>
+  <li>
+    <p><strong>Inverse trigonometric functions of complex numbers</strong> </p>
+    <p>$$\sinh^{-1}z=-j\ln\left ( jz\pm \sqrt{1-z^{2}} \right )$$</p>
+    <p>$$\cosh^{-1}z=-j\ln\left ( z\pm \sqrt{z^{2}-1} \right )$$</p>
+    <p>$$\tanh^{-1}z=\frac{-j}{2}\ln\left ( \frac{1+jz}{1-jz} \right )$$</p>
+  </li>
+  <li>
+    <p><strong>Inverse hyperbolic functions of complex numbers</strong> </p>
+    <p>$$\sinh^{-1}z=\ln\left ( z\pm \sqrt{z^{2}+1} \right )$$</p>
+    
+    <p>$$\cosh^{-1}z=\ln\left ( z\pm \sqrt{z^{2}-1} \right )$$</p>
+    <p>$$\tanh^{-1}z=\frac{1}{2}\ln\left ( \frac{1+z}{1-z} \right )$$</p>
+  </li>
+</ol>
+<h3>Matrices</h3>
+<p><strong>Matrix</strong> is a rectangular array of real numbers arranged in m rows and n columns. The term &quot;matrix&quot; was introduced by the English mathematician <strong>James Joseph Sylvester </strong>(1814-1897) in 1850. The size of a matrix is determined by the number of rows and columns. The expression &quot;m x n&quot; is the<strong> dimension</strong> or<strong> order </strong>of the matrix. If the matrix has only one column, it is called a<strong> column matrix</strong> and if it has only one row, it is called a <strong>row matrix</strong>. The following is a 3 x 3 matrix or <strong>square matrix</strong> (i.e. 3 rows and 3 columns).</p>
+<p>$$A=\begin{bmatrix}<br>
+  6 &amp; 5 &amp; 4\\ <br>
+  2 &amp; 1 &amp; 4\\ <br>
+  3 &amp; -2 &amp; -2<br>
+\end{bmatrix}$$</p>
+<p>The first non-zero entry in a row of a matrix is known as the <strong>leading entry </strong>or the <strong>leading element</strong>. In the matrix above, 6 is the leading entry. The diagonal from the upper-left to the lower right is called the <strong>principal diagonal</strong> or <strong>main diagonal</strong> and all entries in the said diagonal are called as <strong>diagonal entries</strong>.</p>
+<p>If all entries in a matrix above the main diagonal are zero, then it is said to be a <strong>lower triangular matrix</strong>, and if all the entries below the main diagonal are zero, the matrix is referred to as the <strong>upper diagonal matrix</strong>.</p>
+<p>Lower Triangular Matrix<br>$$A=\begin{bmatrix}<br>
+  6 &amp; 0 &amp; 0\\ <br>
+  2 &amp; 1 &amp; 0\\ <br>
+  3 &amp; -2 &amp; -2<br>
+\end{bmatrix}$$</p>
+<p>Upper Triangular Matrix<br>
+$$B=\begin{bmatrix}<br>
+6 &amp; 5 &amp; 4\\ <br>
+0 &amp; 1 &amp; 4\\ <br>
+0 &amp; 0 &amp; -2<br>
+\end{bmatrix}$$</p>
+<p>Diagonal Matrix<br>
+$$C=\begin{bmatrix}<br>
+6 &amp; 0 &amp; 0\\ <br>
+0 &amp; 1 &amp; 0\\ <br>
+0 &amp; 0 &amp; -2<br>
+\end{bmatrix}$$</p>
+<p>Two matrices are said to be equal if and only if there orders are equal and their corresponding elements are equal.</p>
+<p>Example: Matrices B and C are equal. $$B=\begin{bmatrix}<br>
+  3 &amp; 2\\ <br>
+  2 &amp; -1<br>
+  \end{bmatrix} \ \ \ \ \ \ \ \ \ \ C=\begin{bmatrix}<br>
+  3 &amp; 2\\ <br>
+  2 &amp; -1<br>
+\end{bmatrix}$$</p>
+<p><strong>Sum of two matrices:</strong><br>
+  If A and B are two matrices of the same order, the sum of A and B, denoted by A + B, is the matrix for which each of its elements is the sum of the corresponding elements of A and B.</p>
+<p>Example: Find A + B. $$A=\begin{bmatrix}<br>
+  5 &amp; -2 &amp; 6\\ <br>
+  -1 &amp; 8 &amp; -3<br>
+  \end{bmatrix}\ \ \ \ \ \ \ \ B=\begin{bmatrix}<br>
+  4 &amp; 7 &amp; 1\\ <br>
+  7 &amp; 0 &amp; 4<br>
+\end{bmatrix}$$</p>
+<p>Solution: $$A+B=\begin{bmatrix}<br>
+  5+4 &amp; -2+7 &amp; 6+1\\ <br>
+  -1+3 &amp; 8+0 &amp; -3-4<br>
+  \end{bmatrix}=\begin{bmatrix}<br>
+  9 &amp; 5 &amp; 7\\ <br>
+  2 &amp; 8 &amp; -7<br>
+\end{bmatrix}$$</p>
+<p><strong>Difference of two matrices:</strong><br>
+  If A and B are matrices having the same order, then the difference of A and B, denoted by A - B, is defined as $$A-B=A+(-B)$$</p>
+<p>Example: Find A - B $$A=\begin{bmatrix}<br>
+  4 &amp; -3\\ <br>
+  -5 &amp; -1\\ <br>
+  3 &amp; 8<br>
+  \end{bmatrix}\ \ \ \ \ \ \ B=\begin{bmatrix}<br>
+  4 &amp; 3\\ <br>
+  7 &amp; -5\\ <br>
+  8 &amp; 2<br>
+\end{bmatrix}$$</p>
+<p>Solution: $$A-B=\begin{bmatrix}<br>
+  4 &amp; -3\\ <br>
+  -5 &amp; -1\\ <br>
+  3 &amp; 8<br>
+  \end{bmatrix}+\begin{bmatrix}<br>
+  -4 &amp; -3\\ <br>
+  -7 &amp; 5\\ <br>
+  -8 &amp; -2<br>
+  \end{bmatrix}=\begin{bmatrix}<br>
+  0 &amp; -6\\ <br>
+  -12 &amp; 4\\ <br>
+  -5 &amp; 6<br>
+\end{bmatrix}$$</p>
+<p><strong>Product of two matrices:</strong><br>
+  Supposed that A is a matrix of order m x p and B is a matrix of order p x n, then the product of A and B, denoted by AB, is the n x n matrix for which the element in the ith row and the jth column is the sum of the products formed by multiplying each element in the ith row of A by the corresponding element in the jth column of B.</p>
+<p>Example: Find DC. $$D=\begin{bmatrix}<br>
+  2 &amp; -3\\ <br>
+  4 &amp; -1\\ <br>
+  1 &amp; 5<br>
+  \end{bmatrix}\ \ \ \ \ \ \ C=\begin{bmatrix}<br>
+  -4 &amp; 1 &amp; 3\\ <br>
+  -1 &amp; 2 &amp; 5<br>
+\end{bmatrix}$$</p>
+<p>D is a 3 x 2 matrix and C is a 2 x 3 matrix. The product DC can be obtained because the number of columns of D (2 columns) is equal to the number of row of C (2 rows). The product DC will be a 3 x 3 matrix. $$DC=\begin{bmatrix}<br>
+  2(-4)+(-3)(-1) &amp; 2(1)+(-3)(2) &amp; 2(3)+(-3)(5)\\ <br>
+  4(-4)+(-1)(-1) &amp; 4(1)+(-1)(2) &amp; 4(3)+(-1)(5)\\ <br>
+  1(-4)+5(-1) &amp; 1(1)+5(2) &amp; 1(3)+5(5)<br>
+  \end{bmatrix}=\begin{bmatrix}<br>
+  -5 &amp; -4 &amp; -9\\ <br>
+  -15 &amp; 2 &amp; 7\\ <br>
+  -9 &amp; 11 &amp; 28<br>
+\end{bmatrix}$$</p>
+<p><strong>Division of matrices</strong><br>
+  Division of matrices are done by multiplying the numerator by the inverse matrix of the denominator.</p>
+<blockquote>
+  <p>Let: $A$ and $B$ are matrices<br>
+  $\frac{A}{B}=AB^{-1}$, where $B^{-1}$ is called the inverse matrix of matrix B</p>
+</blockquote>
+<p><strong>Transpose Matrix</strong><br>
+  If matrix A is reflected in its main diagonal, so that all rows become columns and all columns become rows without changing their relative order of entries in the rows and columns, the result is a <strong>transpose matrix</strong>, $A^{T}$.</p>
+<p>Example: $$A=\begin{bmatrix}<br>
+  -4 &amp; 1 &amp; 3\\ <br>
+  -1 &amp; 2 &amp; 5<br>
+  \end{bmatrix}\ \ \ \ \ \ \ A^{T}=\begin{bmatrix}<br>
+  -4 &amp; -1\\ <br>
+  1 &amp; 2\\ <br>
+  3 &amp; 5<br>
+\end{bmatrix}$$</p>
+<p><strong>Cofactor of an entry of a matrix</strong><br>
+  A cofactor of an entry of a matrix is the same as the cofactor of the same entry in the determinant of the matrix and thus, is defined only for <strong>square matrices</strong>.</p>
+<p>Sign conventions: $$\begin{bmatrix}<br>
+  + &amp; -\\ <br>
+  - &amp; +<br>
+  \end{bmatrix}\ \ \ \ \ \ \ \begin{bmatrix}<br>
+  + &amp; - &amp; +\\ <br>
+  - &amp; + &amp; -\\ <br>
+  + &amp; - &amp; +<br>
+\end{bmatrix}$$</p>
+<p>Example: Find the co-factor of 6 in the following matrix. $$A=\begin{bmatrix}<br>
+  1 &amp; 2 &amp; 0\\ <br>
+  2 &amp; 1 &amp; 4\\ <br>
+  4 &amp; 2 &amp; 6<br>
+\end{bmatrix}$$</p>
+<p>The equivalent matrix is: $$A=+\begin{bmatrix}<br>
+  1 &amp; 2\\ <br>
+  2 &amp; 1<br>
+\end{bmatrix}$$</p>
+<p>The determinant of A is: $$\det A = \begin{vmatrix}<br>
+  1 &amp; 2\\ <br>
+  2 &amp; 1<br>
+\end{vmatrix}=(1)(1)-(2)(2)=-3$$<br>
+Thus, the cofactor of 6 is -3.</p>
+<p><strong>Cofactor Matrix</strong><br>
+  A cofactor matrix is formed by replacing each element in the given matrix by its cofactor.</p>
+<p>Example: Find cofactor matrix of A $$A=\begin{bmatrix}<br>
+  3 &amp; 2\\ <br>
+  4 &amp; 1<br>
+  \end{bmatrix}\ \ \ \ \ \ \ \text{Cofactor matrix of }A=\begin{bmatrix}<br>
+  1 &amp; 4\\ <br>
+  2 &amp; 3<br>
+\end{bmatrix}$$</p>
+<p><strong>Inverse Matrix</strong><br>
+  Steps required to find for the inverse Matrix (say A):</p>
+<ol type="a">
+  <li>Form the cofactor matrix of matrix A</li>
+  <li>Form the transpose matrix of the cofactor matrix A</li>
+  <li>Evaluate the determinant of matrix A</li>
+  <li>Divide each element in the (matrix cofactor)<sup>T</sup></li>
+</ol>
+<p>Example: Find the inverse matrix of A $$A=\begin{vmatrix}<br>
+  1 &amp; 2 &amp; 0\\ <br>
+  2 &amp; 1 &amp; 4\\ <br>
+  4 &amp; 2 &amp; 6<br>
+\end{vmatrix}$$</p>
+<p>$$\text{Cofactor matrix }A=\begin{vmatrix}<br>
+  -2 &amp; 4 &amp; 0\\ <br>
+  -12 &amp; 6 &amp; 6\\ <br>
+  8 &amp; -4 &amp; -3<br>
+\end{vmatrix}$$</p>
+<p>$$(\text{Cofactor matrix }A)^{T}=\begin{vmatrix}<br>
+  -2 &amp; -12 &amp; 0\\ <br>
+  4 &amp; 6 &amp; 6\\ <br>
+  0 &amp; 6 &amp; -3<br>
+\end{vmatrix}$$</p>
+<p>$$\det A = \begin{vmatrix}<br>
+  1 &amp; 2 &amp; 0\\ <br>
+  2 &amp; 1 &amp; 4\\ <br>
+  4 &amp; 2 &amp; 6<br>
+\end{vmatrix}=6$$</p>
+<p>$$\text{Thus, }A^{-1}=\frac{1}{6}\begin{vmatrix}<br>
+  -2 &amp; -12 &amp; 0\\ <br>
+  4 &amp; 6 &amp; 6\\ <br>
+  0 &amp; 6 &amp; -3<br>
+\end{vmatrix}$$</p>
 </body>
 </html>
