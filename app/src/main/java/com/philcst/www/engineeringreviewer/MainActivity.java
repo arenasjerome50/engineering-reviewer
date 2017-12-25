@@ -1,5 +1,6 @@
 package com.philcst.www.engineeringreviewer;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +10,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private long lastPress; // for handling exit confirmation toast
-    private Toast backpressToast;
+    private String TAG = MainActivity.class.getSimpleName();
+    //private long lastPress; // for handling exit confirmation toast
+    //private Toast backpressToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         viewLectureButton.setOnClickListener(this);
         startQuizButton.setOnClickListener(this);
         quitButton.setOnClickListener(this);
-
     }
 
     /**
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /*
         Modified for confirmation exit mechanism
      */
-    @Override
+    /*@Override
     public void onBackPressed() {
         // get the current time
         long currentTime = System.currentTimeMillis();
@@ -90,5 +90,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (backpressToast != null) backpressToast.cancel();
             super.onBackPressed();
         }
+    }*/
+
+    @Override
+    public void onBackPressed() {
+        DialogFragment exitDialog = new ExitDialogFragment();
+        exitDialog.show(getFragmentManager(), TAG);
     }
 }
