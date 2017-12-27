@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_start_quiz:
                 // start QuizActivity
-                startActivity(new Intent(MainActivity.this, QuizActivity.class));
+                startActivity(new Intent(MainActivity.this, QuizModeActivity.class));
                 break;
             case R.id.btn_quit:
                 // Exits the app

@@ -15,4 +15,15 @@
     <string name="_0">0</string>
     <string name="placeholder_text">placeholder_text</string>
     <string name="next">Next</string>
+    <!-- Quiz Modes -->
+    <string-array name="quiz_modes">
+        <item>Normal Quiz</item>
+        <item>Timed Quiz</item>
+        <item>Vitali-3</item>
+    </string-array>
+    <string-array name="quiz_modes_desc">
+        <item>Take the quiz with no time limit.</item>
+        <item>Quiz with time limit depends on the difficulty of the question.</item>
+        <item>Prevent getting three(3) wrong answers to survive.</item>
+    </string-array>
 </resources>

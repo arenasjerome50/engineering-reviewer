@@ -16,6 +16,7 @@ public class ExitDialogFragment extends DialogFragment {
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
                         getActivity().finish();
                     }
                 })
