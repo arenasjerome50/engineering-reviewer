@@ -9,16 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.philcst.www.engineeringreviewer.adapter.TopicAdapter;
+import com.philcst.www.engineeringreviewer.adapter.QuizModeAdapter;
 
 /**
  * A fragment for displaying Topics and Subtopics
  */
-public class TopicListFragment extends Fragment {
+public class ModeListFragment extends Fragment {
 
     // This class holds an adapter for its own recylcer view
-    private TopicAdapter adapter;
-    public TopicListFragment() {
+    private QuizModeAdapter adapter;
+    public ModeListFragment() {
         adapter = null;
     }
 
@@ -49,7 +49,7 @@ public class TopicListFragment extends Fragment {
     }
 
     // You can call this setter method to assign a TopicAdapter Object from the Parent Activity
-    public void setAdapter(TopicAdapter adapter) {
+    public void setAdapter(QuizModeAdapter adapter) {
         this.adapter = adapter;
     }
 }

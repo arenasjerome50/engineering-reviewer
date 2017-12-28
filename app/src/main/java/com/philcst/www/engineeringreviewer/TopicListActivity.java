@@ -11,10 +11,11 @@ import android.view.MenuItem;
 
 import com.philcst.www.engineeringreviewer.adapter.TopicAdapter;
 import com.philcst.www.engineeringreviewer.data.Topic;
+import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
 import java.util.ArrayList;
 
-public class TopicListActivity extends AppCompatActivity implements TopicAdapter.OnItemClickListener {
+public class TopicListActivity extends AppCompatActivity implements OnItemClickListener {
     // TODO: Fix the state reset problem, apply the concept of using bundles for saving states like
     // what fragment is currently attached before rotating the screen layout?
 
@@ -39,7 +40,7 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
         TopicListFragment firstTopicList = new TopicListFragment();
 
         // Sets the Adapter,its dataset, and implements the callback required if the topic is selected.
-        firstTopicList.setTopicAdapter(new TopicAdapter(topicItems, this));
+        firstTopicList.setAdapter(new TopicAdapter(topicItems, this));
 
         // Add the initial fragment to the Frame.
         getSupportFragmentManager().beginTransaction().add(R.id.frame, firstTopicList).commit();
@@ -67,26 +68,39 @@ public class TopicListActivity extends AppCompatActivity implements TopicAdapter
     @Override
     public void onItemClick(int position) {
         final Topic mainTopic = topicItems.get(position);
-        // ready the fragment
-        TopicListFragment subTopicList = new TopicListFragment();
-        subTopicList.setTopicAdapter(new TopicAdapter(mainTopic.getSubTopicList(),
-                new TopicAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                Intent intent = new Intent(TopicListActivity.this, ReadingActivity.class);
-                Bundle args = new Bundle();
-                args.putString("title", mainTopic.getSubTopic(position).getTitle());
-                args.putString("content", mainTopic.getSubTopic(position).getContent());
-                intent.putExtras(args);
-                startActivity(intent);
-            }
-        }));
 
-        // swap the fragments
-        getSupportFragmentManager().beginTransaction()
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .replace(R.id.frame, subTopicList)
-                .addToBackStack(null).commit();
+        // if it is from QuizModeActivity with quiz_mode data, execute this
+        if (getIntent().getExtras() != null) {
+            Intent intent = new Intent(TopicListActivity.this, QuizActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putAll(getIntent().getExtras());
+            bundle.putString("topic", mainTopic.getTitle());
+            intent.putExtras(bundle);
+            startActivity(intent);
+            finish();
+        } else { // ohhh it's just a reading intent
+            // ready the fragment
+            TopicListFragment subTopicList = new TopicListFragment();
+            subTopicList.setAdapter(new TopicAdapter(mainTopic.getSubTopicList(),
+                    new OnItemClickListener() {
+                        @Override
+                        public void onItemClick(int position) {
+                            Intent intent = new Intent(TopicListActivity.this, ReadingActivity.class);
+                            Bundle args = new Bundle();
+                            args.putString("title", mainTopic.getSubTopic(position).getTitle());
+                            args.putString("content", mainTopic.getSubTopic(position).getContent());
+                            intent.putExtras(args);
+                            startActivity(intent);
+                        }
+                    }));
+
+            // swap the fragments
+            getSupportFragmentManager().beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .replace(R.id.frame, subTopicList)
+                    .addToBackStack(null).commit();
+        }
+
     }
 
 }

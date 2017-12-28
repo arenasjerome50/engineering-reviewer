@@ -1,20 +1,19 @@
 package com.philcst.www.engineeringreviewer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.philcst.www.engineeringreviewer.adapter.TopicAdapter;
-import com.philcst.www.engineeringreviewer.data.Topic;
+import com.philcst.www.engineeringreviewer.adapter.QuizModeAdapter;
+import com.philcst.www.engineeringreviewer.data.QuizMode;
+import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class QuizModeActivity extends AppCompatActivity {
-
-    ArrayList<Topic> modeItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +27,20 @@ public class QuizModeActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        loadModes();
-
-        final TopicListFragment modeList = new TopicListFragment();
-
-        modeList.setTopicAdapter(new TopicAdapter(modeItems, new TopicAdapter.OnItemClickListener() {
+        final ModeListFragment modeListFragment = new ModeListFragment();
+        modeListFragment.setAdapter(new QuizModeAdapter(Arrays.asList(QuizMode.values()), new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Toast.makeText(QuizModeActivity.this, "Selected Mode: " + modeItems.get(position), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(QuizModeActivity.this, TopicListActivity.class);
+                Bundle args = new Bundle();
+                args.putString("quiz_mode", QuizMode.NORMAL.getName());
+                intent.putExtras(args);
+                startActivity(intent);
             }
         }));
 
-        getSupportFragmentManager().beginTransaction().add(R.id.frame, modeList).commit();
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.frame, modeListFragment).commit();
 
     }
 
@@ -49,24 +50,5 @@ public class QuizModeActivity extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void loadModes() {
-        modeItems = new ArrayList<>();
-
-        String[] modes = getResources().getStringArray(R.array.quiz_modes);
-        String[] mode_desc = getResources().getStringArray(R.array.quiz_modes_desc);
-
-        int[] images = {
-                R.drawable.ic_normal_quiz,
-                R.drawable.ic_timed_quiz,
-                R.drawable.ic_vitali_quiz
-        };
-
-        String[] mode_codes = { "normal", "timed", "vitali_3" };
-
-        for (int x = 0; x < modes.length; x++) {
-            modeItems.add(x, new Topic(images[x], modes[x], mode_desc[x], mode_codes[x]));
-        }
     }
 }

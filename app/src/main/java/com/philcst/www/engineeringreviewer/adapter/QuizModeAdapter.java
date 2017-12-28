@@ -8,51 +8,48 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.philcst.www.engineeringreviewer.R;
-import com.philcst.www.engineeringreviewer.data.Topic;
+import com.philcst.www.engineeringreviewer.data.QuizMode;
 import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
-import java.util.ArrayList;
-
-/**
- * An RecyclerView Adapter the is use in TopicListFragment class
- */
-public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
+import java.util.List;
 
 
-    private ArrayList<Topic> mDataset;
-    //private TopicItem selectedTopicItem;
+public class QuizModeAdapter extends RecyclerView.Adapter<QuizModeAdapter.ViewHolder> {
+
+    // for listening Recylcer Item taps
+    private List<QuizMode> mModes;
     private OnItemClickListener mListener;
 
-    public TopicAdapter(ArrayList<Topic> dataset, OnItemClickListener listener) {
-        this.mDataset = dataset;
+    public QuizModeAdapter(List<QuizMode> modes, OnItemClickListener listener) {
+        this.mModes = modes;
         this.mListener = listener;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        AppCompatImageView topicIcon;
-        TextView title;
-        TextView description;
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        AppCompatImageView imageView;
+        TextView nameTextView;
+        TextView descTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
-            topicIcon = (AppCompatImageView) itemView.findViewById(R.id.topic_icon);
-            title = (TextView) itemView.findViewById(R.id.topic_title);
-            description = (TextView) itemView.findViewById(R.id.topic_desc);
+            imageView = (AppCompatImageView) itemView.findViewById(R.id.topic_icon);
+            nameTextView = (TextView) itemView.findViewById(R.id.topic_title);
+            descTextView = (TextView) itemView.findViewById(R.id.topic_desc);
         }
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public QuizModeAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.topic_item, parent, false);
 
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.topicIcon.setImageResource(mDataset.get(position).getImageId());
-        holder.title.setText(mDataset.get(position).getTitle());
-        holder.description.setText(mDataset.get(position).getDesc());
+    public void onBindViewHolder(QuizModeAdapter.ViewHolder holder, final int position) {
+        holder.imageView.setImageResource(mModes.get(position).getIcon());
+        holder.nameTextView.setText(mModes.get(position).getName());
+        holder.descTextView.setText(mModes.get(position).getDesc());
 
         //Attaching the listeners
         holder.itemView.setOnClickListener(new View.OnClickListener(){
@@ -65,7 +62,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return mDataset.size();
+        return mModes.size();
     }
 
     //int getSelectedTopicIndex() { return mDataset.indexOf(selectedTopicItem); }
