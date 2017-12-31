@@ -31,6 +31,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private TextView questionNumberTextView;
     private MathView choiceA, choiceB, choiceC, choiceD;
 
+    private String selectedTopic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         //get the data from preceding activity
         QuizMode mode = getIntent().getParcelableExtra("quiz_mode");
         Topic topic = getIntent().getParcelableExtra("topic");
+
+        String[] mainTopics = getResources().getStringArray(R.array.main_topic_names);
+        // debug code
+        // TODO: improve this process
+        if (topic.getTitle().equals(mainTopics[1])) {
+            selectedTopic = "engg_math:%";
+        } else if (topic.getTitle().equals(mainTopics[0])) {
+            selectedTopic = "geas";
+        } else if (topic.getContent().equals("random")) {
+            selectedTopic = null;
+        }
+
+        setTitle(mode.getName());
 
         prepareQuestions();
         setInitialViews();
@@ -73,7 +88,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     private void prepareQuestions() {
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        questionArrayList = databaseAccess.getAllQuestions();
+        questionArrayList = databaseAccess.getQuestions(20, selectedTopic);
         Collections.shuffle(questionArrayList);
     }
 

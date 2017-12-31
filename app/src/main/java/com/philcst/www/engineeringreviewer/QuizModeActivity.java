@@ -34,9 +34,6 @@ public class QuizModeActivity extends AppCompatActivity {
             public void onItemClick(int position) {
                 QuizMode mode = Arrays.asList(QuizMode.values()).get(position);
                 Intent intent = new Intent(QuizModeActivity.this, TopicListActivity.class);
-                //Bundle args = new Bundle();
-                //args.putString("quiz_mode", QuizMode.NORMAL.getName());
-                //intent.putExtras(args);
                 intent.putExtra("quiz_mode", (Parcelable) mode);
 
                 startActivity(intent);

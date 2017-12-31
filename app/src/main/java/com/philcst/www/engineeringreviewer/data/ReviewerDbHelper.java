@@ -41,7 +41,8 @@ public class ReviewerDbHelper extends SQLiteOpenHelper {
                     QuestionEntry.COLUMN_OPTA + " TEXT," +
                     QuestionEntry.COLUMN_OPTB + " TEXT," +
                     QuestionEntry.COLUMN_OPTC + " TEXT," +
-                    QuestionEntry.COLUMN_ANSWER + " TEXT)";
+                    QuestionEntry.COLUMN_ANSWER + " TEXT," +
+                    QuestionEntry.COLUMN_CATEGORY + " TEXT)";
 
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + QuestionEntry.TABLE_NAME;
 

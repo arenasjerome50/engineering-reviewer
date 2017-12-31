@@ -52,7 +52,7 @@ public class DatabaseAccess {
     }
 
     public ArrayList<Question> getAllQuestions() {
-        this.database = openHelper.getWritableDatabase();
+        open();
 
         // Define what you what to select in this case '*'
         String[] columns = {"*"};
@@ -73,6 +73,41 @@ public class DatabaseAccess {
             questionArrayList.add(question);
         }
         cursor.close();
+        close();
+
+        return questionArrayList;
+    }
+
+    public ArrayList<Question> getQuestions(int numberOfQuestions, String category) {
+        open();
+
+        String[] columns = {"*"};
+        String selection_category;
+
+        if (category == null) {
+            selection_category = null;
+        } else {
+            selection_category = "category LIKE '" + category + "'";
+        }
+
+        Cursor cursor = database.query(QuestionEntry.TABLE_NAME, columns,
+                selection_category, null, null,
+                null, "random()", "" + numberOfQuestions);
+
+        ArrayList<Question> questionArrayList = new ArrayList<>();
+        // Looping through all rows and adding to list
+        while (cursor.moveToNext()) {
+            Question question = new Question();
+            question.setID(cursor.getInt(QuestionEntry._ID_INDEX));
+            question.setQUESTION(cursor.getString(QuestionEntry.COLUMN_QUESTION_INDEX));
+            question.setANSWER(cursor.getString(QuestionEntry.COLUMN_ANSWER_INDEX));
+            question.setOPTA(cursor.getString(QuestionEntry.COLUMN_OPTA_INDEX));
+            question.setOPTB(cursor.getString(QuestionEntry.COLUMN_OPTB_INDEX));
+            question.setOPTC(cursor.getString(QuestionEntry.COLUMN_OPTC_INDEX));
+            questionArrayList.add(question);
+        }
+        cursor.close();
+        close();
 
         return questionArrayList;
     }

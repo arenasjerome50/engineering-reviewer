@@ -42,8 +42,9 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
 
         // if this activity receives an intent from QuizModeActivity class, it will become a topic
         // list selection for quiz, only main topics that the user can choose.
-        quizMode = getIntent().getParcelableExtra("quiz_mode");
-        if (quizMode != null) {
+        Intent receivedIntent = getIntent();
+        if (receivedIntent.hasExtra("quiz_mode")) {
+            quizMode = receivedIntent.getParcelableExtra("quiz_mode");
             setTitle(quizMode.getName() + " - " + getResources().getString(R.string.title_activity_topic_list));
             isQuizTopicSelection = true;
             topicItems.add(new Topic(R.drawable.ic_random, "Random Topics",
@@ -86,10 +87,6 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
         // if it is from QuizModeActivity with quiz_mode data, execute this
         if (isQuizTopicSelection) {
             Intent intent = new Intent(TopicListActivity.this, QuizActivity.class);
-            //Bundle bundle = new Bundle();
-            //bundle.putAll(getIntent().getExtras());
-            //bundle.putString("topic", mainTopic.getTitle());
-            //intent.putExtras(bundle);
             intent.putExtra("quiz_mode", (Parcelable) quizMode);
             intent.putExtra("topic", mainTopic);
             startActivity(intent);

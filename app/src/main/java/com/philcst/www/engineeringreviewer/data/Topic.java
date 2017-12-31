@@ -37,7 +37,10 @@ public class Topic implements Parcelable{
         this.imageId = in.readInt();
         this.title = in.readString();
         this.desc = in.readString();
-        this.subTopics = in.readArrayList(getClass().getClassLoader());
+        // instantiate an ArrayList first
+        this.subTopics = new ArrayList<>();
+        // and read from parcel
+        in.readTypedList(subTopics, Topic.CREATOR);
         this.content = in.readString();
     }
 
@@ -46,7 +49,7 @@ public class Topic implements Parcelable{
         dest.writeInt(imageId);
         dest.writeString(title);
         dest.writeString(desc);
-        dest.writeList(subTopics);
+        dest.writeTypedList(subTopics);
         dest.writeString(content);
     }
 
