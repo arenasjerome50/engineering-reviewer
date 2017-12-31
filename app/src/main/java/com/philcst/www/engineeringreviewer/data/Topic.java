@@ -2,12 +2,14 @@ package com.philcst.www.engineeringreviewer.data;
 
 
 import android.content.res.Resources;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.philcst.www.engineeringreviewer.R;
 
 import java.util.ArrayList;
 
-public class Topic {
+public class Topic implements Parcelable{
     private int imageId;
     private String title;
     private String desc;
@@ -28,6 +30,41 @@ public class Topic {
         this.desc = desc;
         this.subTopics = null;
         this.content = content;
+    }
+
+
+    public Topic(Parcel in) {
+        this.imageId = in.readInt();
+        this.title = in.readString();
+        this.desc = in.readString();
+        this.subTopics = in.readArrayList(getClass().getClassLoader());
+        this.content = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(imageId);
+        dest.writeString(title);
+        dest.writeString(desc);
+        dest.writeList(subTopics);
+        dest.writeString(content);
+    }
+
+    public static final Parcelable.Creator<Topic> CREATOR = new Parcelable.Creator<Topic>() {
+        @Override
+        public Topic createFromParcel(Parcel in) {
+            return new Topic(in);
+        }
+
+        @Override
+        public Topic[] newArray(int size) {
+            return new Topic[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public int getImageId() {

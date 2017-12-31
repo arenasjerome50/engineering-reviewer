@@ -5,9 +5,13 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 
 
 public class ExitDialogFragment extends DialogFragment {
+
+    private final String TAG = ExitDialogFragment.class.getSimpleName();
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
@@ -17,6 +21,7 @@ public class ExitDialogFragment extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        Log.i(TAG, "Exiting now");
                         getActivity().finish();
                     }
                 })

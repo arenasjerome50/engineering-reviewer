@@ -2,6 +2,7 @@ package com.philcst.www.engineeringreviewer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -31,10 +32,13 @@ public class QuizModeActivity extends AppCompatActivity {
         modeListFragment.setAdapter(new QuizModeAdapter(Arrays.asList(QuizMode.values()), new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                QuizMode mode = Arrays.asList(QuizMode.values()).get(position);
                 Intent intent = new Intent(QuizModeActivity.this, TopicListActivity.class);
-                Bundle args = new Bundle();
-                args.putString("quiz_mode", QuizMode.NORMAL.getName());
-                intent.putExtras(args);
+                //Bundle args = new Bundle();
+                //args.putString("quiz_mode", QuizMode.NORMAL.getName());
+                //intent.putExtras(args);
+                intent.putExtra("quiz_mode", (Parcelable) mode);
+
                 startActivity(intent);
             }
         }));

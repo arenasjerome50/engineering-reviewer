@@ -2,6 +2,7 @@ package com.philcst.www.engineeringreviewer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.philcst.www.engineeringreviewer.adapter.TopicAdapter;
+import com.philcst.www.engineeringreviewer.data.QuizMode;
 import com.philcst.www.engineeringreviewer.data.Topic;
 import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
@@ -20,6 +22,8 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
     // what fragment is currently attached before rotating the screen layout?
 
     private ArrayList<Topic> topicItems;
+    private QuizMode quizMode;
+    private boolean isQuizTopicSelection = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,16 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
 
         //load Data
         topicItems = Topic.loadTopicData(getResources());
+
+        // if this activity receives an intent from QuizModeActivity class, it will become a topic
+        // list selection for quiz, only main topics that the user can choose.
+        quizMode = getIntent().getParcelableExtra("quiz_mode");
+        if (quizMode != null) {
+            setTitle(quizMode.getName() + " - " + getResources().getString(R.string.title_activity_topic_list));
+            isQuizTopicSelection = true;
+            topicItems.add(new Topic(R.drawable.ic_random, "Random Topics",
+                    "Take a Quiz to any topics", "random"));
+        }
 
         // setting up the initial fragment
         TopicListFragment firstTopicList = new TopicListFragment();
@@ -70,12 +84,14 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
         final Topic mainTopic = topicItems.get(position);
 
         // if it is from QuizModeActivity with quiz_mode data, execute this
-        if (getIntent().getExtras() != null) {
+        if (isQuizTopicSelection) {
             Intent intent = new Intent(TopicListActivity.this, QuizActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putAll(getIntent().getExtras());
-            bundle.putString("topic", mainTopic.getTitle());
-            intent.putExtras(bundle);
+            //Bundle bundle = new Bundle();
+            //bundle.putAll(getIntent().getExtras());
+            //bundle.putString("topic", mainTopic.getTitle());
+            //intent.putExtras(bundle);
+            intent.putExtra("quiz_mode", (Parcelable) quizMode);
+            intent.putExtra("topic", mainTopic);
             startActivity(intent);
             finish();
         } else { // ohhh it's just a reading intent
@@ -86,10 +102,8 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
                         @Override
                         public void onItemClick(int position) {
                             Intent intent = new Intent(TopicListActivity.this, ReadingActivity.class);
-                            Bundle args = new Bundle();
-                            args.putString("title", mainTopic.getSubTopic(position).getTitle());
-                            args.putString("content", mainTopic.getSubTopic(position).getContent());
-                            intent.putExtras(args);
+                            // passing a Topic object to the next activity
+                            intent.putExtra("topic_data", mainTopic.getSubTopic(position));
                             startActivity(intent);
                         }
                     }));

@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.philcst.www.engineeringreviewer.data.DatabaseAccess;
 import com.philcst.www.engineeringreviewer.data.Question;
+import com.philcst.www.engineeringreviewer.data.QuizMode;
+import com.philcst.www.engineeringreviewer.data.Topic;
 import com.philcst.www.engineeringreviewer.view.MathView;
 
 import java.util.ArrayList;
@@ -33,6 +35,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        //get the data from preceding activity
+        QuizMode mode = getIntent().getParcelableExtra("quiz_mode");
+        Topic topic = getIntent().getParcelableExtra("topic");
+
         prepareQuestions();
         setInitialViews();
     }

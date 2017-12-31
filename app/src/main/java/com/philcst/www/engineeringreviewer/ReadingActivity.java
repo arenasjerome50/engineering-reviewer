@@ -7,9 +7,11 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.philcst.www.engineeringreviewer.data.Topic;
+
 public class ReadingActivity extends AppCompatActivity {
 
-    private String TAG = ReadingActivity.class.getSimpleName();
+    private final String TAG = ReadingActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +19,10 @@ public class ReadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_reading);
         ActionBar actionBar = getSupportActionBar();
 
-        setTitle(getIntent().getExtras().getString("title"));
-        String htmlUrl = "file:///android_asset/content/" + getIntent().getExtras().getString("content");
+        Topic topic = getIntent().getParcelableExtra("topic_data");
+
+        setTitle(topic.getTitle());
+        String htmlUrl = "file:///android_asset/content/" + topic.getContent();
         WebView webView = (WebView) findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(htmlUrl);
