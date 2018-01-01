@@ -5,8 +5,12 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.philcst.www.engineeringreviewer.R;
+import com.philcst.www.engineeringreviewer.interfaces.ListItemShowable;
 
-public enum QuizMode implements Parcelable{
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public enum QuizMode implements Parcelable, ListItemShowable{
 
     /*
         It defines the Quiz modes of the App with relative description and icon
@@ -58,15 +62,25 @@ public enum QuizMode implements Parcelable{
         return 0;
     }
 
+
+    @Override
+    public int getIcon() {
+        return icon;
+    }
+
+    @Override
     public String getName() {
         return name;
     }
 
-    public String getDesc() {
+    @Override
+    public String getDescription() {
         return desc;
     }
 
-    public int getIcon() {
-        return icon;
+    public static ArrayList<QuizMode> getValuesList() {
+        ArrayList<QuizMode> values = new ArrayList<>();
+        values.addAll(Arrays.asList(QuizMode.values()));
+        return values;
     }
 }

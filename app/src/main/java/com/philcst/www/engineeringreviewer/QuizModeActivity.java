@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.philcst.www.engineeringreviewer.adapter.QuizModeAdapter;
+import com.philcst.www.engineeringreviewer.adapter.BigListItemAdapter;
 import com.philcst.www.engineeringreviewer.data.QuizMode;
 import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
-
-import java.util.Arrays;
 
 
 public class QuizModeActivity extends AppCompatActivity {
@@ -28,11 +26,12 @@ public class QuizModeActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        final ModeListFragment modeListFragment = new ModeListFragment();
-        modeListFragment.setAdapter(new QuizModeAdapter(Arrays.asList(QuizMode.values()), new OnItemClickListener() {
+        final ListFragment modeListFragment = new ListFragment();
+        modeListFragment.setAdapter(new BigListItemAdapter(QuizMode.getValuesList(),
+                new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                QuizMode mode = Arrays.asList(QuizMode.values()).get(position);
+                QuizMode mode = QuizMode.getValuesList().get(position);
                 Intent intent = new Intent(QuizModeActivity.this, TopicListActivity.class);
                 intent.putExtra("quiz_mode", (Parcelable) mode);
 

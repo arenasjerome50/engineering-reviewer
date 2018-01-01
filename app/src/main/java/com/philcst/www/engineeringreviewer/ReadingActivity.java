@@ -21,7 +21,7 @@ public class ReadingActivity extends AppCompatActivity {
 
         Topic topic = getIntent().getParcelableExtra("topic_data");
 
-        setTitle(topic.getTitle());
+        setTitle(topic.getName());
         String htmlUrl = "file:///android_asset/content/" + topic.getContent();
         WebView webView = (WebView) findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);

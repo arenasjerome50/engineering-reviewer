@@ -8,22 +8,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.philcst.www.engineeringreviewer.R;
-import com.philcst.www.engineeringreviewer.data.Topic;
+import com.philcst.www.engineeringreviewer.interfaces.ListItemShowable;
 import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
 import java.util.ArrayList;
 
-/**
- * An RecyclerView Adapter the is use in TopicListFragment class
- */
-public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> {
 
+public class BigListItemAdapter extends RecyclerView.Adapter<BigListItemAdapter.ViewHolder>{
 
-    private ArrayList<Topic> mDataset;
+    private ArrayList<? extends ListItemShowable> mDataset;
     //private TopicItem selectedTopicItem;
     private OnItemClickListener mListener;
 
-    public TopicAdapter(ArrayList<Topic> dataset, OnItemClickListener listener) {
+    public BigListItemAdapter(ArrayList<? extends ListItemShowable> dataset, OnItemClickListener listener) {
         this.mDataset = dataset;
         this.mListener = listener;
     }
@@ -50,9 +47,9 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.topicIcon.setImageResource(mDataset.get(position).getImageId());
-        holder.title.setText(mDataset.get(position).getTitle());
-        holder.description.setText(mDataset.get(position).getDesc());
+        holder.topicIcon.setImageResource(mDataset.get(position).getIcon());
+        holder.title.setText(mDataset.get(position).getName());
+        holder.description.setText(mDataset.get(position).getDescription());
 
         //Attaching the listeners
         holder.itemView.setOnClickListener(new View.OnClickListener(){

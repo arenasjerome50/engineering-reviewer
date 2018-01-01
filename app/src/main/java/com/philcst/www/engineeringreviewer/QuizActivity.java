@@ -45,9 +45,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         String[] mainTopics = getResources().getStringArray(R.array.main_topic_names);
         // debug code
         // TODO: improve this process
-        if (topic.getTitle().equals(mainTopics[1])) {
+        if (topic.getName().equals(mainTopics[1])) {
             selectedTopic = "engg_math:%";
-        } else if (topic.getTitle().equals(mainTopics[0])) {
+        } else if (topic.getName().equals(mainTopics[0])) {
             selectedTopic = "geas";
         } else if (topic.getContent().equals("random")) {
             selectedTopic = null;

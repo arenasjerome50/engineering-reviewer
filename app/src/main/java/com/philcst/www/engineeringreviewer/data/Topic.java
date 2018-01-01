@@ -6,26 +6,27 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import com.philcst.www.engineeringreviewer.R;
+import com.philcst.www.engineeringreviewer.interfaces.ListItemShowable;
 
 import java.util.ArrayList;
 
-public class Topic implements Parcelable{
-    private int imageId;
+public class Topic implements Parcelable, ListItemShowable{
+    private int icon;
     private String title;
     private String desc;
     private ArrayList<Topic> subTopics;
     private String content;
 
-    public Topic(int imageId, String title, String desc, ArrayList<Topic> subTopics){
-        this.imageId = imageId;
+    public Topic(int icon, String title, String desc, ArrayList<Topic> subTopics){
+        this.icon = icon;
         this.title = title;
         this.desc = desc;
         this.subTopics = subTopics;
         this.content = null;
     }
 
-    public Topic(int imageId, String title, String desc, String content){
-        this.imageId = imageId;
+    public Topic(int icon, String title, String desc, String content){
+        this.icon = icon;
         this.title = title;
         this.desc = desc;
         this.subTopics = null;
@@ -34,7 +35,7 @@ public class Topic implements Parcelable{
 
 
     public Topic(Parcel in) {
-        this.imageId = in.readInt();
+        this.icon = in.readInt();
         this.title = in.readString();
         this.desc = in.readString();
         // instantiate an ArrayList first
@@ -46,7 +47,7 @@ public class Topic implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(imageId);
+        dest.writeInt(icon);
         dest.writeString(title);
         dest.writeString(desc);
         dest.writeTypedList(subTopics);
@@ -70,15 +71,31 @@ public class Topic implements Parcelable{
         return 0;
     }
 
-    public int getImageId() {
-        return imageId;
+    //public int getImageId() {
+    //    return imageId;
+    //}
+
+    //public String getTitle() {
+    //    return title;
+    //}
+
+    //public String getDesc() { return desc; }
+
+
+    @Override
+    public int getIcon() {
+        return icon;
     }
 
-    public String getTitle() {
+    @Override
+    public String getName() {
         return title;
     }
 
-    public String getDesc() { return desc; }
+    @Override
+    public String getDescription() {
+        return desc;
+    }
 
     public boolean hasSubTopics() {
         return subTopics != null;

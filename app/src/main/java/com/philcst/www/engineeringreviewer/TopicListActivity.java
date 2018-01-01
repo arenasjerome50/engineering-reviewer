@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.philcst.www.engineeringreviewer.adapter.TopicAdapter;
+import com.philcst.www.engineeringreviewer.adapter.BigListItemAdapter;
 import com.philcst.www.engineeringreviewer.data.QuizMode;
 import com.philcst.www.engineeringreviewer.data.Topic;
 import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
@@ -40,6 +40,7 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
         //load Data
         topicItems = Topic.loadTopicData(getResources());
 
+
         // if this activity receives an intent from QuizModeActivity class, it will become a topic
         // list selection for quiz, only main topics that the user can choose.
         Intent receivedIntent = getIntent();
@@ -52,10 +53,10 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
         }
 
         // setting up the initial fragment
-        TopicListFragment firstTopicList = new TopicListFragment();
+        ListFragment firstTopicList = new ListFragment();
 
         // Sets the Adapter,its dataset, and implements the callback required if the topic is selected.
-        firstTopicList.setAdapter(new TopicAdapter(topicItems, this));
+        firstTopicList.setAdapter(new BigListItemAdapter(topicItems, this));
 
         // Add the initial fragment to the Frame.
         getSupportFragmentManager().beginTransaction().add(R.id.frame, firstTopicList).commit();
@@ -93,8 +94,8 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
             finish();
         } else { // ohhh it's just a reading intent
             // ready the fragment
-            TopicListFragment subTopicList = new TopicListFragment();
-            subTopicList.setAdapter(new TopicAdapter(mainTopic.getSubTopicList(),
+            ListFragment subTopicList = new ListFragment();
+            subTopicList.setAdapter(new BigListItemAdapter(mainTopic.getSubTopicList(),
                     new OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
