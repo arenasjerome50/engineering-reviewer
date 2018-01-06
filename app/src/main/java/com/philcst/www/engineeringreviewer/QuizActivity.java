@@ -88,6 +88,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         return super.onCreateOptionsMenu(menu);
     }
 
+    /*
+        Overriding back mechanisms
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -96,6 +99,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /*
+        Overriding back mechanisms
+     */
+    @Override
+    public void onBackPressed() {
+        DialogFragment dialog = new ExitQuizDialogFragment();
+        dialog.show(getFragmentManager(), TAG);
     }
 
     private void setInitialViews() {
