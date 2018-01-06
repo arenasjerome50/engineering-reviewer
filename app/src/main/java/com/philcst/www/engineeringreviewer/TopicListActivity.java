@@ -70,7 +70,7 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
         return true;
     }
 
-
+    // I override this so the when im in the subtopic list, I can go back to the main topic list.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -83,22 +83,35 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
     // Implements the callback which listening at the first added fragment
     @Override
     public void onItemClick(int position) {
+        // get the selected main topic
         final Topic mainTopic = topicItems.get(position);
 
         // if it is from QuizModeActivity with quiz_mode data, execute this
         if (isQuizTopicSelection) {
+            // creating an intent to go to quiz activity
             Intent intent = new Intent(TopicListActivity.this, QuizActivity.class);
+
+            // prepare the selected topic data
             intent.putExtra("quiz_mode", (Parcelable) quizMode);
             intent.putExtra("topic", mainTopic);
+
+            // start quiz activity
             startActivity(intent);
+
+            // finishing the quiz mode activity that left before
+            sendBroadcast(new Intent("finish_activity"));
+
             finish();
         } else { // ohhh it's just a reading intent
             // ready the fragment
             ListFragment subTopicList = new ListFragment();
+
+            // setting an adapter for displaying the subtopics
             subTopicList.setAdapter(new BigListItemAdapter(mainTopic.getSubTopicList(),
                     new OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
+                            // creating an intent to go to reading activity
                             Intent intent = new Intent(TopicListActivity.this, ReadingActivity.class);
                             // passing a Topic object to the next activity
                             intent.putExtra("topic_data", mainTopic.getSubTopic(position));
@@ -106,7 +119,7 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
                         }
                     }));
 
-            // swap the fragments
+            // swap the list fragments
             getSupportFragmentManager().beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .replace(R.id.frame, subTopicList)

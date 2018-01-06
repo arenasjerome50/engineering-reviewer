@@ -1,6 +1,9 @@
 package com.philcst.www.engineeringreviewer;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +16,7 @@ import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
 
 public class QuizModeActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,6 @@ public class QuizModeActivity extends AppCompatActivity {
                 QuizMode mode = QuizMode.getValuesList().get(position);
                 Intent intent = new Intent(QuizModeActivity.this, TopicListActivity.class);
                 intent.putExtra("quiz_mode", (Parcelable) mode);
-
                 startActivity(intent);
             }
         }));
@@ -42,6 +45,16 @@ public class QuizModeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.frame, modeListFragment).commit();
 
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                String action = intent.getAction();
+                if (action != null && action.equals("finish_activity")) {
+                    finish();
+                }
+            }
+        };
+        registerReceiver(broadcastReceiver, new IntentFilter("finish_activity"));
     }
 
     @Override

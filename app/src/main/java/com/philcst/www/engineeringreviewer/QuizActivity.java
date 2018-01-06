@@ -1,10 +1,14 @@
 package com.philcst.www.engineeringreviewer;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +41,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        ActionBar actionBar = getSupportActionBar();
+
+        if (actionBar != null) {
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         //get the data from preceding activity
         QuizMode mode = getIntent().getParcelableExtra("quiz_mode");
@@ -57,6 +67,21 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         prepareQuestions();
         setInitialViews();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            DialogFragment dialog = new ExitQuizDialogFragment();
+            dialog.show(getFragmentManager(), TAG);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void setInitialViews() {
