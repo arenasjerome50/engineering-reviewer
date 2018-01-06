@@ -1,10 +1,13 @@
 package com.philcst.www.engineeringreviewer;
 
+import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Menu;
@@ -19,8 +22,11 @@ import com.philcst.www.engineeringreviewer.data.QuizMode;
 import com.philcst.www.engineeringreviewer.data.Topic;
 import com.philcst.www.engineeringreviewer.view.MathView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
@@ -35,7 +41,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private TextView questionNumberTextView;
     private MathView choiceA, choiceB, choiceC, choiceD;
 
+    // Saving the data for determining quiz mode and a kind of topic
     private String selectedTopic;
+    private QuizMode mode;
+
+    // For Timed Quiz Mode
+    private TextView timerView;
+    private volatile boolean isTimerViewSet = false;
+    private CountDownTimerHandler countDownTimerHandler;
+
+    // For Vitali-3
+    private int numOfWrongs = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +65,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //get the data from preceding activity
-        QuizMode mode = getIntent().getParcelableExtra("quiz_mode");
+        mode = getIntent().getParcelableExtra("quiz_mode");
         Topic topic = getIntent().getParcelableExtra("topic");
 
         String[] mainTopics = getResources().getStringArray(R.array.main_topic_names);
@@ -62,9 +78,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         } else if (topic.getContent().equals("random")) {
             selectedTopic = null;
         }
-
         setTitle(mode.getName());
-
         prepareQuestions();
         setInitialViews();
     }
@@ -120,6 +134,20 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private void setQuestionView() {
         questionNumberTextView.setText("Question " + (questionId + 1));
         questionMathView.setText(currentQuestion.getQUESTION());
+
+        // is this timed quiz mode??
+        if (mode.getName().equals(QuizMode.TIMED.getName())) {
+            //ok set the timer textView to visible
+            if (!isTimerViewSet){
+                timerView = (TextView) findViewById(R.id.timer);
+                timerView.setVisibility(View.VISIBLE);
+                isTimerViewSet = false;
+            }
+            // set the countdown timer
+            countDownTimerHandler = new CountDownTimerHandler(120000, 1000);
+            countDownTimerHandler.start();
+        }
+
         setChoices();
         questionId++;
     }
@@ -176,24 +204,77 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         MathView choice = (MathView) parentCard.getChildAt(0);
         Log.i(TAG, "onClick: text=" + choice.getText());
 
+        // check if this is set before. "only in timed quiz mode"
+        if (countDownTimerHandler != null) {
+            // stop! stop! he/she already answered
+            countDownTimerHandler.cancel();
+            countDownTimerHandler = null;
+        }
+
+        // check your answer now
         if (answer.equals(choice.getText())) {
+            // it's correct, plus one
             score++;
             scoreTextView.setText("" + score);
             Toast.makeText(QuizActivity.this, "Correct", Toast.LENGTH_SHORT).show();
-        } else {
+        } else { // if you're wrong
+            // check if you are in vitali-3 mode
+            if (mode.getName().equals(QuizMode.VITALI_3.getName())) {
+                // querying ids to x marks
+                int xmarks[] = { R.id.x_1, R.id.x_2, R.id.x_3 };
+
+                AppCompatImageView xMark = (AppCompatImageView) findViewById(xmarks[numOfWrongs++]);
+                // show the x mark
+                xMark.setVisibility(View.VISIBLE);
+
+                // go home now, you are not vital enough to end the quiz without 3 wrongs
+                if (numOfWrongs == 3) {
+                    endQuiz();
+                }
+            }
+
             Toast.makeText(QuizActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
         }
+        //procced to the next question or end
+        onNextQuestionOrEnd();
+    }
 
+    private void onNextQuestionOrEnd() {
         if (questionId < questionArrayList.size()) {
             currentQuestion = questionArrayList.get(questionId);
             setQuestionView();
         } else {
-            Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-            Bundle b = new Bundle();
-            b.putInt("score", score); //Your score
-            intent.putExtras(b); //Put your score to your next Intent
-            startActivity(intent);
-            finish();
+            endQuiz();
+        }
+    }
+
+    private void endQuiz() {
+        Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+        Bundle b = new Bundle();
+        b.putInt("score", score); //Your score
+        intent.putExtras(b); //Put your score to your next Intent
+        startActivity(intent);
+        finish();
+    }
+
+    private class CountDownTimerHandler extends CountDownTimer {
+
+        CountDownTimerHandler(long millisInFuture, long countDownInterval){
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            @SuppressLint("SimpleDateFormat")
+            DateFormat formatter = new SimpleDateFormat("mm:ss");
+            if (timerView != null){
+                timerView.setText(formatter.format(new Date(millisUntilFinished)));
+            }
+        }
+
+        @Override
+        public void onFinish() {
+            onNextQuestionOrEnd();
         }
     }
 }

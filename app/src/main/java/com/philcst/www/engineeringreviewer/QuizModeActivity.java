@@ -49,12 +49,13 @@ public class QuizModeActivity extends AppCompatActivity {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
-                if (action != null && action.equals("finish_activity")) {
+                if (action != null && action.equals("finish_quiz_mode_activity")) {
+                    unregisterReceiver(this);
                     finish();
                 }
             }
         };
-        registerReceiver(broadcastReceiver, new IntentFilter("finish_activity"));
+        registerReceiver(broadcastReceiver, new IntentFilter("finish_quiz_mode_activity"));
     }
 
     @Override

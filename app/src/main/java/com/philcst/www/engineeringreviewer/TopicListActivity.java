@@ -99,7 +99,7 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
             startActivity(intent);
 
             // finishing the quiz mode activity that left before
-            sendBroadcast(new Intent("finish_activity"));
+            sendBroadcast(new Intent("finish_quiz_mode_activity"));
 
             finish();
         } else { // ohhh it's just a reading intent
