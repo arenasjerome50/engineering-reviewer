@@ -12,8 +12,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
 
             <!--
             <intent-filter>
@@ -25,8 +25,8 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,18 +36,18 @@
         <activity
             android:name=".QuizModeActivity"
             android:label="Select Mode"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.philcst.www.engineeringreviewer.MainActivity"/>
+                android:value="com.philcst.www.engineeringreviewer.MainActivity" />
         </activity>
         <activity
             android:name=".TopicListActivity"
             android:label="@string/title_activity_topic_list"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".QuizActivity"
             android:label="Quiz"
@@ -67,9 +67,8 @@
                 android:value="com.philcst.www.engineeringreviewer.MainActivity" />
         </activity>
         <activity android:name=".ReadingActivity" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
+        <activity android:name=".SettingsActivity"
+            android:label="Settings"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait">
             <meta-data
@@ -77,4 +76,5 @@
                 android:value="com.philcst.www.engineeringreviewer.MainActivity" />
         </activity>
     </application>
+
 </manifest>

@@ -209,4 +209,24 @@ public class Topic implements Parcelable, ListItemShowable{
 
         return topicItems;
     }
+
+    public static ArrayList<Topic> getMainMenu(Resources res) {
+        ArrayList<Topic> mainMenuItems = new ArrayList<>();
+
+        int[] icons = {
+                R.drawable.ic_review,
+                R.drawable.ic_start_quiz,
+                R.drawable.ic_settings,
+                R.drawable.ic_about
+        };
+
+        String[] mainMenuTitles = res.getStringArray(R.array.main_menu_titles);
+        String [] mainMenuDescription = res.getStringArray(R.array.main_menu_description);
+
+        for (int x = 0; x < icons.length; x++) {
+            mainMenuItems.add(new Topic(icons[x], mainMenuTitles[x], mainMenuDescription[x], "menu"));
+        }
+
+        return mainMenuItems;
+    }
 }

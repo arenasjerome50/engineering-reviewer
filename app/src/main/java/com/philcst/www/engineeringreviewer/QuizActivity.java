@@ -159,6 +159,8 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
             Log.i("New Instance created", TAG);
             choicesFragment = ChoicesFragment.newInstance(choices.get(0), choices.get(1),
                     choices.get(2), choices.get(3));
+            getSupportFragmentManager().beginTransaction().replace(R.id.quiz_fragment_placement,
+                    choicesFragment).commit();
         } else {
             Log.i("Reseting mathviews", TAG);
             Intent intent = new Intent(ChoicesFragment.ACTION_SET_NEW_CHOICES);
@@ -170,8 +172,6 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
             intent.putExtras(bundle);
             sendBroadcast(intent);
         }
-        getSupportFragmentManager().beginTransaction().replace(R.id.quiz_fragment_placement,
-                choicesFragment).commit();
     }
 
     /**

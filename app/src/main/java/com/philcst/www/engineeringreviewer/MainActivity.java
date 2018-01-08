@@ -2,18 +2,29 @@ package com.philcst.www.engineeringreviewer;
 
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import com.philcst.www.engineeringreviewer.adapter.MainMenuAdapter;
+import com.philcst.www.engineeringreviewer.data.Topic;
+import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements OnItemClickListener{
 
     private String TAG = MainActivity.class.getSimpleName();
+    private static final int REVIEW_LECTURES = 0;
+    private static final int START_QUIZ = 1;
+    private static final int SETTINGS = 2;
+    private static final int ABOUT = 3;
     //private long lastPress; // for handling exit confirmation toast
     //private Toast backpressToast;
 
@@ -25,54 +36,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // reference those buttons from the layout
-        Button viewLectureButton = (Button) findViewById(R.id.btn_view_lecture);
-        Button startQuizButton = (Button) findViewById(R.id.btn_start_quiz);
-        Button quitButton = (Button) findViewById(R.id.btn_quit);
+        //test code
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        // attach listener
-        viewLectureButton.setOnClickListener(this);
-        startQuizButton.setOnClickListener(this);
-        quitButton.setOnClickListener(this);
+        ArrayList<Topic> menuItems = Topic.getMainMenu(getResources());
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.main_menu_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
+                layoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setAdapter(new MainMenuAdapter(menuItems, this));
+
+        // test code
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Boolean switchPref = sharedPreferences.getBoolean(SettingsActivity.KEY_PREF_EXAMPLE_SWITCH, false);
+        Toast.makeText(this, switchPref.toString(), Toast.LENGTH_SHORT).show();
     }
 
-    /**
-     * Function for listening button taps
-     * @param v View that is clicked
-     */
     @Override
-    public void onClick(View v) {
-        int id = v.getId();
-
-        switch (id) {
-            case R.id.btn_view_lecture:
+    public void onItemClick(int position) {
+        switch (position) {
+            case REVIEW_LECTURES:
                 // start TopicListActivity
                 startActivity(new Intent(this, TopicListActivity.class));
                 break;
-            case R.id.btn_start_quiz:
+            case START_QUIZ:
                 // start QuizActivity
                 startActivity(new Intent(this, QuizModeActivity.class));
                 break;
-            case R.id.btn_quit:
-                // Exits the app
-                onBackPressed();
+            case SETTINGS:
+                // start SettingsActivity
+                startActivity(new Intent(this, SettingsActivity.class));
+                break;
+            case ABOUT:
                 break;
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.settings) {
-            startActivity(new Intent(this, SettingsActivity.class));
-        }
-        return true;
     }
 
     /*
