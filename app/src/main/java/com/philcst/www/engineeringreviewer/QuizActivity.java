@@ -1,10 +1,10 @@
 package com.philcst.www.engineeringreviewer;
 
 import android.annotation.SuppressLint;
-import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.philcst.www.engineeringreviewer.data.DatabaseAccess;
 import com.philcst.www.engineeringreviewer.data.Question;
@@ -29,7 +28,8 @@ import java.util.Collections;
 import java.util.Date;
 
 
-public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
+public class QuizActivity extends AppCompatActivity implements ChoicesFragment.OnFragmentChoiceListener,
+        AnswerFragment.OnFragmentInteractionListener{
 
     private String TAG = QuizActivity.class.getSimpleName();
     private ArrayList<Question> questionArrayList;
@@ -39,7 +39,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private MathView questionMathView;
     private TextView scoreTextView;
     private TextView questionNumberTextView;
-    private MathView choiceA, choiceB, choiceC, choiceD;
 
     // Saving the data for determining quiz mode and a kind of topic
     private String selectedTopic;
@@ -53,6 +52,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     // For Vitali-3
     private int numOfWrongs = 0;
 
+    // Fragments
+    private ChoicesFragment choicesFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +65,12 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        // set views
+        questionMathView = (MathView) findViewById(R.id.question_view);
+        questionNumberTextView = (TextView) findViewById(R.id.question_number);
+        scoreTextView = (TextView) findViewById(R.id.score_number);
+
 
         //get the data from preceding activity
         mode = getIntent().getParcelableExtra("quiz_mode");
@@ -80,67 +88,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
         setTitle(mode.getName());
         prepareQuestions();
-        setInitialViews();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    /*
-        Overriding back mechanisms
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            DialogFragment dialog = new ExitQuizDialogFragment();
-            dialog.show(getFragmentManager(), TAG);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    /*
-        Overriding back mechanisms
-     */
-    @Override
-    public void onBackPressed() {
-        DialogFragment dialog = new ExitQuizDialogFragment();
-        dialog.show(getFragmentManager(), TAG);
-    }
-
-    private void setInitialViews() {
-        // set views
-        currentQuestion = questionArrayList.get(questionId);
-        questionMathView = (MathView) findViewById(R.id.question_view);
-        questionNumberTextView = (TextView) findViewById(R.id.question_number);
-        scoreTextView = (TextView) findViewById(R.id.score_number);
-
-        // set choices views
-        choiceA = (MathView) findViewById(R.id.choice_math_view_a);
-        choiceB = (MathView) findViewById(R.id.choice_math_view_b);
-        choiceC = (MathView) findViewById(R.id.choice_math_view_c);
-        choiceD = (MathView) findViewById(R.id.choice_math_view_d);
-        CardView cardA = (CardView) findViewById(R.id.choice_card_view_a);
-        CardView cardB = (CardView) findViewById(R.id.choice_card_view_b);
-        CardView cardC = (CardView) findViewById(R.id.choice_card_view_c);
-        CardView cardD = (CardView) findViewById(R.id.choice_card_view_d);
-        //nextButton = (Button) findViewById(R.id.next_button);
-
-        cardA.setOnClickListener(this);
-        cardB.setOnClickListener(this);
-        cardC.setOnClickListener(this);
-        cardD.setOnClickListener(this);
-
         setQuestionView();
-        //displayDatabaseInfo();
     }
 
     private void prepareQuestions() {
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
         questionArrayList = databaseAccess.getQuestions(20, selectedTopic);
         Collections.shuffle(questionArrayList);
+        currentQuestion = questionArrayList.get(questionId);
     }
 
     private void setQuestionView() {
@@ -164,6 +119,31 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         questionId++;
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    /*
+        Overriding back mechanisms
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            new ExitQuizDialogFragment().show(getFragmentManager(), TAG);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /*
+        Overriding back mechanisms
+     */
+    @Override
+    public void onBackPressed() {
+        new ExitQuizDialogFragment().show(getFragmentManager(), TAG);
+    }
+
     private void setChoices() {
         ArrayList<String> choices = new ArrayList<>();
         // add choices including the answer to the list
@@ -175,42 +155,33 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         // OK! its Shake time, I hope nobody get the right answer ha ha ha
         Collections.shuffle(choices);
 
-        choiceA.setText(choices.get(0));
-        choiceB.setText(choices.get(1));
-        choiceC.setText(choices.get(2));
-        choiceD.setText(choices.get(3));
+        if (choicesFragment == null) {
+            Log.i("New Instance created", TAG);
+            choicesFragment = ChoicesFragment.newInstance(choices.get(0), choices.get(1),
+                    choices.get(2), choices.get(3));
+        } else {
+            Log.i("Reseting mathviews", TAG);
+            Intent intent = new Intent(ChoicesFragment.ACTION_SET_NEW_CHOICES);
+            Bundle bundle = new Bundle();
+            bundle.putString(ChoicesFragment.ARG_CHOICE_A, choices.get(0));
+            bundle.putString(ChoicesFragment.ARG_CHOICE_B, choices.get(1));
+            bundle.putString(ChoicesFragment.ARG_CHOICE_C, choices.get(2));
+            bundle.putString(ChoicesFragment.ARG_CHOICE_D, choices.get(3));
+            intent.putExtras(bundle);
+            sendBroadcast(intent);
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.quiz_fragment_placement,
+                choicesFragment).commit();
     }
 
     /**
-     * Temporary helper method to display information in the onscreen TextView about the state of
-     * the pets database.
+     * This method is attached to the cardview choices of ChoicesFragment.
+     * It is implemented here on how to process the selected choice if it is wrong or correct
+     * It also handles if it is end of the quiz it will go to score activity.
+     * @param v View the is being listening.
      */
-    /*private void displayDatabaseInfo() {
-        // To access our database, we instantiate our subclass of SQLiteOpenHelper
-        // and pass the context, which is the current activity.
-        ReviewerDbHelper mDbHelper = new ReviewerDbHelper(this);
-
-        // Create and/or open a database to read from it
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-
-        //mDbHelper.addQuestions();
-
-        // Perform this raw SQL query "SELECT * FROM pets"
-        // to get a Cursor that contains all rows from the pets table.
-        try (Cursor cursor = db.rawQuery("DELETE FROM " + ReviewerContract.QuestionEntry.TABLE_NAME, null)) {
-            // Display the number of rows in the Cursor (which reflects the number of rows in the
-            // pets table in the database).
-            TextView displayView = (TextView) findViewById(R.id.question_view);
-            displayView.setText("Number of rows in question database table: " + cursor.getCount());
-        }
-
-        // Always close the cursor when you're done reading from it. This releases all its
-        // resources and makes it invalid.
-    }*/
-
     @Override
-    public void onClick(View v) {
-        //Toast.makeText(QuizActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+    public void onFragmentChoiceSelect(View v) {
         String answer = currentQuestion.getANSWER();
         CardView parentCard = (CardView) v;
         MathView choice = (MathView) parentCard.getChildAt(0);
@@ -228,7 +199,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             // it's correct, plus one
             score++;
             scoreTextView.setText("" + score);
-            Toast.makeText(QuizActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.quiz_fragment_placement, AnswerFragment.newInstance(answer, true, false))
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null).commit();
         } else { // if you're wrong
             // check if you are in vitali-3 mode
             if (mode.getName().equals(QuizMode.VITALI_3.getName())) {
@@ -239,24 +213,34 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 // show the x mark
                 xMark.setVisibility(View.VISIBLE);
 
-                // go home now, you are not vital enough to end the quiz without 3 wrongs
-                if (numOfWrongs == 3) {
-                    endQuiz();
-                }
             }
 
-            Toast.makeText(QuizActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
+            boolean isEnd = false;
+
+            if (questionId >= questionArrayList.size()) {
+                isEnd = true;
+            }
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.quiz_fragment_placement, AnswerFragment.newInstance(answer, false, isEnd))
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null).commit();
         }
-        //procced to the next question or end
-        onNextQuestionOrEnd();
     }
 
     private void onNextQuestionOrEnd() {
-        if (questionId < questionArrayList.size()) {
-            currentQuestion = questionArrayList.get(questionId);
-            setQuestionView();
+        if (mode.getName().equals(QuizMode.VITALI_3.getName())) {
+            // go home now, you are not vital enough to end the quiz without 3 wrongs
+            if (numOfWrongs == 3) {
+                endQuiz();
+            }
         } else {
-            endQuiz();
+            if (questionId < questionArrayList.size()) {
+                currentQuestion = questionArrayList.get(questionId);
+                setQuestionView();
+            } else {
+                endQuiz();
+            }
         }
     }
 
@@ -267,6 +251,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         intent.putExtras(b); //Put your score to your next Intent
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onFragmentNextQuestion() {
+        getSupportFragmentManager().popBackStack();
+        //procced to the next question or end
+        onNextQuestionOrEnd();
     }
 
     private class CountDownTimerHandler extends CountDownTimer {
@@ -289,4 +280,37 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             onNextQuestionOrEnd();
         }
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        choicesFragment = null;
+        if (countDownTimerHandler != null) {
+            countDownTimerHandler.cancel();
+            countDownTimerHandler = null;
+        }
+    }
+
+    /*private void displayDatabaseInfo() {
+        // To access our database, we instantiate our subclass of SQLiteOpenHelper
+        // and pass the context, which is the current activity.
+        ReviewerDbHelper mDbHelper = new ReviewerDbHelper(this);
+
+        // Create and/or open a database to read from it
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        //mDbHelper.addQuestions();
+
+        // Perform this raw SQL query "SELECT * FROM pets"
+        // to get a Cursor that contains all rows from the pets table.
+        try (Cursor cursor = db.rawQuery("DELETE FROM " + ReviewerContract.QuestionEntry.TABLE_NAME, null)) {
+            // Display the number of rows in the Cursor (which reflects the number of rows in the
+            // pets table in the database).
+            TextView displayView = (TextView) findViewById(R.id.question_view);
+            displayView.setText("Number of rows in question database table: " + cursor.getCount());
+        }
+
+        // Always close the cursor when you're done reading from it. This releases all its
+        // resources and makes it invalid.
+    }*/
 }

@@ -117,8 +117,8 @@ public class Topic implements Parcelable, ListItemShowable{
     Hard Coded Icon reference
      */
     private static int[] images = {
-            R.drawable.ic_atom,
-            R.drawable.ic_axis
+            R.drawable.ic_geas,
+            R.drawable.ic_engg_math
     };
 
     private static int[][] subTopicImages = {
@@ -127,17 +127,17 @@ public class Topic implements Parcelable, ListItemShowable{
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
+                    R.drawable.ic_age_work,
+                    R.drawable.ic_clock_variation,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
+                    R.drawable.ic_analytic_one,
+                    R.drawable.ic_analytic_two,
+                    R.drawable.ic_differential,
+                    R.drawable.ic_differential,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral
             }

@@ -17,6 +17,7 @@ import com.philcst.www.engineeringreviewer.interfaces.OnItemClickListener;
 
 public class QuizModeActivity extends AppCompatActivity {
 
+    BroadcastReceiver receiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +46,16 @@ public class QuizModeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.frame, modeListFragment).commit();
 
-        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 String action = intent.getAction();
                 if (action != null && action.equals("finish_quiz_mode_activity")) {
-                    unregisterReceiver(this);
                     finish();
                 }
             }
         };
-        registerReceiver(broadcastReceiver, new IntentFilter("finish_quiz_mode_activity"));
+        registerReceiver(receiver, new IntentFilter("finish_quiz_mode_activity"));
     }
 
     @Override
@@ -64,5 +64,14 @@ public class QuizModeActivity extends AppCompatActivity {
             onBackPressed();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (receiver != null) {
+            unregisterReceiver(receiver);
+            receiver = null;
+        }
+        super.onDestroy();
     }
 }

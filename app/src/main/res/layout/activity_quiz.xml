@@ -77,10 +77,11 @@
         android:text="@string/placeholder_text"
         android:textSize="20sp" />
 
+    <!-- TODO: make this size of question view dynamic-->
     <android.support.v7.widget.CardView
         android:id="@+id/question_view_card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:layout_below="@id/question_number"
         android:layout_centerHorizontal="true"
         app:cardElevation="3dp"
@@ -95,7 +96,14 @@
 
     </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
+    <FrameLayout
+        android:id="@+id/quiz_fragment_placement"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/question_view_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <!--<android.support.v7.widget.CardView
         android:id="@+id/choice_card_view_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -169,7 +177,7 @@
             android:layout_height="wrap_content"
             app:setClickable="true"/>
 
-    </android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>-->
 
     <!--<Button
         android:id="@+id/next_button"
