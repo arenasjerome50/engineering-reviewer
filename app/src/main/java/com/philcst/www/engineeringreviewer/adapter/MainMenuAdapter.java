@@ -18,10 +18,12 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
 
     private ArrayList<Topic> mDataset;
     private OnItemClickListener mListener;
+    private int[] backgrounds;
 
-    public MainMenuAdapter(ArrayList<Topic> mDataset, OnItemClickListener mListener) {
+    public MainMenuAdapter(ArrayList<Topic> mDataset, int[] backgrounds, OnItemClickListener mListener) {
         this.mDataset = mDataset;
         this.mListener = mListener;
+        this.backgrounds = backgrounds;
     }
 
     @Override
@@ -42,6 +44,15 @@ public class MainMenuAdapter extends RecyclerView.Adapter<MainMenuAdapter.ViewHo
                 mListener.onItemClick(position);
             }
         });
+
+        //View myView = findViewById(R.id.myView);
+        //int[] attrs = new int[]{R.attr.selectableItemBackground};
+        //TypedArray typedArray = getActivity().obtainStyledAttributes(attrs);
+        //int backgroundResource = typedArray.getResourceId(0, 0);
+        //myView.setBackgroundResource(backgroundResource)
+        //holder.itemView.setBackgroundColor(Color.parseColor(colors[position]));
+
+        holder.itemView.setBackgroundResource(backgrounds[position]);
 
     }
 

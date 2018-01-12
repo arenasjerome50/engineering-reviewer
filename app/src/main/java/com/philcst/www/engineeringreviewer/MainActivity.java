@@ -4,9 +4,8 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //test code
+        // TODO: test code
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
         ArrayList<Topic> menuItems = Topic.getMainMenu(getResources());
@@ -44,13 +43,20 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         mRecyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
-                layoutManager.getOrientation());
-        mRecyclerView.addItemDecoration(dividerItemDecoration);
+        //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
+        //        layoutManager.getOrientation());
+        //mRecyclerView.addItemDecoration(dividerItemDecoration);
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(new MainMenuAdapter(menuItems, this));
 
-        // test code
+        int[] backgrounds = {
+                R.drawable.main_bg_1,
+                R.drawable.main_bg_2,
+                R.drawable.main_bg_3,
+                R.drawable.main_bg_4
+        };
+        mRecyclerView.setAdapter(new MainMenuAdapter(menuItems, backgrounds, this));
+
+        // TODO: test code
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Boolean switchPref = sharedPreferences.getBoolean(SettingsActivity.KEY_PREF_EXAMPLE_SWITCH, false);
         Toast.makeText(this, switchPref.toString(), Toast.LENGTH_SHORT).show();

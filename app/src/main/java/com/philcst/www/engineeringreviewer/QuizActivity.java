@@ -194,13 +194,18 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
             countDownTimerHandler = null;
         }
 
+        boolean isEnd = false;
+        if (questionId >= questionArrayList.size()) {
+            isEnd = true;
+        }
+
         // check your answer now
         if (answer.equals(choice.getText())) {
             // it's correct, plus one
             score++;
             scoreTextView.setText("" + score);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.quiz_fragment_placement, AnswerFragment.newInstance(answer, true, false))
+                    .replace(R.id.quiz_fragment_placement, AnswerFragment.newInstance(answer, true, isEnd))
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null).commit();
         } else { // if you're wrong
@@ -213,12 +218,6 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
                 // show the x mark
                 xMark.setVisibility(View.VISIBLE);
 
-            }
-
-            boolean isEnd = false;
-
-            if (questionId >= questionArrayList.size()) {
-                isEnd = true;
             }
 
             getSupportFragmentManager().beginTransaction()
