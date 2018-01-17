@@ -228,11 +228,9 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
     }
 
     private void onNextQuestionOrEnd() {
-        if (mode.getName().equals(QuizMode.VITALI_3.getName())) {
+        if (mode.getName().equals(QuizMode.VITALI_3.getName()) && numOfWrongs == 3) {
             // go home now, you are not vital enough to end the quiz without 3 wrongs
-            if (numOfWrongs == 3) {
-                endQuiz();
-            }
+            endQuiz();
         } else {
             if (questionId < questionArrayList.size()) {
                 currentQuestion = questionArrayList.get(questionId);

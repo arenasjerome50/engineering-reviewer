@@ -1,10 +1,8 @@
 package com.philcst.www.engineeringreviewer;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,18 +85,21 @@ public class AnswerFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onResume() {
         super.onResume();
-        String htmlCode;
+        String msg;
+        // check if this is correct!
         if (isCorrect) {
-            htmlCode = "<h2>You are correct!</h2>";
+            msg = "You are correct!";
         } else {
-            htmlCode = "<h2>You are wrong!</h2><br><p>The answer is:</p>";
+            msg = "You are wrong!\nThe answer is:";
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            feedBackTextView.setText(Html.fromHtml(htmlCode,Html.FROM_HTML_MODE_COMPACT));
-        } else {
-            feedBackTextView.setText(Html.fromHtml(htmlCode));
-        }
+        feedBackTextView.setText(msg);
+
+        //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        //    feedBackTextView.setText(Html.fromHtml(htmlCode,Html.FROM_HTML_MODE_COMPACT));
+        //} else {
+        //    feedBackTextView.setText(Html.fromHtml(htmlCode));
+        //}
 
         answerView.setText(answer);
     }
