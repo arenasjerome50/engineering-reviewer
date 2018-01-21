@@ -1,7 +1,7 @@
 package com.philcst.www.engineeringreviewer;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -14,28 +14,28 @@ public class ResultActivity extends AppCompatActivity {
         // get rating bar object
         RatingBar bar = (RatingBar) findViewById(R.id.rating_bar);
         bar.setNumStars(5);
-        bar.setStepSize(0.5f);
-        // get text view
-        TextView result = (TextView) findViewById(R.id.result_textview);
+        bar.setStepSize(0.25f);
         // get score
-        Bundle b = getIntent().getExtras();
-        int score = b.getInt("score");
+        int score = getIntent().getIntExtra("score", 0);
         // display score
         bar.setRating(score);
 
-        switch (score) {
-            case 0:
-            case 1:
-            case 2:
-                result.setText("Opps, try again bro, keep learning");
-                break;
-            case 3:
-            case 4:
-                result.setText("Hmmmm.. maybe you have been reading a lot of JasaProgrammer quiz");
-                break;
-            case 5:
-                result.setText("Who are you? A student in JP???");
-                break;
+        // get text view
+        TextView feedbackTextView = (TextView) findViewById(R.id.feedback_textview);
+        TextView scoreTextView = (TextView) findViewById(R.id.score_textview);
+
+        scoreTextView.setText(Integer.toString(score));
+
+        double scoreRatings = score/20;
+
+        if (scoreRatings <= 0.24) {
+            feedbackTextView.setText("Failed!");
+        } else if (scoreRatings >= 0.25 || scoreRatings <= 0.36) {
+            feedbackTextView.setText("Conditional");
+        } else if (scoreRatings >= 0.33 || scoreRatings <= 0.42) {
+            feedbackTextView.setText("Passer");
+        } else if (scoreRatings >= 0.43) {
+            feedbackTextView.setText("Topnotcher");
         }
     }
 }

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.philcst.www.engineeringreviewer.adapter.BigListItemAdapter;
@@ -56,6 +58,13 @@ public class QuizModeActivity extends AppCompatActivity {
             }
         };
         registerReceiver(receiver, new IntentFilter("finish_quiz_mode_activity"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override

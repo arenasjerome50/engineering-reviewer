@@ -13,16 +13,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -36,13 +27,8 @@
         <activity
             android:name=".QuizModeActivity"
             android:label="Select Mode"
-            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.philcst.www.engineeringreviewer.MainActivity" />
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".TopicListActivity"
             android:label="@string/title_activity_topic_list"
@@ -67,14 +53,11 @@
                 android:value="com.philcst.www.engineeringreviewer.MainActivity" />
         </activity>
         <activity android:name=".ReadingActivity" />
-        <activity android:name=".SettingsActivity"
+        <activity
+            android:name=".SettingsActivity"
             android:label="Settings"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.philcst.www.engineeringreviewer.MainActivity" />
-        </activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

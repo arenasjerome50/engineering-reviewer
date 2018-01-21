@@ -243,9 +243,7 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
 
     private void endQuiz() {
         Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-        Bundle b = new Bundle();
-        b.putInt("score", score); //Your score
-        intent.putExtras(b); //Put your score to your next Intent
+        intent.putExtra("score", score); //Put your score to your next Intent
         startActivity(intent);
         finish();
     }

@@ -1,15 +1,19 @@
 package com.philcst.www.engineeringreviewer;
 
+import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
+import android.transition.Slide;
+import android.view.Gravity;
 
 import com.philcst.www.engineeringreviewer.adapter.MainMenuAdapter;
 import com.philcst.www.engineeringreviewer.data.Topic;
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         // TODO: test code
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
+        setupWindowAnimations();
+
         ArrayList<Topic> menuItems = Topic.getMainMenu(getResources());
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.main_menu_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -59,23 +65,38 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         // TODO: test code
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Boolean switchPref = sharedPreferences.getBoolean(SettingsActivity.KEY_PREF_EXAMPLE_SWITCH, false);
-        Toast.makeText(this, switchPref.toString(), Toast.LENGTH_SHORT).show();
+    }
+
+    @SuppressLint("RtlHardcoded")
+    private void setupWindowAnimations() {
+        // Re-enter transition is executed when returning to this activity
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Slide slideTransition = new Slide();
+            slideTransition.setSlideEdge(Gravity.LEFT);
+            slideTransition.setDuration(500);
+            getWindow().setReenterTransition(slideTransition);
+            getWindow().setExitTransition(slideTransition);
+        }
     }
 
     @Override
     public void onItemClick(int position) {
+        ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
         switch (position) {
             case REVIEW_LECTURES:
                 // start TopicListActivity
-                startActivity(new Intent(this, TopicListActivity.class));
+                startActivity(new Intent(this, TopicListActivity.class),
+                        transitionActivityOptions.toBundle());
                 break;
             case START_QUIZ:
                 // start QuizActivity
-                startActivity(new Intent(this, QuizModeActivity.class));
+                startActivity(new Intent(this, QuizModeActivity.class),
+                        transitionActivityOptions.toBundle());
                 break;
             case SETTINGS:
                 // start SettingsActivity
-                startActivity(new Intent(this, SettingsActivity.class));
+                startActivity(new Intent(this, SettingsActivity.class),
+                        transitionActivityOptions.toBundle());
                 break;
             case ABOUT:
                 break;
