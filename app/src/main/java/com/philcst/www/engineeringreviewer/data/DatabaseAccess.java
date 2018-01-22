@@ -1,6 +1,7 @@
 package com.philcst.www.engineeringreviewer.data;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -64,12 +65,12 @@ public class DatabaseAccess {
         // Looping through all rows and adding to list
         while (cursor.moveToNext()) {
             Question question = new Question();
-            question.setID(cursor.getInt(QuestionEntry._ID_INDEX));
-            question.setQUESTION(cursor.getString(QuestionEntry.COLUMN_QUESTION_INDEX));
-            question.setANSWER(cursor.getString(QuestionEntry.COLUMN_ANSWER_INDEX));
-            question.setOPTA(cursor.getString(QuestionEntry.COLUMN_OPTA_INDEX));
-            question.setOPTB(cursor.getString(QuestionEntry.COLUMN_OPTB_INDEX));
-            question.setOPTC(cursor.getString(QuestionEntry.COLUMN_OPTC_INDEX));
+            question.setID(cursor.getInt(cursor.getColumnIndexOrThrow(QuestionEntry._ID)));
+            question.setQUESTION(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_QUESTION)));
+            question.setANSWER(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_ANSWER)));
+            question.setOPTA(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTA)));
+            question.setOPTB(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTB)));
+            question.setOPTC(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTC)));
             questionArrayList.add(question);
         }
         cursor.close();
@@ -90,6 +91,12 @@ public class DatabaseAccess {
             selection_category = "category LIKE '" + category + "'";
         }
 
+        // TODO:
+        /*// Filter results WHERE "title" = 'My Title'
+        String selection = FeedEntry.COLUMN_NAME_TITLE + " = ?";
+        String[] selectionArgs = { "My Title" };
+        */
+
         Cursor cursor = database.query(QuestionEntry.TABLE_NAME, columns,
                 selection_category, null, null,
                 null, "random()", "" + numberOfQuestions);
@@ -98,17 +105,32 @@ public class DatabaseAccess {
         // Looping through all rows and adding to list
         while (cursor.moveToNext()) {
             Question question = new Question();
-            question.setID(cursor.getInt(QuestionEntry._ID_INDEX));
-            question.setQUESTION(cursor.getString(QuestionEntry.COLUMN_QUESTION_INDEX));
-            question.setANSWER(cursor.getString(QuestionEntry.COLUMN_ANSWER_INDEX));
-            question.setOPTA(cursor.getString(QuestionEntry.COLUMN_OPTA_INDEX));
-            question.setOPTB(cursor.getString(QuestionEntry.COLUMN_OPTB_INDEX));
-            question.setOPTC(cursor.getString(QuestionEntry.COLUMN_OPTC_INDEX));
+            question.setID(cursor.getInt(cursor.getColumnIndexOrThrow(QuestionEntry._ID)));
+            question.setQUESTION(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_QUESTION)));
+            question.setANSWER(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_ANSWER)));
+            question.setOPTA(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTA)));
+            question.setOPTB(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTB)));
+            question.setOPTC(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTC)));
             questionArrayList.add(question);
         }
         cursor.close();
         close();
 
         return questionArrayList;
+    }
+
+    public void addQuestion(Question question) {
+        open(); // SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(QuestionEntry.COLUMN_QUESTION, question.getQUESTION());
+        values.put(QuestionEntry.COLUMN_ANSWER, question.getANSWER());
+        values.put(QuestionEntry.COLUMN_OPTA, question.getOPTA());
+        values.put(QuestionEntry.COLUMN_OPTB, question.getOPTB());
+        values.put(QuestionEntry.COLUMN_OPTC, question.getOPTC());
+
+        database.insert(QuestionEntry.TABLE_NAME, null, values);
+
+        close();
     }
 }
