@@ -51,7 +51,7 @@
     <p>Polar form </p>
     <p>$z=r\angle\theta$</p>
     <p>$r=\sqrt{a^{2}+b^{2}}$</p>
-    <p>$\theta=\tan^{-1}\frac{b}{a}$</p>
+    <p>$\theta=\tan^{-1}\dfrac{b}{a}$</p>
     <p><img src="img/advanced_engg_math/complex_num_axis.svg" style="height:auto; width:auto; max-width:100%" alt="complex number axis"></p>
     <p>where: r = modulus or absolute value<br>
       $\theta$ = argument or amplitude on degrees</p>
@@ -105,19 +105,19 @@
     <p>$$e^{-\theta j}=\cos\theta-\sin\theta j$$</p>
     <p>$$\sin\theta=\frac{e^{j\theta}-e^{-j\theta}}{2j}$$</p>
     <p>$$\cos\theta=\frac{e^{j\theta}+e^{-j\theta}}{2}$$</p>
-    <p>note: $\tan\theta = \frac{\sin\theta}{\cos\theta}$<br>
-      $\cot\theta=\frac{\cos\theta}{\sin\theta}$<br>
-      $\sec\theta=\frac{1}{\cos\theta}$<br>
-      $\csc\theta=\frac{1}{\sin\theta}$</p>
+    <p>note: $\tan\theta = \dfrac{\sin\theta}{\cos\theta}$<br>
+      $\cot\theta=\dfrac{\cos\theta}{\sin\theta}$<br>
+      $\sec\theta=\dfrac{1}{\cos\theta}$<br>
+      $\csc\theta=\dfrac{1}{\sin\theta}$</p>
   </li>
   <li>
     <p><strong>Hyperbolic functions</strong></p>
     <p>$$\sinh\theta=\frac{e^{\theta}-e^{-\theta}}{2}$$</p>
     <p>$$\cosh\theta=\frac{e^{\theta}+e^{-\theta}}{2}$$</p>
-    <p>note: $\tanh\theta=\frac{\sinh\theta}{\cosh\theta}$<br>
-      $\coth\theta=\frac{\cosh\theta}{\sinh\theta}$<br>
-      $\text{sech}\theta=\frac{1}{\cosh\theta}$<br>
-      $\text{csch}\theta=\frac{1}{\sinh\theta}$</p>
+    <p>note: $\tanh\theta=\dfrac{\sinh\theta}{\cosh\theta}$<br>
+      $\coth\theta=\dfrac{\cosh\theta}{\sinh\theta}$<br>
+      $\text{sech}\theta=\dfrac{1}{\cosh\theta}$<br>
+      $\text{csch}\theta=\dfrac{1}{\sinh\theta}$</p>
   </li>
   <li>
     <p><strong>Inverse trigonometric functions of complex numbers</strong> </p>
@@ -230,7 +230,7 @@ $$C=\begin{bmatrix}<br>
   Division of matrices are done by multiplying the numerator by the inverse matrix of the denominator.</p>
 <blockquote>
   <p>Let: $A$ and $B$ are matrices<br>
-  $\frac{A}{B}=AB^{-1}$, where $B^{-1}$ is called the inverse matrix of matrix B</p>
+  $\dfrac{A}{B}=AB^{-1}$, where $B^{-1}$ is called the inverse matrix of matrix B</p>
 </blockquote>
 <p><strong>Transpose Matrix</strong><br>
   If matrix A is reflected in its main diagonal, so that all rows become columns and all columns become rows without changing their relative order of entries in the rows and columns, the result is a <strong>transpose matrix</strong>, $A^{T}$.</p>
@@ -303,10 +303,129 @@ Thus, the cofactor of 6 is -3.</p>
   2 &amp; 1 &amp; 4\\ <br>
   4 &amp; 2 &amp; 6<br>
 \end{vmatrix}=6$$</p>
-<p>$$\text{Thus, }A^{-1}=\frac{1}{6}\begin{vmatrix}<br>
+<p>$$\text{Thus, }A^{-1}=\dfrac{1}{6}\begin{vmatrix}<br>
   -2 &amp; -12 &amp; 0\\ <br>
   4 &amp; 6 &amp; 6\\ <br>
   0 &amp; 6 &amp; -3<br>
 \end{vmatrix}$$</p>
+<h3>Determinants</h3>
+<p><strong>Determinant</strong> is a square matrix (i.e. the number of rows = the number of column). Every determinant can be associated with a real number.</p>
+<p><strong>Properties of determinants:</strong></p>
+<ol>
+  <li>
+    <p>If the rows of one determinant are the same as the columns of another, and in the same order, the two determinants are equal.</p>
+  </li>
+  <li>
+    <p>If two columns (or rows) of a determinant are interchanged, the value of the resulting determinant is equal to the negative of the value of the given determinant.</p>
+  </li>
+  <li>
+    <p>If two columns (or rows) of a determinant are identical, the value of the determinant is zero.</p>
+  </li>
+  <li>
+    <p>If the elements of a column (or row) of a determinant are multiplied by<em> k</em>, the value of the determinant is multiplied by <em>k</em>.</p>
+  </li>
+  <li>
+    <p>If the elements of the <em>j</em>th column of a determinant D are the sum $a_{ij}+b_{ij}$, then D is the sum of the determinants D' and D&quot; in which all the columns of D, D', and D&quot; are the same except the jth; furthermore, the jth column of D' is $a_{ij}$, i = 1, 2, 3,..., n, and the <em>j</em>th column of D&quot; is $b_{ij}$ I = 1, 2, 3,..., n. Similarly for rows.</p>
+  </li>
+  <li>
+    <p>The value of the determinant is not changed if a column is replaced by the column plus a multiple of another column. Similarly for rows.</p>
+  </li>
+</ol>
+<p><strong>Determinant of a 2 x 2 matrix:</strong></p>
+<p>$$\det A=\begin{vmatrix}<br>
+  a &amp; b\\ <br>
+  c &amp; d<br>
+\end{vmatrix}$$</p>
+<p>$$\det A=ad-bc$$</p>
+<p><strong>Determinant of a 3 x 3 matrix:</strong></p>
+<p>$$\det A = \begin{vmatrix}<br>
+  a &amp; b &amp; c\\ <br>
+  d &amp; e &amp; f\\ <br>
+  g &amp; h &amp; i<br>
+\end{vmatrix}$$</p>
+<p>$$\begin{aligned}<br>
+  \det A &amp;=\begin{vmatrix}<br>
+  a &amp; b &amp; c\\ <br>
+  d &amp; e &amp; f\\ <br>
+  g &amp; h &amp; i<br>
+  \end{vmatrix}\left.\begin{matrix}<br>
+  a &amp; b\\ <br>
+  d &amp; e\\ <br>
+  g &amp; h<br>
+  \end{matrix}\right| \\<br>
+  &amp; =(aei+bfg+cdh)-(gec+hfa+idb)<br>
+\end{aligned}$$</p>
+<h3><strong>Laplace Transforms</strong></h3>
+<p>The Laplace transform of a function $f(t)$ denoted by $\mathcal{L} [f(t)]$ is defined as a function of a variable &quot;s&quot; by the integral:</p>
+<p>$$F(s) = \mathcal{L} [f(t)]=\int_{0}^{\infty}{f(t)e^{-st}dt}$$</p>
+<p>where: t &gt; 0 and s is any number (real or complex)</p>
+<p><strong>Laplace transform of some elementary functions:</strong></p>
+<table width="97%" border="0">
+  <tr>
+    <th width="41%" scope="col"><strong>f(t)</strong></th>
+    <th width="59%" scope="col">F(s)</th>
+  </tr>
+  <tr>
+    <td>1. $1$</td>
+    <td>$\dfrac{1}{s}$</td>
+  </tr>
+  <tr>
+    <td>2. $t$</td>
+    <td>$\dfrac{1}{s^{2}}$</td>
+  </tr>
+  <tr>
+    <td>3. $t^{n}$</td>
+    <td>$\dfrac{n!}{s^{n+1}}$</td>
+  </tr>
+  <tr>
+    <td>4. $e^{\pm at}$</td>
+    <td>$\dfrac{1}{s \mp a}$</td>
+  </tr>
+  <tr>
+    <td>5. $t^{n}e^{\pm at}$</td>
+    <td>$\dfrac{n!}{(s \mp a)^{n+1}}$</td>
+  </tr>
+  <tr>
+    <td>6. $e^{\pm at}\sin{kt}$</td>
+    <td>$\dfrac{k}{(s \mp a)^{2}+k^{2}}$</td>
+  </tr>
+  <tr>
+    <td>7. $e^{\pm at}\cos{kt}$</td>
+    <td>$\dfrac{s \mp a}{(s \mp a)^{2}+k^{2}}$</td>
+  </tr>
+  <tr>
+    <td>8. $\sin{at}$</td>
+    <td>$\dfrac{a}{s^{2}+a^{2}}$</td>
+  </tr>
+  <tr>
+    <td>9. $\cos{at}$</td>
+    <td>$\dfrac{s}{s^{2}+a^{2}}$</td>
+  </tr>
+  <tr>
+    <td>10. $\sinh{at}$</td>
+    <td>$\dfrac{a}{s^{2}-a^{2}}$</td>
+  </tr>
+  <tr>
+    <td>11. $\cosh{at}$</td>
+    <td>$\dfrac{s}{s^{2}-a^{2}}$</td>
+  </tr>
+  <tr>
+    <td>12. $t\sin{at}$</td>
+    <td>$\dfrac{2as}{(s^{2}+a^{2})^{2}}$</td>
+  </tr>
+  <tr>
+    <td>13. $t\cos{at}$</td>
+    <td>$\dfrac{s^{2}-a^{2}}{(s^{2}+a^{2})^{2}}$</td>
+  </tr>
+  <tr>
+    <td>14. $\sin{(wt+\theta)}$</td>
+    <td>$\dfrac{s\sin{\theta}+k\cos{\theta}}{s^{2}+k^{2}}$</td>
+  </tr>
+  <tr>
+    <td>15. $\cos{(wt+\theta)}$</td>
+    <td>$\dfrac{s\sin{\theta}-k\cos{\theta}}{s^{2}+k^{2}}$</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
 </body>
 </html>

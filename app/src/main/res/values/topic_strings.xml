@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="main_topic_names">
-        <item>General Applied Science</item>
+        <item>General Engineering and Applied Science</item>
         <item>Engineering Mathematics</item>
     </string-array>
     <string-array name="geas_topic_names">
-        <item>abc</item>
-        <item>def</item>
+        <item>Physics</item>
     </string-array>
     <string-array name="engg_math_topic_names">
         <item>Systems of Numbers &amp; Conversion</item>
@@ -21,8 +20,8 @@
         <item>Spherical Trigonometry</item>
         <item>Analytic Geometry I</item>
         <item>Analytic Geometry II</item>
-        <item>Differential Calculus (Limits &amp; Derivatives)</item>
-        <item>Differential Calculus (Maxima, Minima &amp; Time Rates</item>
+        <item>Differential Calculus I</item>
+        <item>Differential Calculus II</item>
         <item>Integral Calculus</item>
         <item>Differential Equations</item>
     </string-array>
@@ -31,8 +30,7 @@
         <item>The art of applying mathematics to complex real-world problems. It combines mathematical theory, practical engineering and scientific computing to address today’s technological challenges.</item>
     </string-array>
     <string-array name="geas_topic_desc">
-        <item>Description No. 1</item>
-        <item>Description No. 2</item>
+        <item>natural science that involves the study of matter and its motion and behavior through space and time, along with related concepts such as energy and force.</item>
     </string-array>
     <string-array name="engg_math_topic_desc">
         <item>System of Numbers and how to convert unit of measurement.</item>
@@ -47,9 +45,9 @@
         <item>Solving triangular surfaces in a sphere and its applications.</item>
         <item>What is rectangular coordinates system, formulas for points, lines, and circle.</item>
         <item>Parabola, Ellipse, Hyperbola, and its properties.</item>
-        <item>Dummy description</item>
-        <item>Dummy description</item>
-        <item>Dummy description</item>
-        <item>Dummy description</item>
+        <item>Limits, Definition of the Derivative, Derivatives of common functions</item>
+        <item>Maxima, Minima &amp; Time Rates</item>
+        <item>Indefinite integrals, Indefinite integrals of common functions, Definite integral</item>
+        <item>a mathematical equation that relates some function with its derivatives</item>
     </string-array>
 </resources>

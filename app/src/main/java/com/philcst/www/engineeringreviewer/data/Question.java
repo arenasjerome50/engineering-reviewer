@@ -1,5 +1,9 @@
 package com.philcst.www.engineeringreviewer.data;
 
+import android.util.SparseIntArray;
+
+import com.philcst.www.engineeringreviewer.R;
+
 /**
  * A class thats encapsulates Question id, Question, options and the correct answer.
  */
@@ -12,6 +16,13 @@ public class Question {
     private String OPTB;
     private String OPTC;
     private String ANSWER;
+
+    //private HashMap<Integer, Integer> images = new HashMap<>();
+    private static SparseIntArray images = new SparseIntArray();
+
+    static {
+        images.put(91, R.drawable.ic_img_91);
+    }
 
     public Question() {
         ID=0;
@@ -58,6 +69,10 @@ public class Question {
     }
     // End Getter Methods
 
+    public static int getRelatedImage(int question_id) {
+        return images.get(question_id);
+    }
+
     /**
      * Setter Methods
      */
@@ -85,7 +100,4 @@ public class Question {
         ANSWER = aNSWER;
     }
     // End Setter Methods
-
-
-
 }

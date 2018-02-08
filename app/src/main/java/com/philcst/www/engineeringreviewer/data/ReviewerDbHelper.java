@@ -2,13 +2,10 @@ package com.philcst.www.engineeringreviewer.data;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.philcst.www.engineeringreviewer.data.ReviewerContract.QuestionEntry;
-
-import java.util.ArrayList;
 
 
 public class ReviewerDbHelper extends SQLiteOpenHelper {
@@ -75,7 +72,7 @@ public class ReviewerDbHelper extends SQLiteOpenHelper {
         this.addQuestion(q5);
     }
 
-    public  ArrayList<Question> getAllQuestions() {
+    /*public  ArrayList<Question> getAllQuestions() {
         SQLiteDatabase db = this.getReadableDatabase();
 
         // Define what you what to select in this case '*'
@@ -99,4 +96,5 @@ public class ReviewerDbHelper extends SQLiteOpenHelper {
 
         return questionArrayList;
     }
+    */
 }

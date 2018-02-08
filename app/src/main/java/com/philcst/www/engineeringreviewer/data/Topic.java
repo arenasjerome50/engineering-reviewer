@@ -122,8 +122,10 @@ public class Topic implements Parcelable, ListItemShowable{
     };
 
     private static int[][] subTopicImages = {
-            {R.drawable.ic_molecule, R.drawable.ic_molecule},
-            {   // 4 topics
+            {   // Geas
+                R.drawable.ic_molecule
+            },
+            {   // Engineering Math
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
                     R.drawable.ic_integral,
@@ -147,11 +149,10 @@ public class Topic implements Parcelable, ListItemShowable{
     Hard coded content file names
      */
     private static String[][] subTopicContents = {
-            {
-                    "age_work_mixture_digit_motion_problems.html",
-                    "analytic_geometry_one.html"
+            {   // Geas
+                    "physics.html"
             },
-            {
+            {   // Engineering math
                     "systems_of_numbers_and_conversion.html",
                     "fundamentals_in_algebra.html",
                     "quadratic_equation_binomial_theorem_logarithm.html",
