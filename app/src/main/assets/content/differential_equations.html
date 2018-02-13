@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Differential Equations</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
@@ -13,149 +14,148 @@
 </script>
   <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
-
-<body>
-<h1>Differential Equations</h1>
+<body class="p-3">
+<h2>Differential Equations</h2>
 <hr>
-<p><strong>Differential Equation (DE)</strong> - is an equation containing at least one derivative.</p>
-<p>Examples:</p>
+<p class="text-justify"><strong>Differential Equation (DE)</strong> - is an equation containing at least one derivative.</p>
+<p class="text-justify">Examples:</p>
 <ol type="a">
 	<li>
-	  <p>$(2xy + {x^2})dx + 2ydy = 0$</p>
+	  <p class="text-justify">$(2xy + {x^2})dx + 2ydy = 0$</p>
     </li>
 	<li>
-	  <p>${\left( {{{{d^3}y} \over {d{x^3}}}} \right)^2} - x{\left( {{{{d^2}y} \over {d{x^2}}}} \right)^3} + {x^3} = 0$ </p>
+	  <p class="text-justify">${\left( {{{{d^3}y} \over {d{x^3}}}} \right)^2} - x{\left( {{{{d^2}y} \over {d{x^2}}}} \right)^3} + {x^3} = 0$ </p>
     </li>
 	<li>
-	  <p>$(x - 1)y'' + xy' + y = 0$ </p>
+	  <p class="text-justify">$(x - 1)y'' + xy' + y = 0$ </p>
     </li>
 	<li>${{\partial x} \over {\partial y}} + 2y{{\partial x} \over {\partial z}} = 3$</li>
 </ol>
-<p><strong>Types of Differential Equations (DE):</strong></p>
+<p class="text-justify"><strong>Types of Differential Equations (DE):</strong></p>
 <ol type="a">
 	<li>
-	  <p>Ordinary DE - an equation containing only one independent variable, thus having only <strong>ordinary derivatives</strong> in the equation.<br>
+	  <p class="text-justify">Ordinary DE - an equation containing only one independent variable, thus having only <strong>ordinary derivatives</strong> in the equation.<br>
 	    (Examples a, b &amp; c)</p>
     </li>
 	<li>Partial DE - an equation containing two or more independent variables, thus having <strong>partial derivatives</strong> in the equation.<br>
 	  (Example d)</li>
 </ol>
-<p><strong>Order of a DE:</strong></p>
+<p class="text-justify"><strong>Order of a DE:</strong></p>
 <blockquote>
-  <p>The order of a DE is the <strong>order of the highest ordered derivative </strong>which appears in the equation.</p>
+  <p class="text-justify">The order of a DE is the <strong>order of the highest ordered derivative </strong>which appears in the equation.</p>
 </blockquote>
-<p><strong>Degree of a DE:</strong></p>
+<p class="text-justify"><strong>Degree of a DE:</strong></p>
 <blockquote>
-  <p><strong> </strong>	The degree of a DE is the <strong>degree (exponent) of the highest ordered derivative</strong> which appears in the equation.</p>
-  <p>Example:<br>
+  <p class="text-justify"><strong> </strong>	The degree of a DE is the <strong>degree (exponent) of the highest ordered derivative</strong> which appears in the equation.</p>
+  <p class="text-justify">Example:<br>
     a - First order, First degree<br>
     b - Third order, Second degree<br>
     c - Second order, First degree<br>
   d - First order, First degree</p>
 </blockquote>
-<p><strong>Types of solutions of a DE:</strong></p>
+<p class="text-justify"><strong>Types of solutions of a DE:</strong></p>
 <ol type="a">
 	<li>
-	  <p>General solution - the solution has <strong>at least one</strong> arbitrary constant.</p>
-	  <p>Example: $x^{3}+3y=C$, where: C = arbitrary constant</p>
+	  <p class="text-justify">General solution - the solution has <strong>at least one</strong> arbitrary constant.</p>
+	  <p class="text-justify">Example: $x^{3}+3y=C$, where: C = arbitrary constant</p>
     </li>
 	<li>
-	  <p>Particular solution - the solution has no arbitrary constant. </p>
-	  <p>Example: $2xy+y^{2}-2=0$</p>
+	  <p class="text-justify">Particular solution - the solution has no arbitrary constant. </p>
+	  <p class="text-justify">Example: $2xy+y^{2}-2=0$</p>
     </li>
 </ol>
-<p><strong>Solutions to first order DE:</strong></p>
+<p class="text-justify"><strong>Solutions to first order DE:</strong></p>
 <ol type="a">
 	<li>
-	  <p>Variable separable type</p>
-	  <p>Standard form: $P(x)dx+Q(y)dy=0$</p>
-	  <p>General solution: $\int {P(x)dx} + \int{Q(y)dy} = C$</p>
+	  <p class="text-justify">Variable separable type</p>
+	  <p class="text-justify">Standard form: $P(x)dx+Q(y)dy=0$</p>
+	  <p class="text-justify">General solution: $\int {P(x)dx} + \int{Q(y)dy} = C$</p>
     </li>
 	<li>
-	  <p>Homogeneous type</p>
-	  <p>Standard form: $M(x,y)dx+N(x,y)dy=0$</p>
-	  <p>General solution: Substitute y = vx or x = vy and the resulting DE becomes a variable separable type</p>
-	  <p>Test for homogeneity of degree n:<br>
+	  <p class="text-justify">Homogeneous type</p>
+	  <p class="text-justify">Standard form: $M(x,y)dx+N(x,y)dy=0$</p>
+	  <p class="text-justify">General solution: Substitute y = vx or x = vy and the resulting DE becomes a variable separable type</p>
+	  <p class="text-justify">Test for homogeneity of degree n:<br>
 	  Let: $f(x,y) = M(x,y)dx+N(x,y)dy$<br>
 	  $f(rx,ry)=r^{n}f(x,y)$</p>
     </li>
 	<li>
-	  <p>Exact type </p>
-	  <p>Standard form: $M(x,y)dx+N(x,y)dy=0$</p>
-	  <p>General solution: $F(x,y) = C$</p>
-	  <p>where: $F(x,y)= \int{M(x,y)\partial x+k_{1}}$<br>
+	  <p class="text-justify">Exact type </p>
+	  <p class="text-justify">Standard form: $M(x,y)dx+N(x,y)dy=0$</p>
+	  <p class="text-justify">General solution: $F(x,y) = C$</p>
+	  <p class="text-justify">where: $F(x,y)= \int{M(x,y)\partial x+k_{1}}$<br>
       $F(x,y)= \int{N(x,y)\partial y+k_{2}}$</p>
-	  <p>Test for exactness: $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$</p>
+	  <p class="text-justify">Test for exactness: $\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$</p>
     </li>
 	<li>
-	  <p>Linear type </p>
-	  <p>Standard form: $\frac{dy}{dx}+yP(x)=Q(x)$</p>
-	  <p>General solution: $y(i.f)=\int{Q(x)(i.f.)dx}+C$</p>
-	  <p>where: i.f. = integrating factor = $e^{\int{P(x)dx}}$</p>
+	  <p class="text-justify">Linear type </p>
+	  <p class="text-justify">Standard form: $\frac{dy}{dx}+yP(x)=Q(x)$</p>
+	  <p class="text-justify">General solution: $y(i.f)=\int{Q(x)(i.f.)dx}+C$</p>
+	  <p class="text-justify">where: i.f. = integrating factor = $e^{\int{P(x)dx}}$</p>
     </li>
 	<li>
-	  <p>Bernoulli's equation type </p>
-	  <p>Standard form: $$\frac{dy}{dx}+yP(x)=y^{n}Q(x)$$</p>
-	  <p>General solution: $$y^{1-n}=\frac{1}{e^{\int{(1-n)P(x)dx}}}\int{(1-n)Q(x)e^{\int{(1-n)P(x)dx}}dx}$$</p>
+	  <p class="text-justify">Bernoulli's equation type </p>
+	  <p class="text-justify">Standard form: $$\frac{dy}{dx}+yP(x)=y^{n}Q(x)$$</p>
+	  <p class="text-justify">General solution: $$y^{1-n}=\frac{1}{e^{\int{(1-n)P(x)dx}}}\int{(1-n)Q(x)e^{\int{(1-n)P(x)dx}}dx}$$</p>
     </li>
 </ol>
-<p><strong>Application of first order DE</strong></p>
+<p class="text-justify"><strong>Application of first order DE</strong></p>
 <ol type="a">
 	<li>
-	  <p>Population growth problems</p>
-	  <p>$$\frac{dP}{dt}=kP$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">Population growth problems</p>
+	  <p class="text-justify">$$\frac{dP}{dt}=kP$$</p>
+	  <p class="text-justify">where:<br>
 	  $\frac{dP}{dt}$ = rate of change of the population<br>
 	  P = number of inhabitants at any time t<br>
 	  k = constant of proportionality</p>
     </li>
 	<li>
-	  <p>Decay problems </p>
-	  <p>$$\frac{dQ}{dt}=kQ$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">Decay problems </p>
+	  <p class="text-justify">$$\frac{dQ}{dt}=kQ$$</p>
+	  <p class="text-justify">where:<br>
 	  $\frac{dQ}{dt}$ = rate of change of the substance<br>
 	  Q = amount of the substance present at any time t<br>
 	  k = constant of proportionality</p>
     </li>
 	<li>
-	  <p>Continuous compound interest problems</p>
-	  <p>$$\frac{dP}{dt}=rP$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">Continuous compound interest problems</p>
+	  <p class="text-justify">$$\frac{dP}{dt}=rP$$</p>
+	  <p class="text-justify">where:<br>
 	  $\frac{dP}{dt}$ = rate of change of the account<br>
 	  P = money present in the account at any time t<br>
 	  r = nominal rate of interest per year</p>
     </li>
 	<li>
-	  <p>Flow problems </p>
-	  <p>$$\frac{dQ}{dt}=\text{Rate of gain}-\text{Rate of loss}$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">Flow problems </p>
+	  <p class="text-justify">$$\frac{dQ}{dt}=\text{Rate of gain}-\text{Rate of loss}$$</p>
+	  <p class="text-justify">where:<br>
 	  Q = concentration of the mixture at any time t<br>
 	  $\frac{dQ}{dt}$ = rate of change of the concentration of the mixture</p>
     </li>
 	<li>
-	  <p>Cooling and heating problems</p>
-	  <p>Cooling process: $$\frac{dT}{dt}=k(T-t_{s})$$</p>
-	  <p>Heating process: $$\frac{dT}{dt}=k(t_{s}-T)$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">Cooling and heating problems</p>
+	  <p class="text-justify">Cooling process: $$\frac{dT}{dt}=k(T-t_{s})$$</p>
+	  <p class="text-justify">Heating process: $$\frac{dT}{dt}=k(t_{s}-T)$$</p>
+	  <p class="text-justify">where:<br>
 	  $\frac{dT}{dt}$ = rate of change of the body temp.<br>
 	  T = temperature of the body at any time t<br>
 	  $t_{s}$ = surrounding temperature</p>
     </li>
 	<li>
-	  <p>Newton's second law of motion </p>
-	  <p>$$F=m\frac{dV}{dt}$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">Newton's second law of motion </p>
+	  <p class="text-justify">$$F=m\frac{dV}{dt}$$</p>
+	  <p class="text-justify">where:<br>
 	  F = force<br>
 	  m = mass of the body<br>
 	  $\frac{dV}{dt}$ = rate of change of velocity</p>
     </li>
 	<li>
-	  <p>Geometrical problems (Orthogonal trajectory)</p>
+	  <p class="text-justify">Geometrical problems (Orthogonal trajectory)</p>
 	  <blockquote>
-	    <p>A curve which intersects all curves of a given family at the same angles is referred to as a <strong>trajectory</strong>; if the intersection is at right angle, the curve is called <strong>orthogonal trajectory</strong>.</p>
+	    <p class="text-justify">A curve which intersects all curves of a given family at the same angles is referred to as a <strong>trajectory</strong>; if the intersection is at right angle, the curve is called <strong>orthogonal trajectory</strong>.</p>
       </blockquote>
-	  <p>$$\left ( \frac{dy}{dx} \right )_{t}=-\left ( \frac{dx}{dy} \right )_{g}$$</p>
-	  <p>where:<br>
+	  <p class="text-justify">$$\left ( \frac{dy}{dx} \right )_{t}=-\left ( \frac{dx}{dy} \right )_{g}$$</p>
+	  <p class="text-justify">where:<br>
 	    $$\eqalign{<br>
 	    &amp; \left ( \frac{dy}{dx} \right )_{t} = \text{slope of the orthogonal trajectory} \cr <br>
 	     &amp; \left ( \frac{dy}{dx} \right )_{g} = \text{slope of the given family of curves}\cr<br>

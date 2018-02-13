@@ -103,6 +103,8 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
 
             finish();
         } else { // ohhh it's just a reading intent
+            setActionBarTitle(mainTopic.getName());
+
             // ready the fragment
             ListFragment subTopicList = new ListFragment();
 
@@ -128,4 +130,15 @@ public class TopicListActivity extends AppCompatActivity implements OnItemClickL
 
     }
 
+    @Override
+    public void onBackPressed() {
+        setActionBarTitle("Select Topic");
+        super.onBackPressed();
+    }
+
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
 }

@@ -126,22 +126,23 @@ public class Topic implements Parcelable, ListItemShowable{
                 R.drawable.ic_molecule
             },
             {   // Engineering Math
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
+                    R.drawable.ic_systems_of_numbers_and_conversion,
+                    R.drawable.ic_algebra,
+                    R.drawable.ic_binomial,
                     R.drawable.ic_age_work,
                     R.drawable.ic_clock_variation,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral,
+                    R.drawable.ic_venn_diagram,
+                    R.drawable.ic_plane_geometry,
+                    R.drawable.ic_solid_geometry,
+                    R.drawable.ic_plane_trigonometry,
+                    R.drawable.ic_spherical_trigonometry,
                     R.drawable.ic_analytic_one,
                     R.drawable.ic_analytic_two,
                     R.drawable.ic_differential,
-                    R.drawable.ic_differential,
-                    R.drawable.ic_integral,
-                    R.drawable.ic_integral
+                    R.drawable.ic_differential2,
+                    R.drawable.ic_integral2,
+                    R.drawable.ic_differential_equations,
+                    R.drawable.ic_adv_math
             }
     };
 
@@ -166,9 +167,10 @@ public class Topic implements Parcelable, ListItemShowable{
                     "analytic_geometry_one.html",
                     "analytic_geometry_two.html",
                     "differential_calculus_limits_derivatives.html",
-                    "differential_calculus_maxima_minima_time_rates,html",
+                    "differential_calculus_maxima_minima_time_rates.html",
                     "integral_calculus.html",
-                    "differential_equations.html"
+                    "differential_equations.html",
+                    "advanced_engg_math.html"
             }
     };
 

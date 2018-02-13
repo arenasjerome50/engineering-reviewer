@@ -2,6 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Quadratic Equation, Binomial theorem, Logarithm</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
@@ -12,42 +13,42 @@
 </script>
   <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
-<body>
-<h1>Quadratic Equation, Binomial Theorem, Logarithm</h1>
+<body class="p-3">
+<h2>Quadratic Equation, Binomial Theorem, Logarithm</h2>
 <hr>
-<h3>Quadratic Equation</h3>
-<p>The general quadratic equation is expressed as:</p>
-<p>$$a{x^2} + bx + c = 0$$</p>
-<p>where <em>a</em>, <em>b</em> and <em>c</em> are real numbers and with $a \ne 0$. A quadratic equation in <em>x</em> is also known as a <strong>second-degree polynomial equation</strong>.</p>
-<p><strong>Quadratic formula:</strong></p>
-<p>$$x = {{ - b \pm \sqrt {{b^2} - 4ac} } \over {2a}}$$</p>
-<p><strong>Nature of roots:<br>
+<h5>Quadratic Equation</h5>
+<p class="text-justify">The general quadratic equation is expressed as:</p>
+<p class="text-justify">$$a{x^2} + bx + c = 0$$</p>
+<p class="text-justify">where <em>a</em>, <em>b</em> and <em>c</em> are real numbers and with $a \ne 0$. A quadratic equation in <em>x</em> is also known as a <strong>second-degree polynomial equation</strong>.</p>
+<p class="text-justify"><strong>Quadratic formula:</strong></p>
+<p class="text-justify">$$x = {{ - b \pm \sqrt {{b^2} - 4ac} } \over {2a}}$$</p>
+<p class="text-justify"><strong>Nature of roots:<br>
 </strong>The discriminant, ${b^2} - 4ac$ determines the nature of the roots of a quadratic equation.</p>
 <blockquote>
-  <p>When ${b^2} - 4ac = 0$, roots are real and equal (one root only)<br>
+  <p class="text-justify">When ${b^2} - 4ac = 0$, roots are real and equal (one root only)<br>
     When ${b^2} - 4ac &gt; 0$, roots are real and unequal<br>
     When ${b^2} - 4ac &lt; 0$, roots are imaginary and unequal</p>
 </blockquote>
-<p><strong>Properties of roots:<br>
+<p class="text-justify"><strong>Properties of roots:<br>
 </strong>Let <em>r<sub>1</sub></em><sub></sub> and <em>r<sub>2</sub></em> be the roots of a quadratic equation.</p>
 <blockquote>
-  <p>When the two roots are added:</p>
-  <p>$${r_1} + {r_2} = {{ - b} \over a}$$</p>
-  <p>When the two roots are multiplied:</p>
-  <p>$${r_1}{r_2} = {c \over a}$$</p>
+  <p class="text-justify">When the two roots are added:</p>
+  <p class="text-justify">$${r_1} + {r_2} = {{ - b} \over a}$$</p>
+  <p class="text-justify">When the two roots are multiplied:</p>
+  <p class="text-justify">$${r_1}{r_2} = {c \over a}$$</p>
 </blockquote>
-<p><strong>Pure quadratic equation</strong> - is when <em>b</em> = 0. In such case,  <em>r<sub>1</sub></em> =<em> r<sub>2</sub></em></p>
-<h3>Binomial Theorem</h3>
-<p><strong>Binomial</strong> is a polynomial or expression of two terms. When a binomial is raised to a certain power, the expansions are as follows:</p>
-<p>$$\eqalign{<br>
+<p class="text-justify"><strong>Pure quadratic equation</strong> - is when <em>b</em> = 0. In such case,  <em>r<sub>1</sub></em> =<em> r<sub>2</sub></em></p>
+<h5>Binomial Theorem</h5>
+<p class="text-justify"><strong>Binomial</strong> is a polynomial or expression of two terms. When a binomial is raised to a certain power, the expansions are as follows:</p>
+<p class="text-justify">$$\eqalign{<br>
 &amp; {(x + y)^0} = 1  \cr <br>
 &amp; {(x + y)^1} = x + y  \cr <br>
 &amp; {(x + y)^2} = {x^2} + 2xy + {y^2}  \cr <br>
 &amp; {(x + y)^3} = {x^3} + 3{x^2}y + 3x{y^2} + {y^3}  \cr <br>
 &amp; {(x + y)^4} = {x^4} + 4{x^3}y + 6{x^2}{y^2} + 4x{y^3} + {y^4} \cr} $$<br>
 ... and so on</p>
-<h3>Properties of Binomial Expansion:</h3>
-<p>In the expansion of ${(x + y)^n}$, and as observed in the given expansions above, the following are the properties of a binomial expansion:</p>
+<h5>Properties of Binomial Expansion:</h5>
+<p class="text-justify">In the expansion of ${(x + y)^n}$, and as observed in the given expansions above, the following are the properties of a binomial expansion:</p>
 <ol>
   <li>The number of terms in a resulting expansion = n + 1.    
   <li>The powers of <em>x </em>decrease by 1 in successive terms, while the power of <em>y</em> increase by 1 in successive terms.    
@@ -55,57 +56,57 @@
   <li>The first terms is <em>x<sup>n</sup></em> and the last term is <em>y<sup>n</sup></em> and each of the terms has a coefficient of 1.    
   <li>The coefficients increase and then decrease in a symmetrical pattern.
 </ol>
-<p>To express everything in general terms, the so-called <strong>Binomial Theorem</strong> was established and expressed as follows:</p>
-<p>$${(x + y)^n} = {x^n} + n{x^{n - 1}}y + {{n(n - 1)} \over {2!}}{x^{n - 2}}{y^2} +  \cdot  \cdot  \cdot  + nx{y^{n - 1}} + {y^n}$$</p>
-<p>Also, the coefficients of a binomial expansion can be conveniently obtained by arranging them in a triangular array or pattern. This is known as <strong>Pascal's Triangle</strong>, named after the famous French Mathematician <strong>Blaise Pascal </strong>(1623-1662).</p>
-<p><img src="img/pascal_triangle.svg" alt="pascal's triangle" style="height:auto; width:auto; max-width:100%"></p>
-<p>Note: Any number in the Pascal's triangle is obtained by adding the two adjacent numbers above it. For example, the number 6 is obtained by adding 3 and 3.</p>
-<p>Another way of determining the coefficient of any term in a binomial expansion is to use the following formula:</p>
-<p>$$\text{Coeff. of any term} = {{(\text{Coeff. of P.T.})(\text{Power of x of P.T.})} \over {\text{Power of y of P.T.}+1}}\\ \text{where: P.T.}= \text{preceding term}$$</p>
-<p>The r<sup>th</sup> term of the binomial expansion of ${(x + y)^n}$ may be calculated using the following formulas:</p>
-<p>$$\eqalign{<br>
+<p class="text-justify">To express everything in general terms, the so-called <strong>Binomial Theorem</strong> was established and expressed as follows:</p>
+<p class="text-justify">$${(x + y)^n} = {x^n} + n{x^{n - 1}}y + {{n(n - 1)} \over {2!}}{x^{n - 2}}{y^2} +  \cdot  \cdot  \cdot  + nx{y^{n - 1}} + {y^n}$$</p>
+<p class="text-justify">Also, the coefficients of a binomial expansion can be conveniently obtained by arranging them in a triangular array or pattern. This is known as <strong>Pascal's Triangle</strong>, named after the famous French Mathematician <strong>Blaise Pascal </strong>(1623-1662).</p>
+<p class="text-justify"><img src="img/pascal_triangle.svg" alt="pascal's triangle" style="height:auto; width:auto; max-width:100%"></p>
+<p class="text-justify">Note: Any number in the Pascal's triangle is obtained by adding the two adjacent numbers above it. For example, the number 6 is obtained by adding 3 and 3.</p>
+<p class="text-justify">Another way of determining the coefficient of any term in a binomial expansion is to use the following formula:</p>
+<p class="text-justify">$$\text{Coeff. of any term} = {{(\text{Coeff. of P.T.})(\text{Power of x of P.T.})} \over {\text{Power of y of P.T.}+1}}\\ \text{where: P.T.}= \text{preceding term}$$</p>
+<p class="text-justify">The r<sup>th</sup> term of the binomial expansion of ${(x + y)^n}$ may be calculated using the following formulas:</p>
+<p class="text-justify">$$\eqalign{<br>
 &amp; {r^{th}}\text{term} = {{(n)(n - 1)(n - 2)...(n - r + 2)} \over {(r - 1)!}}{x^{(n - r + 1)}}{y^{r - 1}}  \cr <br>
 &amp; {r^{th}}\text{term}{ = _n}{C_{r - 1}}{x^{(n - r + 1)}}{y^{r - 1}} \cr} $$</p>
-<p>A term involving a variable with a specific exponent is obtained by using the following formula:</p>
-<p>$${y^r} = {{n(n - 1)(n - 2)...(n - r + 1)} \over {r!}}{x^{n - r}}{y^r}$$</p>
-<p><strong>Sum of the coefficients </strong>of the expansion of ${(x + y)^n}$:</p>
-<p>$$\text{Sum} = {(\text{Coeff. of }x + \text{coeff. of }y)^n}$$</p>
-<p><strong>Sum of exponents</strong> of the expansion ${(x + y)^n}$:</p>
-<p>$$\text{Sum} = n(n + 1)$$</p>
-<h3>Logarithms</h3>
-<p>The term <strong>logarithm</strong> was derived from Greek words, &quot;logus&quot; meaning &quot;ratio&quot; and &quot;aritmus&quot; meaning &quot;number&quot;. <strong>John Napier </strong>(1550-1617) of Scotland invented logarithm 1614. Napier used e = 2.718... for its base. In 1616, it was improved by a professor of geometry at Gresham College in London, <strong>Henry Briggs </strong>(1561-1630) using 10 as base.</p>
-<p><strong>Common logarithm</strong> ($\log_{10}$ or simply $\log$) is a logarithm using the decimal base 10. This is also known as <strong>Brigg's </strong>or <strong>Briggsian logarithm</strong>.</p>
-<p><strong>Natural logarithm</strong> ($\ln$) is a logarithm using the base<em> e</em>. This is also known as <strong>Napier's </strong>or <strong>Napierian logarithm </strong>in honor of Napier. The number, <em>e</em> is known as <strong>Euler's Number</strong>, named after the Swiss mathematician, Leonhard Euler (1707-1783) and is defined as,</p>
-<p>$$e = \mathop {\lim }\limits_{n \to \infty } {\left( {1 + {1 \over n}} \right)^n}$$</p>
-<p><strong>Binary logarithm </strong>(denoted as $\text{lb}$) is logarithm with a base value of 2.</p>
-<p>Since logarithm is an exponent, this illustrates that $\log_bx$ is the exponent to which <em>b</em> must be raised to obtain <em>x</em>. Therefore,</p>
-<p>$$\log_216=4\ \text{may be written as}\ {2^4}=16$$</p>
-<p><strong>Properties of Logarithms:</strong></p>
+<p class="text-justify">A term involving a variable with a specific exponent is obtained by using the following formula:</p>
+<p class="text-justify">$${y^r} = {{n(n - 1)(n - 2)...(n - r + 1)} \over {r!}}{x^{n - r}}{y^r}$$</p>
+<p class="text-justify"><strong>Sum of the coefficients </strong>of the expansion of ${(x + y)^n}$:</p>
+<p class="text-justify">$$\text{Sum} = {(\text{Coeff. of }x + \text{coeff. of }y)^n}$$</p>
+<p class="text-justify"><strong>Sum of exponents</strong> of the expansion ${(x + y)^n}$:</p>
+<p class="text-justify">$$\text{Sum} = n(n + 1)$$</p>
+<h5>Logarithms</h5>
+<p class="text-justify">The term <strong>logarithm</strong> was derived from Greek words, &quot;logus&quot; meaning &quot;ratio&quot; and &quot;aritmus&quot; meaning &quot;number&quot;. <strong>John Napier </strong>(1550-1617) of Scotland invented logarithm 1614. Napier used e = 2.718... for its base. In 1616, it was improved by a professor of geometry at Gresham College in London, <strong>Henry Briggs </strong>(1561-1630) using 10 as base.</p>
+<p class="text-justify"><strong>Common logarithm</strong> ($\log_{10}$ or simply $\log$) is a logarithm using the decimal base 10. This is also known as <strong>Brigg's </strong>or <strong>Briggsian logarithm</strong>.</p>
+<p class="text-justify"><strong>Natural logarithm</strong> ($\ln$) is a logarithm using the base<em> e</em>. This is also known as <strong>Napier's </strong>or <strong>Napierian logarithm </strong>in honor of Napier. The number, <em>e</em> is known as <strong>Euler's Number</strong>, named after the Swiss mathematician, Leonhard Euler (1707-1783) and is defined as,</p>
+<p class="text-justify">$$e = \mathop {\lim }\limits_{n \to \infty } {\left( {1 + {1 \over n}} \right)^n}$$</p>
+<p class="text-justify"><strong>Binary logarithm </strong>(denoted as $\text{lb}$) is logarithm with a base value of 2.</p>
+<p class="text-justify">Since logarithm is an exponent, this illustrates that $\log_bx$ is the exponent to which <em>b</em> must be raised to obtain <em>x</em>. Therefore,</p>
+<p class="text-justify">$$\log_216=4\ \text{may be written as}\ {2^4}=16$$</p>
+<p class="text-justify"><strong>Properties of Logarithms:</strong></p>
 <ol>
 <li>
-  <p>$\log(xy)=\log x+\log y$ 
+  <p class="text-justify">$\log(xy)=\log x+\log y$ 
   </p>
   <li>
-    <p>$\log {x \over y}=\log x - \log y$</p>
+    <p class="text-justify">$\log {x \over y}=\log x - \log y$</p>
   <li>
-    <p>$\log {x^n}=n\log x$</p>
+    <p class="text-justify">$\log {x^n}=n\log x$</p>
   <li>
-    <p>$\log_bx = {\log x \over \log b}$
+    <p class="text-justify">$\log_bx = {\log x \over \log b}$
     </p>
   <li>
-    <p>$\log_ax = {\log_bx \over \log_ba}$
+    <p class="text-justify">$\log_ax = {\log_bx \over \log_ba}$
     </p>
   <li>
-    <p>$\log_aa=1$</p>
+    <p class="text-justify">$\log_aa=1$</p>
   </ol>
-<p>The natural logarithm can be converted into a common logarithm and vice versa. To obtain this, a factor known as the <strong>modulus of logarithms </strong> is necessary, such as</p>
-<p>$$\log x=0.4343\ln x\ \ \ \ \ \text{also,}\ \ \ \ \ \ln x=2.3026\log x$$</p>
-<h3><strong>Tip:</strong></h3>
-<p><strong>Degree of a polynomial or equation</strong> - refers to the maximum sum of the exponents of the variables in any term of the polynomial.</p>
+<p class="text-justify">The natural logarithm can be converted into a common logarithm and vice versa. To obtain this, a factor known as the <strong>modulus of logarithms </strong> is necessary, such as</p>
+<p class="text-justify">$$\log x=0.4343\ln x\ \ \ \ \ \text{also,}\ \ \ \ \ \ln x=2.3026\log x$$</p>
+<h5><strong>Tip:</strong></h5>
+<p class="text-justify"><strong>Degree of a polynomial or equation</strong> - refers to the maximum sum of the exponents of the variables in any term of the polynomial.</p>
 <blockquote>
-  <p>What is the degree $3{x^4}y - 2{x^3}{z^4} + 7y{z^5}$?<br>
+  <p class="text-justify">What is the degree $3{x^4}y - 2{x^3}{z^4} + 7y{z^5}$?<br>
   Ans. 7, which is the sum of 3 and 4 of the second term.</p>
 </blockquote>
-<p>&nbsp;</p>
+<p class="text-justify">&nbsp;</p>
 </body>
 </html>

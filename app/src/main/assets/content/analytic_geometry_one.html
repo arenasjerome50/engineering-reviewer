@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Analytic Geometry (Points, Lines and Circles)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
@@ -14,138 +15,138 @@
   <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
 
-<body>
-<h1>Analytic Geometry</h1>
+<body class="p-3">
+<h2>Analytic Geometry</h2>
 <hr>
-<h3>Rectangular Coordinates System</h3>
-<p><strong>Analytic geometry </strong>deals with geometric problems using coordinates system thereby converting it into algebraic problems.</p>
-<p><strong>Rene Descartes </strong>(1596-1650, <strong>Cartesius </strong>in Latin language) is regarded as the founder of analytic geometry by introducing coordinates system in 1637.</p>
-<p><strong>Rectangular Coordinates System  </strong>(Also known as Cartesian Coordinates System)</p>
-<p><img src="img/coordinate_system.svg" style="height:auto; width:auto; max-width:100%" alt="rectangular coordinates system"></p>
-<p>Point O is the origin and has coordinates (0, 0). The x-coordinate or <strong>abscissa </strong>is always measured from the y-axis while the y-coordinate or <strong>ordinate</strong> is always measured from the x-axis. The point P has 5 and 3 as abscissa and ordinate, respectively.</p>
-<p><strong>Distance between two points:</strong></p>
-<p><img src="img/distance_formula.svg" style="height:auto; width:auto; max-width:100%" alt="distance between two points"></p>
-<p>$$d = \sqrt {{{\left( {{x_2} - {x_1}} \right)}^2} + {{\left( {{y_2} - {y_1}} \right)}^2}} $$</p>
-<p>This formula is known as the distance formula.</p>
-<p><strong>Distance between two points in space:</strong><br>
+<h5>Rectangular Coordinates System</h5>
+<p class="text-justify"><strong>Analytic geometry </strong>deals with geometric problems using coordinates system thereby converting it into algebraic problems.</p>
+<p class="text-justify"><strong>Rene Descartes </strong>(1596-1650, <strong>Cartesius </strong>in Latin language) is regarded as the founder of analytic geometry by introducing coordinates system in 1637.</p>
+<p class="text-justify"><strong>Rectangular Coordinates System  </strong>(Also known as Cartesian Coordinates System)</p>
+<p class="text-justify"><img src="img/coordinate_system.svg" style="height:auto; width:auto; max-width:100%" alt="rectangular coordinates system"></p>
+<p class="text-justify">Point O is the origin and has coordinates (0, 0). The x-coordinate or <strong>abscissa </strong>is always measured from the y-axis while the y-coordinate or <strong>ordinate</strong> is always measured from the x-axis. The point P has 5 and 3 as abscissa and ordinate, respectively.</p>
+<p class="text-justify"><strong>Distance between two points:</strong></p>
+<p class="text-justify"><img src="img/distance_formula.svg" style="height:auto; width:auto; max-width:100%" alt="distance between two points"></p>
+<p class="text-justify">$$d = \sqrt {{{\left( {{x_2} - {x_1}} \right)}^2} + {{\left( {{y_2} - {y_1}} \right)}^2}} $$</p>
+<p class="text-justify">This formula is known as the distance formula.</p>
+<p class="text-justify"><strong>Distance between two points in space:</strong><br>
   In space, there are three axes, namely x, y and z.</p>
-<p><img src="img/two_points_space.svg" style="height:auto; width:auto; max-width:100%" alt="distance between two points in space"></p>
-<p>$$d = \sqrt {{{\left( {{x_2} - {x_1}} \right)}^2} + {{\left( {{y_2} - {y_1}} \right)}^2} + {{\left( {{z_2} - {z_1}} \right)}^2}} $$</p>
-<p><strong>Slope of a line (m):</strong></p>
-<p>$$\tan \theta = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}$$</p>
-<p>$$\text{Since slope, }m=\tan \theta \ ,\  \therefore \ m = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}$$</p>
-<p>For parallel lines, $m_1=m_2$</p>
-<p>For perpendicular lines, ${m_2} =  - {1 \over {{m_1}}}$</p>
-<p><strong>Angle between two lines:</strong></p>
-<p><img src="img/angle_bet_two_lines.svg" style="height:auto; width:auto; max-width:100%" alt="angle between two lines"></p>
-<p>$$\tan \theta  = {{{m_2} - {m_1}} \over {1 + {m_2}{m_1}}}$$</p>
-<p>where: m<sub>2</sub> and m<sub>1</sub> are slopes of the line 2 and line 1, respectively.</p>
-<p><strong>Distance between a point and a line:</strong></p>
-<p><img src="img/distance_bet_point_line.svg" style="height:auto; width:auto; max-width:100%" alt="distance between a point and a line"></p>
-<p>$$d = {{A{x_1} + B{y_1} + C} \over { \pm \sqrt {{A^2} + {B^2}} }}$$</p>
-<p>Use:<br>
+<p class="text-justify"><img src="img/two_points_space.svg" style="height:auto; width:auto; max-width:100%" alt="distance between two points in space"></p>
+<p class="text-justify">$$d = \sqrt {{{\left( {{x_2} - {x_1}} \right)}^2} + {{\left( {{y_2} - {y_1}} \right)}^2} + {{\left( {{z_2} - {z_1}} \right)}^2}} $$</p>
+<p class="text-justify"><strong>Slope of a line (m):</strong></p>
+<p class="text-justify">$$\tan \theta = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}$$</p>
+<p class="text-justify">$$\text{Since slope, }m=\tan \theta \ ,\  \therefore \ m = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}$$</p>
+<p class="text-justify">For parallel lines, $m_1=m_2$</p>
+<p class="text-justify">For perpendicular lines, ${m_2} =  - {1 \over {{m_1}}}$</p>
+<p class="text-justify"><strong>Angle between two lines:</strong></p>
+<p class="text-justify"><img src="img/angle_bet_two_lines.svg" style="height:auto; width:auto; max-width:100%" alt="angle between two lines"></p>
+<p class="text-justify">$$\tan \theta  = {{{m_2} - {m_1}} \over {1 + {m_2}{m_1}}}$$</p>
+<p class="text-justify">where: m<sub>2</sub> and m<sub>1</sub> are slopes of the line 2 and line 1, respectively.</p>
+<p class="text-justify"><strong>Distance between a point and a line:</strong></p>
+<p class="text-justify"><img src="img/distance_bet_point_line.svg" style="height:auto; width:auto; max-width:100%" alt="distance between a point and a line"></p>
+<p class="text-justify">$$d = {{A{x_1} + B{y_1} + C} \over { \pm \sqrt {{A^2} + {B^2}} }}$$</p>
+<p class="text-justify">Use:<br>
 + if B is positive and the point is above / right of the line.<br>
 + if B is negative and the point is below / left of the line.<br>
 - if otherwise</p>
-<p><strong>Distance between two parallel lines:</strong></p>
-<p><img src="img/distance_bet_parallel_lines.svg" style="height:auto; width:auto; max-width:100%" alt="distance between two parallel lines"></p>
-<p>$$d = {{{C_1} - {C_2}} \over { \pm \sqrt {{A^2} + {B^2}} }}$$</p>
-<p><strong>Division of line segment:</strong><br>
+<p class="text-justify"><strong>Distance between two parallel lines:</strong></p>
+<p class="text-justify"><img src="img/distance_bet_parallel_lines.svg" style="height:auto; width:auto; max-width:100%" alt="distance between two parallel lines"></p>
+<p class="text-justify">$$d = {{{C_1} - {C_2}} \over { \pm \sqrt {{A^2} + {B^2}} }}$$</p>
+<p class="text-justify"><strong>Division of line segment:</strong><br>
   Let r<sub>1</sub> and r<sub>2</sub> be the corresponding ratio of its length to the total distance between two points.</p>
-<p><img src="img/division_of_line_segment.svg" style="height:auto; width:auto; max-width:100%" alt="division of line segment"></p>
-<p>$$\eqalign{<br>
+<p class="text-justify"><img src="img/division_of_line_segment.svg" style="height:auto; width:auto; max-width:100%" alt="division of line segment"></p>
+<p class="text-justify">$$\eqalign{<br>
 &amp; x = {{({x_1}{r_2}) + ({x_2}{r_1})} \over {{r_1} + {r_2}}}  \cr <br>
 &amp; y = {{({y_1}{r_2}) + ({y_2}{r_1})} \over {{r_1} + {r_2}}} \cr} $$</p>
-<p>If the point P(x, y) is at the midpoint of P<sub>1</sub> and P<sub>2</sub>, then</p>
-<p>$$x = {{{x_1} + {x_2}} \over 2}\ \ \ \ \ \text{and}\ \ \ \ \ y = {{{y_2} + {y_1}} \over 2}$$</p>
-<p><strong>Area by coordinates:</strong><br>
+<p class="text-justify">If the point P(x, y) is at the midpoint of P<sub>1</sub> and P<sub>2</sub>, then</p>
+<p class="text-justify">$$x = {{{x_1} + {x_2}} \over 2}\ \ \ \ \ \text{and}\ \ \ \ \ y = {{{y_2} + {y_1}} \over 2}$$</p>
+<p class="text-justify"><strong>Area by coordinates:</strong><br>
   Consider a polygon with coordinates of the vertices given as shown.</p>
-<p><img src="img/area_by_coordinates.svg" style="height:auto; width:auto; max-width:100%" alt="area by coordinates"></p>
-<p>$$A = {1 \over 2}\left[ {\left( {{x_1}{y_2} + {x_2}{y_3} + {x_3}{y_1}} \right) - \left( {{y_1}{x_2} + {y_2}{x_3} + {y_3}{x_1}} \right)} \right]$$</p>
-<p>&nbsp;</p>
-<h3>Lines</h3>
-<p><img src="img/line_designations.svg" style="height:auto; width:auto; max-width:100%" alt="line designations"></p>
-<p>Equations of Line:</p>
+<p class="text-justify"><img src="img/area_by_coordinates.svg" style="height:auto; width:auto; max-width:100%" alt="area by coordinates"></p>
+<p class="text-justify">$$A = {1 \over 2}\left[ {\left( {{x_1}{y_2} + {x_2}{y_3} + {x_3}{y_1}} \right) - \left( {{y_1}{x_2} + {y_2}{x_3} + {y_3}{x_1}} \right)} \right]$$</p>
+<p class="text-justify">&nbsp;</p>
+<h5>Lines</h5>
+<p class="text-justify"><img src="img/line_designations.svg" style="height:auto; width:auto; max-width:100%" alt="line designations"></p>
+<p class="text-justify">Equations of Line:</p>
 <ol>
   <li>
-    <p>General Equation: $Ax + By + C = 0$</p>
+    <p class="text-justify">General Equation: $Ax + By + C = 0$</p>
   </li>
   <li>
-    <p>Point-Slope Form:  $y - {y_1} = m(x - {x_1})$</p>
+    <p class="text-justify">Point-Slope Form:  $y - {y_1} = m(x - {x_1})$</p>
   </li>
   <li>
-    <p>Slope-Intercept Form: $y = mx + b$ </p>
+    <p class="text-justify">Slope-Intercept Form: $y = mx + b$ </p>
   </li>
   <li>
-    <p>Two-Point Form: $y - {y_1} = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}(x - {x_1})$ </p>
+    <p class="text-justify">Two-Point Form: $y - {y_1} = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}(x - {x_1})$ </p>
   </li>
   <li>
-    <p>Intercept Form: ${x \over a} + {y \over b} = 1$ </p>
+    <p class="text-justify">Intercept Form: ${x \over a} + {y \over b} = 1$ </p>
   </li>
 </ol>
-<p>&nbsp;</p>
-<h3>Conic Sections</h3>
-<p><strong>Conic section</strong> (or simply <strong>Conic</strong>) is the locus of a point which moves so that its distance from a fixed point (<strong>focus</strong>) is in constant ratio, <strong>e</strong> (<strong>eccentricity</strong>) to its distance from a fixed straight line (<strong>directrix</strong>).</p>
-<p>The term &quot;conic&quot; was first introduced by a renowned mathematician and astronomer of antiquity, <strong>Apollonius</strong> (c.255-170 B.C.) Also, the term &quot;conic section&quot; was due to the fact that the section is formed by a plane made to intersect a cone</p>
-<p><img src="img/conic_sections.svg" style="height:auto; width:auto; max-width:100%" alt="conic sections"></p>
-<p><strong>Circle </strong>is produced when the cutting plane is parallel to the base of the cone.<br>
+<p class="text-justify">&nbsp;</p>
+<h5>Conic Sections</h5>
+<p class="text-justify"><strong>Conic section</strong> (or simply <strong>Conic</strong>) is the locus of a point which moves so that its distance from a fixed point (<strong>focus</strong>) is in constant ratio, <strong>e</strong> (<strong>eccentricity</strong>) to its distance from a fixed straight line (<strong>directrix</strong>).</p>
+<p class="text-justify">The term &quot;conic&quot; was first introduced by a renowned mathematician and astronomer of antiquity, <strong>Apollonius</strong> (c.255-170 B.C.) Also, the term &quot;conic section&quot; was due to the fact that the section is formed by a plane made to intersect a cone</p>
+<p class="text-justify"><img src="img/conic_sections.svg" style="height:auto; width:auto; max-width:100%" alt="conic sections"></p>
+<p class="text-justify"><strong>Circle </strong>is produced when the cutting plane is parallel to the base of the cone.<br>
   <strong>Ellipse</strong> is produced when the cutting plane is not parallel (or inclined) to the base of the cone.<br>
   <strong>Parabola</strong> is produced when the cutting plane is parallel to the element (or generatrix) of the cone.<br>
   <strong>Hyperbola</strong> is produced when the cutting plane is parallel to the axis of the cone.</p>
-<p><strong>General Equation of a Conic Section:</strong></p>
-<p>$$A{x^2} + Bxy + C{y^2} + Dx + Ey + F = 0$$</p>
-<p>When B is not equal to zero, then the principal axes of the conic are inclined (not parallel to the coordinates axes). The curve can be identified from the equation given by determining the value of the determinant, ${B^2}-4AC$.</p>
+<p class="text-justify"><strong>General Equation of a Conic Section:</strong></p>
+<p class="text-justify">$$A{x^2} + Bxy + C{y^2} + Dx + Ey + F = 0$$</p>
+<p class="text-justify">When B is not equal to zero, then the principal axes of the conic are inclined (not parallel to the coordinates axes). The curve can be identified from the equation given by determining the value of the determinant, ${B^2}-4AC$.</p>
 <blockquote>
-  <p>If ${B^2}-4AC &lt; 0$, the conic is an ellipse. $ \to e &lt; 1.0$<br>
+  <p class="text-justify">If ${B^2}-4AC &lt; 0$, the conic is an ellipse. $ \to e &lt; 1.0$<br>
     If ${B^2}-4AC = 0$, the conic is a parabola. $ \to e = 1.0$<br>
     If ${B^2}-4AC &gt; 0$, the conic is a hyperbola. $ \to e &gt; 1.0$</p>
 </blockquote>
-<p>When B is equal to zero, then the principal axes of the conic are parallel to the coordinates axes (x and y axes). To identify the curve, compare the coefficients of A and C.</p>
+<p class="text-justify">When B is equal to zero, then the principal axes of the conic are parallel to the coordinates axes (x and y axes). To identify the curve, compare the coefficients of A and C.</p>
 <blockquote>
-  <p>If $A = C$, the conic is a circle.<br>
+  <p class="text-justify">If $A = C$, the conic is a circle.<br>
     If $A \ne C$ but the same signs, the conic is an ellipse.<br>
     If <em>A </em>and<em> C</em> have different signs, the conic is a hyperbola.<br>
   If either <em>A </em> or <em>C </em>is zero, the conic is a parabola.</p>
 </blockquote>
-<p>The conic sections have geometric properties that can be used for some engineering application such as beams of sound and reflection of rays of light.</p>
-<p>Circle reflects rays issued from the focus <strong>back to the center</strong> of the circle.<br>
+<p class="text-justify">The conic sections have geometric properties that can be used for some engineering application such as beams of sound and reflection of rays of light.</p>
+<p class="text-justify">Circle reflects rays issued from the focus <strong>back to the center</strong> of the circle.<br>
   Parabola reflects rays issued from the focus as <strong>a parallel (with respect to its axis) outgoing beam</strong>.<br>
   Ellipse reflects rays issued <strong>from the focus into the other focus</strong>.<br>
   Hyperbola reflects rays issued <strong>from the focus as if coming from the other focus</strong>.</p>
-<p><img src="img/conic_sections_reflecting_rays.svg" style="height:auto; width:auto; max-width:100%" alt="conic sections reflecting rays"></p>
-<p>&nbsp;</p>
-<h3>Circles</h3>
-<p><strong>Circle </strong>is a locus of a point that which moves so that it is equidistant from a fixed point called center.</p>
+<p class="text-justify"><img src="img/conic_sections_reflecting_rays.svg" style="height:auto; width:auto; max-width:100%" alt="conic sections reflecting rays"></p>
+<p class="text-justify">&nbsp;</p>
+<h5>Circles</h5>
+<p class="text-justify"><strong>Circle </strong>is a locus of a point that which moves so that it is equidistant from a fixed point called center.</p>
 <ol>
   <li>
-    <p>General Equation:</p>
-    <p>$${x^2} + {y^2} + Dx + Ey + F = 0$$</p>
-    <p>If <em>D</em> &amp; <em>E </em>= 0, center is at the origin (0, 0). If either <em>D </em>or <em>E</em>, of both <em>D</em> &amp; <em>E </em>$\ne 0$, the center is at (h, k).</p>
+    <p class="text-justify">General Equation:</p>
+    <p class="text-justify">$${x^2} + {y^2} + Dx + Ey + F = 0$$</p>
+    <p class="text-justify">If <em>D</em> &amp; <em>E </em>= 0, center is at the origin (0, 0). If either <em>D </em>or <em>E</em>, of both <em>D</em> &amp; <em>E </em>$\ne 0$, the center is at (h, k).</p>
   </li>
   <li>
-    <p>Standard Equations:    </p>
-    <p>C(0, 0)</p>
-    <p><img src="img/circle_at_origin.svg" style="height:auto; width:auto; max-width:100%" alt="circle and it's center is at origin"></p>
-    <p>$${x^2} + {y^2} = {r^2}$$</p>
-    <p>C(h, k)</p>
-    <p><img src="img/circle_at_any_point.svg" style="height:auto; width:auto; max-width:100%" alt="circle where it's center is at any point"></p>
-    <p>$${(x - h)^2} + {(y - k)^2} = {r^2}$$</p>
+    <p class="text-justify">Standard Equations:    </p>
+    <p class="text-justify">C(0, 0)</p>
+    <p class="text-justify"><img src="img/circle_at_origin.svg" style="height:auto; width:auto; max-width:100%" alt="circle and it's center is at origin"></p>
+    <p class="text-justify">$${x^2} + {y^2} = {r^2}$$</p>
+    <p class="text-justify">C(h, k)</p>
+    <p class="text-justify"><img src="img/circle_at_any_point.svg" style="height:auto; width:auto; max-width:100%" alt="circle where it's center is at any point"></p>
+    <p class="text-justify">$${(x - h)^2} + {(y - k)^2} = {r^2}$$</p>
   </li>
 </ol>
-<p>When the equation given is general equation rather than standard equation, the center (h, k) of the circle and its radius (r) can be determine by converting the general equation to standard using the process known as <strong>completing the square.</strong> Or using the following formulas:</p>
-<p>General equation: $A{x^2} + C{y^2} + Dx + Ey + F = 0$</p>
-<p>Center (h, k): $\eqalign{<br>
+<p class="text-justify">When the equation given is general equation rather than standard equation, the center (h, k) of the circle and its radius (r) can be determine by converting the general equation to standard using the process known as <strong>completing the square.</strong> Or using the following formulas:</p>
+<p class="text-justify">General equation: $A{x^2} + C{y^2} + Dx + Ey + F = 0$</p>
+<p class="text-justify">Center (h, k): $\eqalign{<br>
 &amp; h = {{ - D} \over {2A}}  \cr <br>
 &amp; k = {{ - E} \over {2A}} \cr} $</p>
-<p>Radius (r): $r = \sqrt {{{{D^2} + {E^2} - 4AF} \over {4{A^2}}}} $</p>
-<h3>Tips:</h3>
+<p class="text-justify">Radius (r): $r = \sqrt {{{{D^2} + {E^2} - 4AF} \over {4{A^2}}}} $</p>
+<h6>Tips:</h6>
 <ol>
   <li>
-    <p><strong>Slope of line - is defined as</strong> ${\text{rise} \over \text{run}} = {{\Delta y} \over {\Delta x}} = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}$</p>
-    <p>$\Delta $ <strong>denotes an increment.</strong> When the line is parallel to the x-axis, the slope = 0. And if the line is parallel to the y-axis, its slope = $\infty $.</p>
+    <p class="text-justify"><strong>Slope of line - is defined as</strong> ${\text{rise} \over \text{run}} = {{\Delta y} \over {\Delta x}} = {{{y_2} - {y_1}} \over {{x_2} - {x_1}}}$</p>
+    <p class="text-justify">$\Delta $ <strong>denotes an increment.</strong> When the line is parallel to the x-axis, the slope = 0. And if the line is parallel to the y-axis, its slope = $\infty $.</p>
   </li>
   <li><strong>Area by coordinates</strong> is not only applied to triangles but for all polygons in general.</li>
 </ol>
-<p>&nbsp;</p>
+<p class="text-justify">&nbsp;</p>
 </body>
 </html>

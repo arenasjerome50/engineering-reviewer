@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Engineering Mechanics (Statics)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+img {
+	height:auto;
+	width:auto;
+	max-width:100%
+}
+</style>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } },
+	showMathMenu: false
+  });
+</script>
+  <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body class="p-3">
+<h2>Engineering Mechanics Statics</h2>
+<hr>
+<p class="text-justify"><strong>Mechanics</strong> is the oldest branch of physical science which deals with the state of rest or motion of bodies under the action of forces.</p>
+<p class="text-justify">Branches of mechanics:</p>
+<ol type="A">
+  <li><strong>Statics</strong> - deals with bodies in the state of rest.</li>
+  <li><strong>Dynamics </strong>or<strong> Kinetics </strong>- deals with bodies in motion under the action of forces.</li>
+  <li><strong>Kinematics</strong> - refers to the study of motion without reference to the forces which causes the motion.</li>
+</ol>
+<h5>Statics</h5>
+<p class="text-justify">Conditions for equilibrium:</p>
+<ol>
+  <li>
+    <p class="text-justify"><strong>Graphical condition</strong>: Under this condition, the forces or vectors are transformed into a force polygon. For equilibrium, the force polygon, must close.</p>
+    <p class="text-justify"><img src="img/statics/graphical_condition.png" width="969" height="422" alt="graphical_condition"></p>
+  </li>
+  <li>
+    <p class="text-justify"><strong>Directional condition</strong>: If three or more non-parallel forces or vectors are in equilibrium, then they must be concurrent.</p>
+    <p class="text-justify"><img src="img/statics/directional_condition.png" width="773" height="535" alt="directional condition"></p>
+  </li>
+  <li>
+    <p class="text-justify"><strong>Analytical condition</strong>: If forces or vectors are in equilibrium, then it must satisfy the three static equations; namely </p>
+    <p class="text-justify"><img src="img/statics/analytical_condition.png" width="930" height="517" alt="analytical condition"></p>
+  </li>
+</ol>
+<h5>Friction</h5>
+<p class="text-justify"><strong>Friction</strong> is defined as the limited amount of resistance to sliding between the surfaces of two bodies in contact.</p>
+<p class="text-justify"><img src="img/statics/friction.png" width="1265" height="607" alt="friction"></p>
+<h5>Parabolic Cable &amp; Catenary</h5>
+<p class="text-justify"><strong>Parabolic cable</strong>: When the loading is uniformly distributed horizontally, the cable is analyzed as a parabolic cable.</p>
+<p class="text-justify"><img src="img/statics/parabolic_cable.png" width="1116" height="463" alt="parabolic cable"></p>
+<ol type="a">
+  <li>
+    <p class="text-justify">Tension at the lowest point, H:</p>
+    <p class="text-justify">$$H=\frac{\omega L^{2}}{8d}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Tension at the support, T:</p>
+    <p class="text-justify">$$T=\sqrt{H^{2}+\left ( \frac{\omega L}{2} \right )^{2}}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Length of parabolic cable, S:</p>
+    <p class="text-justify">$$S=L+\frac{8d^{2}}{3L}-\frac{32d^{4}}{5L^{3}}$$</p>
+  </li>
+</ol>
+<p class="text-justify"><img src="img/statics/parabolic_cable2.png" width="845" height="553" alt="parabolic cable 2"></p>
+<p class="text-justify">where:<br>
+  S = length of parabolic cable<br>
+  d = sag<br>
+  L = span or distance between supports<br>
+  &Omega; = unit weight or load per unit length<br>
+  T = maximum tension (usually at the support)<br>
+  H = minimum tension (usually at the lowest point of the cable)</p>
+<p class="text-justify"><strong>Catenary</strong>: When the loading is distributed along the cable, the cable is analyzed as a catenary. Catenary comes from the latin word which means chain. It is a graph of the equation $y = \cosh x$.</p>
+<p class="text-justify"><img src="img/statics/catenary.png" width="857" height="593" alt="catenary"></p>
+<ol type="a">
+  <li>
+    <p class="text-justify">Maximum tension, T:</p>
+    <p class="text-justify">$$T=\omega y \ \ \ \ \ \ \ y^{2}=S^{2}+c^{2}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Minimum tension, H: </p>
+    <p class="text-justify">$$H=\omega c$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Span, L: </p>
+    <p class="text-justify">$$L=2x \ \ \ \ \ \ \ x=c\ln{\frac{S+y}{c}}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Length </p>
+    <p class="text-justify">$$\text{length}=2S$$</p>
+  </li>
+</ol>
+<p class="text-justify">If the cable has uneven supports, the formulas to be used are the same, only that all unequal dimensions will now contain subscripts 1 and 2. For example, the distance from the origin to the left support is now taken as x<sub>1</sub> rather than x, and x<sub>2</sub> for its distance to the right support, and so on.</p>
+<h5>Moment of Inertia</h5>
+<p class="text-justify">Another term for moment of inertia is<strong> second moment of area</strong>.</p>
+<p class="text-justify">1. Centroidal moment of inertia (with respect to an axis passing through the centroid):</p>
+<ol type="A">
+  <li>
+    <p class="text-justify">Rectangle</p>
+    <p class="text-justify"><img src="img/statics/rectangle.png" width="561" height="621" alt="rectangle"></p>
+    <p class="text-justify">$$I_{x}=\frac{bh^{3}}{12}$$</p>
+    <p class="text-justify">$$I_{y}=\frac{b^{3}h}{12}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Triangle </p>
+    <p class="text-justify"><img src="img/statics/triangle.png" width="755" height="391" alt="triangle"></p>
+    <p class="text-justify">$$I_{x}=\frac{bh^{3}}{36}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Circle </p>
+    <p class="text-justify"><img src="img/statics/circle.png" width="691" height="535" alt="circle"></p>
+    <p class="text-justify">$$I_{x}=I_{y}$$</p>
+    <p class="text-justify">$$I_{x}=\frac{\pi r^{4}}{4}=\frac{\pi D^{4}}{64}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Ellipse </p>
+    <p class="text-justify"><img src="img/statics/ellipse.png" width="733" height="490" alt="ellipse"></p>
+    <p class="text-justify">$$I_{x}=\frac{\pi ab^{3}}{4}$$</p>
+    <p class="text-justify">$$I_{y}=\frac{\pi a^{3}b}{4}$$</p>
+  </li>
+</ol>
+<p class="text-justify">2. Moment of inertia with respect to an axis passing through the base:</p>
+<ol type="A">
+  <li>
+    <p class="text-justify">Rectangle</p>
+    <p class="text-justify"><img src="img/statics/rectangle_2.png" alt="rectangle"></p>
+    <p class="text-justify">$$I_{b}=\frac{bh^{3}}{3}$$</p>
+  </li>
+  <li>
+    <p class="text-justify">Triangle  </p>
+    <p class="text-justify"><img src="img/statics/triangle_2.png" alt="triangle"></p>
+    <p class="text-justify">$$I_{b}=\frac{bh^{3}}{12}$$</p>
+  </li>
+</ol>
+<p class="text-justify">For composite figures and for axis not at the centroid nor at the base, moment of inertia may be calculated using the <strong>transfer formula</strong>, which is as follows;</p>
+<p class="text-justify">$$I=I_{g}+Ad^{2}$$</p>
+<p class="text-justify">where:<br>
+d = distance from the centroid to the axis<br>
+A = area of the figure</p>
+<h5>Mass Moment of Inertia</h5>
+<p class="text-justify"><img src="img/statics/mass_moment.png"></p>
+<p class="text-justify">where: r = radius of sphere/cylinder, and m = mass</p>
+</body>
+</html>

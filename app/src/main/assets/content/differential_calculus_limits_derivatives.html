@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>Differential Calculus (Limits & Derivatives)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
@@ -13,88 +14,87 @@
 </script>
   <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
 </head>
-
-<body>
-<h1>Differential Calculus</h1>
+<body class="p-3">
+<h2>Differential Calculus</h2>
 <hr>
-<p>The term &quot;Calculus&quot; was derived from a Latin word &quot;<strong>calx</strong>&quot; which means &quot;<strong>stone</strong>&quot; and from a Greek word &quot;<strong>chalis</strong>&quot; which means &quot;<strong>limestone</strong>&quot;.</p>
-<p>In 1684, a German mathematicians and philosopher <strong>Gottfried Wilhelm von Leibniz</strong> published his early work on calculus, while an English astronomer, physicist and mathematician <strong>Isaac Newton</strong> made an early study on the subject in 1665 but did not published his work until 1704. These two mathematicians are now considered as the <strong>founders of today's calculus</strong>.</p>
-<p>The subject Calculus is divided into four areas namely, <strong>differential calculus, integral calculus, differential equations </strong>and <strong>calculus of variation</strong>.</p>
-<p><strong>Differential Calculus </strong>is a branch of mathematics which deals with derivatives and limits.</p>
-<h3>Derivatives</h3>
+<p class="text-justify">The term &quot;Calculus&quot; was derived from a Latin word &quot;<strong>calx</strong>&quot; which means &quot;<strong>stone</strong>&quot; and from a Greek word &quot;<strong>chalis</strong>&quot; which means &quot;<strong>limestone</strong>&quot;.</p>
+<p class="text-justify">In 1684, a German mathematicians and philosopher <strong>Gottfried Wilhelm von Leibniz</strong> published his early work on calculus, while an English astronomer, physicist and mathematician <strong>Isaac Newton</strong> made an early study on the subject in 1665 but did not published his work until 1704. These two mathematicians are now considered as the <strong>founders of today's calculus</strong>.</p>
+<p class="text-justify">The subject Calculus is divided into four areas namely, <strong>differential calculus, integral calculus, differential equations </strong>and <strong>calculus of variation</strong>.</p>
+<p class="text-justify"><strong>Differential Calculus </strong>is a branch of mathematics which deals with derivatives and limits.</p>
+<h5>Derivatives</h5>
 <ol type="A">
 	<li>
-    	<p><strong>Algebraic Functions:</strong></p>
+    	<p class="text-justify"><strong>Algebraic Functions:</strong></p>
         <ol>
-        	<li><p>${{dc} \over {dx}} = 0$</p></li>
-            <li><p>${d \over {dx}}(u + v) = {{du} \over {dx}} + {{dv} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(uv) = u{{dv} \over {dx}} + v{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}\left( {{u \over v}} \right) = {{v{{du} \over {dx}} - u{{dv} \over {dx}}} \over {{v^2}}}$</p></li>
-            <li><p>${d \over {dx}}{u^n} = n{u^{n - 1}}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}\sqrt u  = {{{{du} \over {dx}}} \over {2\sqrt u }}$</p></li>
-            <li><p>${d \over {dx}}\left( {{u \over c}} \right) = {1 \over c}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}{c \over u} = {{c{{du} \over {dx}}} \over {{u^2}}}$</p></li>
+        	<li><p class="text-justify">${{dc} \over {dx}} = 0$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(u + v) = {{du} \over {dx}} + {{dv} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(uv) = u{{dv} \over {dx}} + v{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}\left( {{u \over v}} \right) = {{v{{du} \over {dx}} - u{{dv} \over {dx}}} \over {{v^2}}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}{u^n} = n{u^{n - 1}}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}\sqrt u  = {{{{du} \over {dx}}} \over {2\sqrt u }}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}\left( {{u \over c}} \right) = {1 \over c}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}{c \over u} = {{c{{du} \over {dx}}} \over {{u^2}}}$</p></li>
         </ol>
-        <p>&nbsp;</p>
+        <p class="text-justify">&nbsp;</p>
     </li>
     <li>
-    	<p><strong>Exponential Functions:</strong></p>
+    	<p class="text-justify"><strong>Exponential Functions:</strong></p>
         <ol start="9">
-        	<li><p>${d \over {dx}}\left( {{a^u}} \right) = {a^u}\ln a{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}\left( {{e^u}} \right) = {e^u}{{du} \over {dx}}$</p></li>
+        	<li><p class="text-justify">${d \over {dx}}\left( {{a^u}} \right) = {a^u}\ln a{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}\left( {{e^u}} \right) = {e^u}{{du} \over {dx}}$</p></li>
         </ol>
-        <p>&nbsp;</p>
+        <p class="text-justify">&nbsp;</p>
     </li>
     <li>
-    	<p><strong>Logarithmic Functions:</strong></p>
+    	<p class="text-justify"><strong>Logarithmic Functions:</strong></p>
         <ol start="11">
-        	<li><p>${d \over {dx}}({\log _a}u) = {{{{\log }_a}e{{du} \over {dx}}} \over u}$</p></li>
-            <li><p>${d \over {dx}}({\log _{10}}u) = {{{{\log }_{10}}e{{du} \over {dx}}} \over u}$</p></li>
-            <li><p>${d \over {dx}}(\ln u) = {{{{du} \over {dx}}} \over u}$</p></li>
+        	<li><p class="text-justify">${d \over {dx}}({\log _a}u) = {{{{\log }_a}e{{du} \over {dx}}} \over u}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\log _{10}}u) = {{{{\log }_{10}}e{{du} \over {dx}}} \over u}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\ln u) = {{{{du} \over {dx}}} \over u}$</p></li>
         </ol>
-        <p>&nbsp;</p>
+        <p class="text-justify">&nbsp;</p>
     </li>
     <li>
-    	<p><strong>Trigonometric Functions:</strong></p>
+    	<p class="text-justify"><strong>Trigonometric Functions:</strong></p>
         <ol start="14">
-        	<li><p>${d \over {dx}}(\sin u) = \cos u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\cos u) =  - \sin u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\tan u) = {\sec ^2}u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\cot u) =  - {\csc ^2}u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\sec u) = \sec u\tan u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\csc u) =  - \csc u\cot u{{du} \over {dx}}$</p></li>
+        	<li><p class="text-justify">${d \over {dx}}(\sin u) = \cos u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\cos u) =  - \sin u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\tan u) = {\sec ^2}u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\cot u) =  - {\csc ^2}u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\sec u) = \sec u\tan u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\csc u) =  - \csc u\cot u{{du} \over {dx}}$</p></li>
         </ol>
-        <p>&nbsp;</p>
+        <p class="text-justify">&nbsp;</p>
     </li>
     <li>
-    	<p><strong>Inverse Trigonometric Functions:</strong></p>
+    	<p class="text-justify"><strong>Inverse Trigonometric Functions:</strong></p>
         <ol start="20">
-        	<li><p>${d \over {dx}}({\sin ^{ - 1}}u) = {1 \over {\sqrt {1 - {u^2}} }}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\cos ^{ - 1}}u) = {{ - 1} \over {\sqrt {1 - {u^2}} }}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\tan ^{ - 1}}u) = {1 \over {1 + {u^2}}}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\cot ^{ - 1}}u) = {{ - 1} \over {1 + {u^2}}}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\sec ^{ - 1}}u) = {1 \over {u\sqrt {{u^2} - 1} }}{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\csc ^{ - 1}}u) = {{ - 1} \over {u\sqrt {{u^2} - 1} }}{{du} \over {dx}}$</p></li>
+        	<li><p class="text-justify">${d \over {dx}}({\sin ^{ - 1}}u) = {1 \over {\sqrt {1 - {u^2}} }}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\cos ^{ - 1}}u) = {{ - 1} \over {\sqrt {1 - {u^2}} }}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\tan ^{ - 1}}u) = {1 \over {1 + {u^2}}}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\cot ^{ - 1}}u) = {{ - 1} \over {1 + {u^2}}}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\sec ^{ - 1}}u) = {1 \over {u\sqrt {{u^2} - 1} }}{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\csc ^{ - 1}}u) = {{ - 1} \over {u\sqrt {{u^2} - 1} }}{{du} \over {dx}}$</p></li>
         </ol>
-        <p>&nbsp;</p>
+        <p class="text-justify">&nbsp;</p>
     </li>
     <li>
-    	<p><strong>Hyperbolic Functions:</strong></p>
+    	<p class="text-justify"><strong>Hyperbolic Functions:</strong></p>
         <ol start="26">
-        	<li><p>${d \over {dx}}(\sinh u) = \cosh u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\cosh u) = \sinh u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\tanh u) = {{\mathop{\rm sech}\nolimits} ^2}u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}(\coth u) =  - {{\mathop{\rm csch}\nolimits} ^2}u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\mathop{\rm sech}\nolimits} u) =  - {\mathop{\rm sech}\nolimits} u\tanh u{{du} \over {dx}}$</p></li>
-            <li><p>${d \over {dx}}({\mathop{\rm csch}\nolimits} u) =  - {\mathop{\rm csch}\nolimits} u\coth u{{du} \over {dx}}$</p></li>
+        	<li><p class="text-justify">${d \over {dx}}(\sinh u) = \cosh u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\cosh u) = \sinh u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\tanh u) = {{\mathop{\rm sech}\nolimits} ^2}u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}(\coth u) =  - {{\mathop{\rm csch}\nolimits} ^2}u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\mathop{\rm sech}\nolimits} u) =  - {\mathop{\rm sech}\nolimits} u\tanh u{{du} \over {dx}}$</p></li>
+            <li><p class="text-justify">${d \over {dx}}({\mathop{\rm csch}\nolimits} u) =  - {\mathop{\rm csch}\nolimits} u\coth u{{du} \over {dx}}$</p></li>
         </ol>
     </li>
 </ol>
-<h3>Tips: Critical and stationary points</h3>
+<h6>Tips: Critical and stationary points</h6>
 <blockquote>
-  <p><strong>Critical point</strong> - a point a in the domain of f(x) if f'(a) = 0 or if f(x) is not differentiable at x = a.</p>
-  <p><strong>Stationary points </strong>- critical points at which the derivative does not exist (and so equals zero).</p>
-  <p>&nbsp;</p>
+  <p class="text-justify"><strong>Critical point</strong> - a point a in the domain of f(x) if f'(a) = 0 or if f(x) is not differentiable at x = a.</p>
+  <p class="text-justify"><strong>Stationary points </strong>- critical points at which the derivative does not exist (and so equals zero).</p>
+  <p class="text-justify">&nbsp;</p>
 </blockquote>
 </body>
 </html>
