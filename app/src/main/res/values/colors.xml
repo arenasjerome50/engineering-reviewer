@@ -7,4 +7,8 @@
     <color name="colorMainBg2">#B33C86</color>
     <color name="colorMainBg3">#190E4F</color>
     <color name="colorMainBg4">#03012C</color>
+    <color name="bottomNavAccent">#ffffff</color>
+    <color name="bottomNavInactive">#87ffffff</color>
+    <color name="tabInactive">#87ffffff</color>
+    <color name="readingToolbarColor">#8c9c27b0</color>
 </resources>

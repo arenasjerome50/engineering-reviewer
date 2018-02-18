@@ -55,6 +55,9 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
     // Fragments
     private ChoicesFragment choicesFragment;
 
+    // number of questions
+    private int numberOfQuestions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +65,7 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
         ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null) {
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
+            //actionBar.setHomeAsUpIndicator(R.drawable.ic_close_white_24dp);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -75,17 +78,23 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
         //get the data from preceding activity
         mode = getIntent().getParcelableExtra("quiz_mode");
         Topic topic = getIntent().getParcelableExtra("topic");
+        numberOfQuestions = getIntent().getIntExtra("number_of_questions", 20);
 
         String[] mainTopics = getResources().getStringArray(R.array.main_topic_names);
         // debug code
         // TODO: improve this process
-        if (topic.getName().equals(mainTopics[1])) {
-            selectedTopic = "engg_math:%";
-        } else if (topic.getName().equals(mainTopics[0])) {
-            selectedTopic = "geas";
-        } else if (topic.getContent().equals("random")) {
+        if (topic != null) {
+            if (topic.getName().equals(mainTopics[1])) {
+                selectedTopic = "engg_math:%";
+            } else if (topic.getName().equals(mainTopics[0])) {
+                selectedTopic = "geas";
+            } /*else if (topic.getContent().equals("random")) {
+                selectedTopic = null;
+            }*/
+        } else {
             selectedTopic = null;
         }
+
         setTitle(mode.getName());
         prepareQuestions();
         setQuestionView();
@@ -93,7 +102,7 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
 
     private void prepareQuestions() {
         DatabaseAccess databaseAccess = DatabaseAccess.getInstance(this);
-        questionArrayList = databaseAccess.getQuestions(20, selectedTopic);
+        questionArrayList = databaseAccess.getQuestions(numberOfQuestions, selectedTopic);
         Collections.shuffle(questionArrayList);
         currentQuestion = questionArrayList.get(questionId);
     }

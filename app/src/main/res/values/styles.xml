@@ -22,4 +22,21 @@
         <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
+    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/AppTabTextAppearance</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+    </style>
+
+    <!-- for text -->
+    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/tabInactive</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlayTransparent" parent="AppTheme.AppBarOverlay">
+        <item name="colorPrimary">@color/readingToolbarColor</item>
+    </style>
+
 </resources>

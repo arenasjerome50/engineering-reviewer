@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/review"
+        android:title="@string/review"
+        android:icon="@drawable/ic_review_24dp" />
+
+    <item
+        android:id="@+id/quiz"
+        android:title="@string/quiz"
+        android:icon="@drawable/ic_quiz_24dp" />
+
+    <item
+        android:id="@+id/extras"
+        android:title="@string/extras"
+        android:icon="@drawable/ic_extras_24dp" />
+
+    <item
+        android:id="@+id/stat"
+        android:title="@string/statistics"
+        android:icon="@drawable/ic_stats_24dp" />
+
+</menu>

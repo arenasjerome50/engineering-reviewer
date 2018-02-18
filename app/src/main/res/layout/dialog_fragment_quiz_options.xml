@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="8dp">
+
+
+    <TextView
+        android:id="@+id/topic_quiz_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/topic_quiz_option"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/topic_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_toEndOf="@id/topic_quiz_option" />
+
+    <TextView
+        android:id="@+id/num_of_questions_quiz_option"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topic_quiz_option"
+        android:layout_marginEnd="4dp"
+        android:text="@string/num_of_questions_quiz_option"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/num_of_questions_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/num_of_questions_spinner"
+        android:layout_below="@id/topic_quiz_option"
+        android:layout_toEndOf="@id/num_of_questions_quiz_option" />
+
+</RelativeLayout>
