@@ -73,6 +73,8 @@ public class MathView extends WebView {
         // enable javascript
         getSettings().setLoadWithOverviewMode(true);
         getSettings().setJavaScriptEnabled(true);
+        // TODO: adjust this font size.
+        getSettings().setDefaultFontSize(18);
 
         // disable zoom control
         getSettings().setDisplayZoomControls(false);

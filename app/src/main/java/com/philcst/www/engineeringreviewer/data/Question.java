@@ -20,6 +20,7 @@ public class Question {
     //private HashMap<Integer, Integer> images = new HashMap<>();
     private static SparseIntArray images = new SparseIntArray();
 
+    // TODO: make a question display figures if there is one
     static {
         images.put(91, R.drawable.ic_img_91);
     }

@@ -20,7 +20,17 @@ public final class ReviewerContract {
         public static final String COLUMN_OPTC = "opt_c";
         public static final String COLUMN_ANSWER = "answer";
         public static final String COLUMN_CATEGORY = "category";
-        public static final String COLUMN_IMG = "img";
+    }
+
+    public static abstract class ScoresEntry implements BaseColumns {
+        public static final String TABLE_NAME = "scores";
+        public static final String _ID = "_id";
+        public static final String COLUMN_DATE = "date";
+        public static final String COLUMN_TOPIC = "topic";
+        public static final String COLUMN_SCORE = "score";
+        public static final String COLUMN_PERCENTAGE = "percentage";
+        public static final String COLUMN_REMARKS = "remarks";
+        public static final String COLUMN_MODE = "mode";
     }
 
 }

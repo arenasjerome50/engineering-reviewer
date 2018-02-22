@@ -1,12 +1,28 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.philcst.www.engineeringreviewer.ExtrasFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Extras" />
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/ic_under_construction"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/ic_under_construction"
+        app:tint="@android:color/darker_gray" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ic_under_construction"
+        android:text="@string/under_construction"
+        android:textAlignment="center"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/darker_gray"/>
+
+</RelativeLayout>

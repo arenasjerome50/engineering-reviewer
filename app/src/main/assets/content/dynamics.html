@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Engineering Mechanics Dynamics</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } },
+	showMathMenu: false
+  });
+</script>
+  <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body class="p-3">
+<h2>Engineering Mechanics Dynamics</h2>
+<hr>
+<h5>Dynamics</h5>
+<ol type="A">
+  <li>Rectilinear Translation:
+  <ol>
+  	<li><p>Horizontal motion</p>
+  	<img src="img/dynamics/rectilinear_motion.png" class="img-fluid" alt="rectilinear_motion"><br>
+      <p>$$S=V_{0}t\pm \frac{1}{2}at^{2}$$</p>
+      <p>$$V=V_{0}\pm at$$</p>
+      <p>$$V^{2}=V_{0}^{2}\pm 2aS$$</p>
+	  </li>
+    <li><p>Vertical motion</p>
+   	  <img src="img/dynamics/vertical_motion.png" class="img-fluid" alt="vertical motion">
+      <p>$$y=V_{0}t\pm\frac{1}{2}gt^{2}$$</p>
+      <p>$$V=V_{0}\pm gt$$</p>
+      <p>$$V^{2}=V_{0}^{2}\pm 2gy$$</p>
+      <p class="text-justify">If initial velocity, $V_{0}$, it is said to be a free falling body, thus,</p>
+      <p>$$y=\frac{1}{2}gt^{2}$$</p>
+    </li>
+  </ol>
+  </li>
+  <li>Curvilinear translation:
+  <ol>
+  	<li>Projectile or trajectory
+      <img src="img/dynamics/projectile_or_trajectory.png" class="img-fluid" alt="projectile or trajectory"> 
+      <p class="text-justify">Projectile has an equation that of a parabola. The general equation of a projectile is,</p>
+      <p>$$y=x\tan \theta-\frac{gx^{2}}{2V_{0}^{2}\cos^{2}\theta}$$</p>
+      <p class="text-justify">The vertical component of the velocity decreases as it goes up and is zero at maximum point of the projectile and increases as it goes down, while the horizontal component is constant.</p>
+    </li>
+    <li>Rotation
+      <img src="img/dynamics/rotation.png" class="img-fluid" alt="rotation">
+      <p>$$S=r\pi \ \ \ \ \ V=r\omega \ \ \ \ \ a=r\alpha$$</p>
+      <p class="text-justify">where: S, V and a are linear dimensions, $\theta , \omega , \text{and} \alpha$ are angular distance, velocity and acceleration, respectively. Also,</p>
+      <p>$$\theta=\omega_{0}t\pm\frac{1}{2}\alpha t^{2}$$</p>
+      <p>$$\omega=\omega_{0}\pm\alpha t$$</p>
+      <p>$$\omega^{2}=\omega_{0}^{2}\pm 2\alpha\theta$$</p>
+    </li>
+  </ol>
+  </li>
+  <li><p class="text-justify">D'Alembert's Principle: When the body is subjected to an acceleration, there exists a force opposite the direction of the motion and equal to the product of mass and acceleration. This force is known as reverse effective force.</p>
+  <img src="img/dynamics/dalembert.png" class="img-fluid" alt="D'alembert's principle"> </li>
+  <li>Centifugal force:
+  <img src="img/dynamics/centrifugal_elevation.png" class="img-fluid" alt="elevation view">
+  <img src="img/dynamics/centrifugal_top.png" class="img-fluid" alt="top view">
+  <p>$$F_{C}=\frac{WV^{2}}{gr}$$</p>
+  <p>$$F_{C}=F$$</p></li>
+</ol>
+</body>
+</html>

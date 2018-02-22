@@ -50,6 +50,8 @@
     <string name="vitali_quiz_desc">Prevent getting three(3) wrong answers to survive.</string>
     <string name="topic_quiz_option">Topic:</string>
     <string name="num_of_questions_quiz_option">Number of Questions:</string>
+    <string name="under_construction">Under Construction\nSorry for the inconvience</string>
+    <string name="resize_text">Resize Text</string>
 
     <string-array name="quiz_option_topics">
         <item>General Engineering and Applied Science</item>

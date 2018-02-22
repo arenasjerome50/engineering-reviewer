@@ -8,8 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.javahelps.externalsqliteimporter.ExternalSQLiteOpenHelper;
 import com.philcst.www.engineeringreviewer.data.ReviewerContract.QuestionEntry;
+import com.philcst.www.engineeringreviewer.data.ReviewerContract.ScoresEntry;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DatabaseAccess {
     private ExternalSQLiteOpenHelper openHelper;
@@ -97,23 +99,22 @@ public class DatabaseAccess {
         String[] selectionArgs = { "My Title" };
         */
 
-        Cursor cursor = database.query(QuestionEntry.TABLE_NAME, columns,
-                selection_category, null, null,
-                null, "random()", "" + numberOfQuestions);
-
         ArrayList<Question> questionArrayList = new ArrayList<>();
         // Looping through all rows and adding to list
-        while (cursor.moveToNext()) {
-            Question question = new Question();
-            question.setID(cursor.getInt(cursor.getColumnIndexOrThrow(QuestionEntry._ID)));
-            question.setQUESTION(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_QUESTION)));
-            question.setANSWER(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_ANSWER)));
-            question.setOPTA(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTA)));
-            question.setOPTB(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTB)));
-            question.setOPTC(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTC)));
-            questionArrayList.add(question);
+        try (Cursor cursor = database.query(QuestionEntry.TABLE_NAME, columns,
+                selection_category, null, null,
+                null, "random()", "" + numberOfQuestions)) {
+            while (cursor.moveToNext()) {
+                Question question = new Question();
+                question.setID(cursor.getInt(cursor.getColumnIndexOrThrow(QuestionEntry._ID)));
+                question.setQUESTION(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_QUESTION)));
+                question.setANSWER(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_ANSWER)));
+                question.setOPTA(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTA)));
+                question.setOPTB(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTB)));
+                question.setOPTC(cursor.getString(cursor.getColumnIndexOrThrow(QuestionEntry.COLUMN_OPTC)));
+                questionArrayList.add(question);
+            }
         }
-        cursor.close();
         close();
 
         return questionArrayList;
@@ -132,5 +133,51 @@ public class DatabaseAccess {
         database.insert(QuestionEntry.TABLE_NAME, null, values);
 
         close();
+    }
+
+    // method for inserting scores in the database
+    public void recordScore(ScoreEntry entry, QuizMode mode) {
+        open();
+
+        ContentValues values = new ContentValues();
+        values.put(ScoresEntry.COLUMN_DATE, entry.getDate().getTime());
+        values.put(ScoresEntry.COLUMN_TOPIC, entry.getTopic());
+        values.put(ScoresEntry.COLUMN_SCORE, entry.getScore());
+        values.put(ScoresEntry.COLUMN_PERCENTAGE, entry.getPercentage());
+        values.put(ScoresEntry.COLUMN_REMARKS, entry.getRemarks());
+        values.put(ScoresEntry.COLUMN_MODE, mode.getName());
+
+        database.insert(ScoresEntry.TABLE_NAME, null, values);
+
+        close();
+    }
+
+    // getting the scores by quiz modes
+    public ArrayList<ScoreEntry> getScores(QuizMode mode) {
+        open();
+
+        ArrayList<ScoreEntry> entries = new ArrayList<>();
+
+
+        try (Cursor cursor = database.query(QuestionEntry.TABLE_NAME, new String[]{"*"},
+                "mode = '" + mode.getName() + "'", null, null,
+                null, null)) {
+            // if the cursor is empty
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                entries.add(new ScoreEntry(
+                        cursor.getInt(cursor.getColumnIndexOrThrow(ScoresEntry._ID)),
+                        new Date(cursor.getLong(cursor.getColumnIndexOrThrow(ScoresEntry.COLUMN_DATE))),
+                        cursor.getString(cursor.getColumnIndexOrThrow(ScoresEntry.COLUMN_TOPIC)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(ScoresEntry.COLUMN_SCORE)),
+                        cursor.getDouble(cursor.getColumnIndexOrThrow(ScoresEntry.COLUMN_PERCENTAGE)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(ScoresEntry.COLUMN_REMARKS)))
+                );
+            }
+        }
+        close();
+        return entries;
     }
 }

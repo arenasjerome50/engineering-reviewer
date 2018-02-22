@@ -1,8 +1,10 @@
 package com.philcst.www.engineeringreviewer;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +15,32 @@ import android.view.ViewGroup;
  */
 public class StatisticsFragment extends Fragment {
 
+    private OnTabLayoutFragmentInteraction interaction;
 
     public StatisticsFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            interaction = (OnTabLayoutFragmentInteraction) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnTabLayoutFragmentInteraction");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_statistics, container, false);
+    }
+
+    public interface OnTabLayoutFragmentInteraction {
+        void setStatsTabViewPager(ViewPager viewPager);
     }
 
 }

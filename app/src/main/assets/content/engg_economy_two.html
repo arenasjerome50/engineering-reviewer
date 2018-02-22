@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Engineering Economy (Annuity, Depreciation, Bonds, Breakeven Analysis, etc.)</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]},
+  	CommonHTML: { linebreaks: { automatic: true } },
+  	"HTML-CSS": { linebreaks: { automatic: true } },
+	showMathMenu: false
+  });
+</script>
+  <script type="text/javascript" src="MathJax-2.6-latest/MathJax.js?config=TeX-AMS_CHTML"></script>
+</head>
+<body class="p-3">
+<h2>Engineering Economy (Annuity, Depreciation, Bonds, Breakeven Analysis, etc.)</h2>
+<hr>
+<h5>Annuity</h5>
+<p class="text-justify"><strong>Annuity </strong>is defined as a series of equal payments occuring at equal interval of time. When an annuity has a fixed time span, it is known as<strong> annuity certain</strong>. The following are annuity certain:</p>
+<ol>
+	<li>	  
+	  <p class="text-justify"><strong>Ordinary annuity </strong>is a type of annuity where the payments are made the end of each period beginning on the first period.</p>
+	  <ol type="a">
+      	<li><p>Sum of ordinary annuity</p>
+        <img src="img/engg_economy_two/sum_ordinary_annuity.png" class="img-fluid" alt="sum of ordinary annuity">
+        <p>$$F=\frac{A\left | (1+i)^{n}-1 \right |}{i}$$</p>
+        </li>
+        <li><p>Present worth of ordinary annuity</p>
+        <img src="img/engg_economy_two/present_worth_annuity.png" class="img-fluid" alt="present worth of ordinary annuity">
+        <p>$$F=\frac{A\left | (1+i)^{n}-1 \right |}{i(1+i)^{n}}$$</p>
+        <p>where: P = principal, i = interest per period, n = number of periods, A = uniform payment</p></li>
+      </ol>
+	</li>
+    <li><strong>Annuity due</strong> is the type of annuity where the payments are made at the beginning of each period starting from the first period.
+   	<img src="img/engg_economy_two/annuity_due.png" class="img-fluid" alt="annuity due"></li>
+    <li><strong>Deferred annuity</strong> is the one where the first payment does not begin until some later date in the cash flow.
+    <img src="img/engg_economy_two/deferred_annuity.png" class="img-fluid" alt="deferred annuity"></li>
+</ol>
+<p class="text-justify">When an annuity does not have a fixed time span but continues indefinitely, then it is referred to as a <strong>perpetuity</strong>. The sum of a perpetuity is an infinite value.</p>
+<p>Present worth of a perpetuity:</p>
+<p>$$P=\frac{A}{i}$$</p>
+<img src="img/engg_economy_two/perpetuity.png" class="img-fluid" alt="perpetuity">
+<p>where:<br>
+A = uniform payment<br>
+i = interest per period</p>
+<p class="text-justify"><strong>Capitalized cost</strong> of a property refers to the sum of its first cost and cost of perpetual maintenance. Thus,</p>
+<p>$$\text{Capitalized cost}=\text{first cost}+\text{cost of perpetual maintenance}$$</p>
+<h5>Bonds</h5>
+<p class="text-justify"><strong>Bond</strong> is a long-term note or a financial security issued by businesses or corporation and guaranteed on certain assets of the corporation or its subsidiaries. Bonds are repayable on maturity and bear a fixed nominal rate of interest.</p>
+<p class="text-justify"><strong>Bond rate</strong> refers to the rate of interest that is quoted in the bond.</p>
+<p class="text-justify"><strong>Bond value</strong> is the present worth of the future payments that will be received.</p>
+<img src="img/engg_economy_two/bonds.png" class="img-fluid" alt="bonds">
+<p>$$V_{n}=P_{1}+P_{2}$$</p>
+<p>$$V_{n}=\frac{C}{(1+i)^{n}}+\frac{Fr\left | (1+i)^{n}-1 \right |}{i(1+i)^{n}}$$</p>
+<p>Where:<br>
+$V_{n}$ = value of the bond n periods prior to redemtion<br>
+C = redemption or amount at maturity (usually equal to F)<br>
+F = par value of the bond<br>
+n = number of periods prior to redemption<br>
+i = bond yield interest per period<br>
+r = bond rate per interest period</p>
+<h5>Depreciation</h5>
+<p class="text-justify"><strong>Depreciation</strong> is the reduction or fall in the value of an asset or physical property during the course of its working life and due to passage of time.</p>
+<p class="text-justify"><strong>Value</strong> is the money worth of an asset or product. It also refers to the present worth of all future profits that are to be received through ownership of a particular property.</p>
+<p class="text-justify"><strong>Market value</strong> is the amount a willing buyer will pay to a willing seller for a property where each has equal advantage and neither one of them is under the compulsion to buy or sell.</p>
+<p class="text-justify"><strong>Book value</strong> is the worth of the property as reflected in the book of records of the company.</p>
+<p class="text-justify"><strong>Use value</strong> is the amount of the property which the owner believed to be its worth as an operating unit.</p>
+<p class="text-justify"><strong>Fair value</strong> is the worth of the property determined by a disinterested person in order to establish an amount which is fair to both the buyer and the seller.</p>
+<p class="text-justify"><strong>Salvage value</strong> the amount obtained from the sale of the property. This is also known as <strong>resale value</strong>. Salvage value implies that the property will still be use for the purpose it is intended.</p>
+<p>Different methods of computing depreciation of a property:</p>
+<ol class="pl-3">
+	<li><strong>Straight Line Method</strong>
+    <ol type="a" class="pl-3">
+    	<li>Annual depreciation charge, d:
+        <p>$$d=\frac{C_{0}-C_{n}}{n}$$</p>
+        <p>where:<br>
+        $C_{0}$ = first cost<br>
+        $C_{n}$ = value after n years (salvage value or scrap value)<br>
+        n = life of the property</p>
+        </li>
+        <li>Book value after "m" years, Cm:
+        <p>$$C_{m}=C_{0}-D_{m}$$</p>
+        <p>where:<br>
+        $D_{m}$ = total depreciation after "m" years<br>
+        $D_{m}$ = d(m)</p>
+        </li>
+    </ol>
+    </li>
+    <li><strong>Sinking Fund Method</strong>
+    <ol type="a" class="pl-3">
+    	<li>Annual depreciation charge
+        <p>$$d=\frac{\left ( C_{0}-C_{n} \right )}{(1+n)^{n}-1}$$</p>
+        </li>
+        <li>Book value at the end of "m" years
+        <p>$$D_{m}=C_{0}-C_{m}$$</p>
+        <p>where:<br>
+        $D_{m}$ = total depreciation after "m" years<br>
+        $D_{m}=\dfrac{d\left | (1+i)^{n}-1 \right |}{i}$</p>
+        </li>
+    </ol>
+    </li>
+    <li><strong>Declining Balance Method</strong>. Also known as Diminishing Balance Method or Constant Percentage Method.
+    <p>Use the Matheson Formula:</p>
+    <p>$$k=1-\sqrt[n]{\frac{C_{n}}{C_{o}}} \ \ \ \ \ \text{or} \ \ \ \ \ k=1-\sqrt[m]{\frac{C_{m}}{C_{o}}}$$</p>
+    <p>Note: This method is not applicable if the salvage or scrap value is zero.</p>
+    </li>
+    <li><strong>Sum-of-Years' Digits Method</strong>. Commonly known as SYD Method.
+    <ol type="a" class="pl-3">
+    	<li>Sum of the years' digit, $\Sigma_{\text{years}}$
+        <p>$$\Sigma_{\text{years}}=\frac{(n)(n+1)}{2}$$</p>
+        </li>
+        <li>Respective depreciation charges:
+        <p>$\text{First year:} \ \ \ \ \ d_{1}=\left ( C_{0}-C_{n} \right )\dfrac{n}{\Sigma_{\text{years}}}$</p>
+        <p>$\text{Second year:} \ \ \ \ \ d_{2}=\left ( C_{0}-C_{n} \right )\dfrac{n-1}{\Sigma_{\text{years}}}$</p>
+        <p>$\text{Third year:} \ \ \ \ \ d_{3}=\left ( C_{0}-C_{n} \right )\dfrac{n-2}{\Sigma_{\text{years}}}$</p>
+        <p>And so on...</p>
+        </li>
+    </ol>
+    </li>
+</ol>
+<h5>Break Even Analysis</h5>
+<p class="text-justify"><strong>Break-even</strong> refers to the situation where the sales generated (income) is just enough to cover the fixed and variable cost (expenses). The level of production where the total income is equal to the total expenses is known as <strong>break-even point</strong>.</p>
+<p class="text-justify"><strong>Break-even chart</strong> is a diagram which shows relationship between volume and fixed costs, variable costs, and income. The following is an example of a break-even chart.</p>
+<img src="img/engg_economy_two/break_even_chart.png" class="img-fluid" alt="break even chart">
+<h5>Legal Forms of Business Organizations</h5>
+<p>The legal forms of business organizations are the following:</p>
+<ol>
+	<li><strong>Sole proprietorship</strong> - considered as the simplest type of business organization wherein the firm is owned and controlled by a single person.</li>
+    <li><strong>Partnership</strong> - is a firm owned and controlled by two or more persons who are bind to a partnership agreement.</li>
+    <li><strong>Corporation</strong> - is a firm owned by a group of ordinary shareholders and the capital of which is divided up to the number of shares. it is also defined as a distinct legal entity separate from the individuals who owns it and can angage in any business transaction which a real person could do. This is sometimes known as joint-stock company or a cooperative.</li>
+</ol>
+</body>
+</html>

@@ -18,12 +18,11 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 import com.philcst.www.engineeringreviewer.adapter.MainPagerAdapter;
 
 public class Main2Activity extends AppCompatActivity implements AHBottomNavigation.OnTabSelectedListener,
-        ReviewFragment.OnTabLayoutFragmentInteraction{
+        ReviewFragment.OnTabLayoutFragmentInteraction, StatisticsFragment.OnTabLayoutFragmentInteraction {
 
     private AHBottomNavigationViewPager mainViewPager;
-
     private TabLayout tabLayout;
-
+    private TabLayout statsTabLayout;
     private boolean isFirstRun = true;
 
     @Override
@@ -42,8 +41,10 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
         initUI();
 
         if (isFirstRun) {
-           mainViewPager.setCurrentItem(0);
-           isFirstRun = false;
+            statsTabLayout = (TabLayout) findViewById(R.id.stats_tabs);
+            statsTabLayout.setVisibility(View.GONE);
+            mainViewPager.setCurrentItem(0);
+            isFirstRun = false;
         }
     }
 
@@ -79,7 +80,7 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
     public boolean onTabSelected(int position, boolean wasSelected) {
         if (!wasSelected) {
             mainViewPager.setCurrentItem(position);
-            if(position == 0) {
+            if (position == 0) {
                 tabLayout.setVisibility(View.VISIBLE);
             } else {
                 tabLayout.setVisibility(View.GONE);
@@ -128,5 +129,10 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
     @Override
     public void setTopicTabViewPager(ViewPager viewPager) {
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public void setStatsTabViewPager(ViewPager viewPager) {
+        statsTabLayout.setupWithViewPager(viewPager);
     }
 }

@@ -123,7 +123,11 @@ public class Topic implements Parcelable, ListItemShowable{
 
     private static int[][] subTopicImages = {
             {   // Geas
-                R.drawable.ic_molecule
+                    R.drawable.ic_molecule,
+                    R.drawable.ic_statics,
+                    R.drawable.ic_dynamics,
+                    R.drawable.ic_engg_economy_one,
+                    R.drawable.ic_engg_economy_two
             },
             {   // Engineering Math
                     R.drawable.ic_systems_of_numbers_and_conversion,
@@ -151,7 +155,11 @@ public class Topic implements Parcelable, ListItemShowable{
      */
     private static String[][] subTopicContents = {
             {   // Geas
-                    "physics.html"
+                    "physics.html",
+                    "statics.html",
+                    "dynamics.html",
+                    "engg_economy_one.html",
+                    "engg_economy_two.html"
             },
             {   // Engineering math
                     "systems_of_numbers_and_conversion.html",

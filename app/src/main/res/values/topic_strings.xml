@@ -6,6 +6,10 @@
     </string-array>
     <string-array name="geas_topic_names">
         <item>Physics</item>
+        <item>Engineering Mechanics Statics</item>
+        <item>Engineering Mechanics Dynamics</item>
+        <item>Engineering Economy I</item>
+        <item>Engineering Economy II</item>
     </string-array>
     <string-array name="engg_math_topic_names">
         <item>Systems of Numbers &amp; Conversion</item>
@@ -31,6 +35,10 @@
     </string-array>
     <string-array name="geas_topic_desc">
         <item>natural science that involves the study of matter and its motion and behavior through space and time, along with related concepts such as energy and force.</item>
+        <item>Graphical condition, Directional condition, Analytical condition, Friction, Parabolic Cable &amp; Catenary, Mass Moment of Inertia</item>
+        <item>Rectilinear translation, Curvilinear translation, D'Alembert's Principle, Centifugal force</item>
+        <item>Basic Terms, Market Situations, Simple Interest, Compound Interest, Nominal and Effective Rates of Interest, Discount</item>
+        <item>Annuity, Depreciation, Bonds, Breakeven Analysis</item>
     </string-array>
     <string-array name="engg_math_topic_desc">
         <item>System of Numbers and how to convert unit of measurement.</item>

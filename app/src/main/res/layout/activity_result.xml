@@ -5,40 +5,37 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/colorPrimary"
     tools:context="com.philcst.www.engineeringreviewer.ResultActivity">
 
     <TextView
+        android:id="@+id/percentage_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/score"
-        android:layout_marginTop="36dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:layout_marginTop="50dp"
+        android:textSize="64sp"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/num_of_questions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"/>
 
     <TextView
         android:id="@+id/score_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="20"
-        android:textSize="72sp"/>
+        android:textColor="@android:color/white"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="of 20"/>
-
-    <RatingBar
-        android:id="@+id/rating_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:numStars="5"
-        android:rating="0.0"
-        android:stepSize="1.0" />
 
     <TextView
         android:id="@+id/feedback_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/white"/>
 
 </LinearLayout>
