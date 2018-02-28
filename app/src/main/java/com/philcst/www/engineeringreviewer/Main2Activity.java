@@ -82,8 +82,13 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
             mainViewPager.setCurrentItem(position);
             if (position == 0) {
                 tabLayout.setVisibility(View.VISIBLE);
+                statsTabLayout.setVisibility(View.GONE);
+            } else if (position == 3){
+                tabLayout.setVisibility(View.GONE);
+                statsTabLayout.setVisibility(View.VISIBLE);
             } else {
                 tabLayout.setVisibility(View.GONE);
+                statsTabLayout.setVisibility(View.GONE);
             }
         }
         return true;

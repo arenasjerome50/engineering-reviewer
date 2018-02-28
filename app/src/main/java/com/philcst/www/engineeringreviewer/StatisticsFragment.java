@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.philcst.www.engineeringreviewer.adapter.StatisticsPagerAdapter;
+import com.philcst.www.engineeringreviewer.data.QuizMode;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,6 +25,28 @@ public class StatisticsFragment extends Fragment {
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_statistics, container, false);
+
+        // create an adapter for showing the list of subtopics
+        // note: use ChildFragmentManager
+        StatisticsPagerAdapter mStatisticsPagerAdapter = new StatisticsPagerAdapter(getChildFragmentManager());
+
+        mStatisticsPagerAdapter.addFragments(ScoreListFragment.newInstance(QuizMode.NORMAL));
+        mStatisticsPagerAdapter.addFragments(ScoreListFragment.newInstance(QuizMode.TIMED));
+        mStatisticsPagerAdapter.addFragments(ScoreListFragment.newInstance(QuizMode.VITALI_3));
+
+        ViewPager statViewPager = (ViewPager) rootView.findViewById(R.id.stats_viewpager);
+        // set the adapter
+        statViewPager.setAdapter(mStatisticsPagerAdapter);
+
+        interaction.setStatsTabViewPager(statViewPager);
+        return rootView;
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         try {
@@ -30,13 +55,6 @@ public class StatisticsFragment extends Fragment {
             throw new ClassCastException(context.toString()
                     + " must implement OnTabLayoutFragmentInteraction");
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_statistics, container, false);
     }
 
     public interface OnTabLayoutFragmentInteraction {

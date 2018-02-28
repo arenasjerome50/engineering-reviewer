@@ -158,8 +158,7 @@ public class DatabaseAccess {
 
         ArrayList<ScoreEntry> entries = new ArrayList<>();
 
-
-        try (Cursor cursor = database.query(QuestionEntry.TABLE_NAME, new String[]{"*"},
+        try (Cursor cursor = database.query(ScoresEntry.TABLE_NAME, new String[]{"*"},
                 "mode = '" + mode.getName() + "'", null, null,
                 null, null)) {
             // if the cursor is empty
