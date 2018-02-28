@@ -18,6 +18,7 @@ import java.io.File;
 
 public class MathView extends WebView {
     private String text;
+    private String hexColor;
     private static final String TAG = MathView.class.getSimpleName();
     private volatile boolean pageLoaded;
     private boolean clickable;
@@ -46,11 +47,6 @@ public class MathView extends WebView {
         catch (Exception e) {
             Log.d(TAG, "Exception:"+e.toString());
         }
-    }
-
-    public void setViewBackgroundColor(int color) {
-        setBackgroundColor(color);
-        this.invalidate();
     }
 
     public void setClickable(boolean is_clickable) {
@@ -118,9 +114,27 @@ public class MathView extends WebView {
         }
     }
 
+    public void setTextHexColor(String hex) {
+        this.hexColor = hex;
+        if (pageLoaded) {
+            loadUrl("javascript:document.getElementById(\"ascii_output\").style.color = \"" + hex + "\"");
+        } else {
+            Log.e(TAG, "Page is not loaded yet.");
+        }
+    }
+
+    public void setViewBackgroundColor(int color) {
+        setBackgroundColor(color);
+        this.invalidate();
+    }
+
     public String getText() {
         //return text.substring(1, text.length() - 1);
         return text;
+    }
+
+    public String getHexColor() {
+        return hexColor;
     }
 
 }

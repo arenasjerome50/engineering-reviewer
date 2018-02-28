@@ -52,6 +52,10 @@
     <string name="num_of_questions_quiz_option">Number of Questions:</string>
     <string name="under_construction">Under Construction\nSorry for the inconvience</string>
     <string name="resize_text">Resize Text</string>
+    <string name="date_header">Date</string>
+    <string name="topic_header">Topic</string>
+    <string name="score_header">Score</string>
+    <string name="please_wait_text">Please wait...</string>
 
     <string-array name="quiz_option_topics">
         <item>General Engineering and Applied Science</item>

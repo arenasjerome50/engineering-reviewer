@@ -11,4 +11,5 @@
     <color name="bottomNavInactive">#87ffffff</color>
     <color name="tabInactive">#87ffffff</color>
     <color name="readingToolbarColor">#8c9c27b0</color>
+    <color name="quiz_bg">#df89f1</color>
 </resources>

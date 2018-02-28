@@ -40,6 +40,7 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
         tabLayout = (TabLayout) findViewById(R.id.topic_tabs);
         initUI();
 
+
         if (isFirstRun) {
             statsTabLayout = (TabLayout) findViewById(R.id.stats_tabs);
             statsTabLayout.setVisibility(View.GONE);
@@ -79,7 +80,6 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
     @Override
     public boolean onTabSelected(int position, boolean wasSelected) {
         if (!wasSelected) {
-            mainViewPager.setCurrentItem(position);
             if (position == 0) {
                 tabLayout.setVisibility(View.VISIBLE);
                 statsTabLayout.setVisibility(View.GONE);
@@ -90,6 +90,7 @@ public class Main2Activity extends AppCompatActivity implements AHBottomNavigati
                 tabLayout.setVisibility(View.GONE);
                 statsTabLayout.setVisibility(View.GONE);
             }
+            mainViewPager.setCurrentItem(position);
         }
         return true;
     }

@@ -19,9 +19,29 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Date"
+            android:padding="@dimen/stat_cell_padding"
+            android:text="@string/date_header"
             android:textAlignment="center"
             android:textColor="@android:color/white"
+            android:textSize="@dimen/stats_text_size"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="@dimen/stat_cell_padding"
+            android:text="@string/topic_header"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/stats_text_size"
             android:textStyle="bold" />
 
         <View
@@ -35,25 +55,11 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Topic"
+            android:padding="@dimen/stat_cell_padding"
+            android:text="@string/score_header"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/darker_gray" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:text="Score"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
+            android:textSize="@dimen/stats_text_size"
             android:textStyle="bold" />
 
     </LinearLayout>

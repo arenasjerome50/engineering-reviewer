@@ -222,14 +222,14 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
 
         // if the fragment in not been instantiated
         if (choicesFragment == null) {
-            Log.i("New Instance created", TAG);
+            Log.i(TAG, "New Instance created");
             choicesFragment = ChoicesFragment.newInstance(choices.get(0), choices.get(1),
                     choices.get(2), choices.get(3));
             getSupportFragmentManager().beginTransaction().replace(R.id.quiz_fragment_placement,
                     choicesFragment).commit();
         } else {
-            Log.i("Reseting mathviews", TAG);
-            Intent intent = new Intent(ChoicesFragment.ACTION_SET_NEW_CHOICES);
+            Log.i(TAG, "Reseting mathviews");
+            /*Intent intent = new Intent(ChoicesFragment.ACTION_SET_NEW_CHOICES);
             Bundle bundle = new Bundle();
             bundle.putString(ChoicesFragment.ARG_CHOICE_A, choices.get(0));
             bundle.putString(ChoicesFragment.ARG_CHOICE_B, choices.get(1));
@@ -237,7 +237,8 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
             bundle.putString(ChoicesFragment.ARG_CHOICE_D, choices.get(3));
             intent.putExtras(bundle);
             // send the data through broadcast
-            sendBroadcast(intent);
+            sendBroadcast(intent);*/
+            choicesFragment.setChoices(choices.get(0), choices.get(1), choices.get(2), choices.get(3));
         }
     }
 
@@ -371,6 +372,10 @@ public class QuizActivity extends AppCompatActivity implements ChoicesFragment.O
                 .replace(R.id.quiz_fragment_placement, AnswerFragment.newInstance(answer, isCorrect, isEnd))
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .addToBackStack(null).commit();
+        /*getSupportFragmentManager().beginTransaction()
+                .replace(R.id.quiz_fragment_placement, AnswerFragment.newInstance(answer, isCorrect, isEnd))
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .commit();*/
     }
 
     /*@Override

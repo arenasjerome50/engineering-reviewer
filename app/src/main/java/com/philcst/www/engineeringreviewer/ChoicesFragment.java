@@ -1,10 +1,8 @@
 package com.philcst.www.engineeringreviewer;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -32,11 +30,12 @@ public class ChoicesFragment extends Fragment implements View.OnClickListener {
 
     // choices
     private MathView mathViewA, mathViewB, mathViewC, mathViewD;
+    private String choiceA, choiceB, choiceC, choiceD;
 
     // for handling events
     private OnFragmentChoiceListener mListener;
 
-    private BroadcastReceiver receiver;
+    //private BroadcastReceiver receiver;
 
     public ChoicesFragment() {
         // Required empty public constructor
@@ -65,25 +64,14 @@ public class ChoicesFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        receiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                String action = intent.getAction();
-                if (action != null && action.equals(ACTION_SET_NEW_CHOICES)) {
-                   if (mathViewA != null && mathViewB != null && mathViewC != null && mathViewD != null) {
-                       if (intent.getExtras() != null) {
-                            mathViewA.setText(intent.getExtras().getString(ARG_CHOICE_A));
-                            mathViewB.setText(intent.getExtras().getString(ARG_CHOICE_B));
-                            mathViewC.setText(intent.getExtras().getString(ARG_CHOICE_C));
-                            mathViewD.setText(intent.getExtras().getString(ARG_CHOICE_D));
-                       }
-                   }
-                }
-            }
-        };
-        getActivity().registerReceiver(receiver, new IntentFilter(ACTION_SET_NEW_CHOICES));
+        if (getArguments() != null) {
+            choiceA = getArguments().getString(ARG_CHOICE_A);
+            choiceB = getArguments().getString(ARG_CHOICE_B);
+            choiceC = getArguments().getString(ARG_CHOICE_C);
+            choiceD = getArguments().getString(ARG_CHOICE_D);
+        }
     }
 
     @Override
@@ -102,6 +90,11 @@ public class ChoicesFragment extends Fragment implements View.OnClickListener {
         CardView cardD = (CardView) layout.findViewById(R.id.choice_card_view_d);
         //nextButton = (Button) findViewById(R.id.next_button);
 
+        mathViewA.setText(choiceA);
+        mathViewB.setText(choiceB);
+        mathViewC.setText(choiceC);
+        mathViewD.setText(choiceD);
+
         cardA.setOnClickListener(this);
         cardB.setOnClickListener(this);
         cardC.setOnClickListener(this);
@@ -110,15 +103,15 @@ public class ChoicesFragment extends Fragment implements View.OnClickListener {
         return layout;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (getArguments() != null) {
-            mathViewA.setText(getArguments().getString(ARG_CHOICE_A));
-            mathViewB.setText(getArguments().getString(ARG_CHOICE_B));
-            mathViewC.setText(getArguments().getString(ARG_CHOICE_C));
-            mathViewD.setText(getArguments().getString(ARG_CHOICE_D));
-        }
+    public void setChoices(String choiceA, String choiceB, String choiceC, String choiceD) {
+        this.choiceA = choiceA;
+        this.choiceB = choiceB;
+        this.choiceC = choiceC;
+        this.choiceD = choiceD;
+        mathViewA.setText(choiceA);
+        mathViewB.setText(choiceB);
+        mathViewC.setText(choiceC);
+        mathViewD.setText(choiceD);
     }
 
     @Override
@@ -135,7 +128,7 @@ public class ChoicesFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDetach() {
         super.onDetach();
-        getActivity().unregisterReceiver(receiver);
+        //getActivity().unregisterReceiver(receiver);
         mListener = null;
     }
 

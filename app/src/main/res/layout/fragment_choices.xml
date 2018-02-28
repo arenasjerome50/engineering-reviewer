@@ -14,7 +14,7 @@
         app:cardElevation="3dp"
         android:padding="4dp"
         android:layout_margin="4dp"
-        app:cardCornerRadius="3dp">
+        app:cardCornerRadius="2dp">
 
         <com.philcst.www.engineeringreviewer.view.MathView
             android:id="@+id/choice_math_view_a"
@@ -31,7 +31,7 @@
         app:cardElevation="3dp"
         android:padding="4dp"
         android:layout_margin="4dp"
-        app:cardCornerRadius="3dp">
+        app:cardCornerRadius="2dp">
 
         <com.philcst.www.engineeringreviewer.view.MathView
             android:id="@+id/choice_math_view_b"
@@ -48,7 +48,7 @@
         app:cardElevation="3dp"
         android:padding="4dp"
         android:layout_margin="4dp"
-        app:cardCornerRadius="3dp">
+        app:cardCornerRadius="2dp">
 
         <com.philcst.www.engineeringreviewer.view.MathView
             android:id="@+id/choice_math_view_c"
@@ -65,7 +65,7 @@
         app:cardElevation="3dp"
         android:padding="4dp"
         android:layout_margin="4dp"
-        app:cardCornerRadius="3dp">
+        app:cardCornerRadius="2dp">
 
         <com.philcst.www.engineeringreviewer.view.MathView
             android:id="@+id/choice_math_view_d"

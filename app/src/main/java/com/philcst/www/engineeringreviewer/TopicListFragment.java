@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -60,9 +59,9 @@ public class TopicListFragment extends Fragment implements OnItemClickListener {
         subTopicListView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(),
+        /*DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(),
                 layoutManager.getOrientation());
-        subTopicListView.addItemDecoration(dividerItemDecoration);
+        subTopicListView.addItemDecoration(dividerItemDecoration);*/
         subTopicListView.setLayoutManager(layoutManager);
         subTopicListView.setAdapter(new BigListItemAdapter(topics, this));
         return rootView;

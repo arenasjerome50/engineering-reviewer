@@ -25,6 +25,8 @@ public class QuizOptionsDialogFragment extends DialogFragment {
 
     private QuizMode mode;
 
+    private String TAG = getClass().getSimpleName();
+
     @SuppressLint("InflateParams")
     @NonNull
     @Override
@@ -55,7 +57,6 @@ public class QuizOptionsDialogFragment extends DialogFragment {
         numOfQuestionSpinner.setAdapter(numOfQuesSpinnerAdapter);
 
 
-
         // Inflate and set the layout for the dialog
         builder.setView(layout)
                 .setTitle("Quiz Options (" + mode.getName() + ")")
@@ -80,10 +81,11 @@ public class QuizOptionsDialogFragment extends DialogFragment {
                         intent.putExtra("quiz_mode", (Parcelable) mode);
                         intent.putExtra("topic", topic);
                         intent.putExtra("number_of_questions", numberOfQuestions);
-                        // start quiz activity
-                        startActivity(intent);
 
                         dismiss();
+                        // start quiz activity
+                        startActivity(intent);
+                        //new StartQuizActivityTask(QuizOptionsDialogFragment.this).execute(intent);
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -94,4 +96,44 @@ public class QuizOptionsDialogFragment extends DialogFragment {
                 });
         return builder.create();
     }
+
+
+    /*private static class StartQuizActivityTask extends AsyncTask<Intent, Void, Void> {
+
+        private LoadingDialogFragment loadingDialogFragment;
+
+        // creating a weak reference to the parent class in order to access non-static fields and methods.
+        private WeakReference<QuizOptionsDialogFragment> dialogFragmentWeakReference;
+
+        public StartQuizActivityTask(QuizOptionsDialogFragment context) {
+            loadingDialogFragment = new LoadingDialogFragment();
+            dialogFragmentWeakReference = new WeakReference<>(context);
+        }
+
+        // Runs in UI before background thread is called
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            QuizOptionsDialogFragment context = dialogFragmentWeakReference.get();
+            loadingDialogFragment.setCancelable(false);
+            loadingDialogFragment.show(context.getFragmentManager(), context.TAG);
+        }
+
+        @Override
+        protected Void doInBackground(Intent... intents) {
+            // get the intent
+            Intent intent = intents[0];
+            // get weak reference
+            QuizOptionsDialogFragment context = dialogFragmentWeakReference.get();
+            context.startActivity(intent);
+            return null;
+        }
+
+        // Runs in UI after background threed is completed.
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            loadingDialogFragment.dismiss();
+        }
+    }*/
 }
